@@ -1,381 +1,321 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5KP4Y8WY2Q"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-5KP4Y8WY2Q');
-    </script>
-
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <link rel="icon" href="allgraphics/Lenish_Favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="allgraphics/Lenish_Favicon.ico" type="image/x-icon">
-
-    <title>Lenish Pandey</title>
-    <link rel="stylesheet" href="myweb.css">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lenish Pandey &mdash; Mathematical Data Science, Quantum Computing, AI</title>
+  <meta name="description" content="Lenish Pandey. Mathematical Data Science at FIU. Quantum computing, AI research, and building interdisciplinary teams." />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-    <div id="loader">
-        <div class="ring-container">
-            <div class="ring1">
-                <div class="ring2">
-                    <div class="ring3"></div>
-                </div>
-            </div>
-        </div>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand">Lenish Pandey</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#focus">Focus</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
+  </nav>
 
+  <main id="top">
 
-    <script>
-        // Function to hide the loader after 3 seconds
-        function hideLoader() {
-            var loader = document.getElementById("loader");
-            loader.style.opacity = "0";
-            loader.style.transition = "opacity 1s"
-            loader.style.zIndex = "-999"
-        }
+    <header class="hero">
+      <p class="eyebrow">Based in Miami &middot; from Kathmandu</p>
+      <h1>Hi, I&rsquo;m Lenish.</h1>
+      <p class="lede">
+        I study <strong>Mathematical Data Science</strong> at Florida International University,
+        research <strong>neural-network pruning</strong> in a physics lab, simulate
+        <strong>fruit-fly neurons</strong> in a computational-neuroscience collaboration,
+        and spend my other hours teaching math and quantum computing.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="mailto:lpand003@fiu.edu">Email me</a>
+        <a class="btn" href="lenish_CV.pdf">Download resume</a>
+      </div>
+      <ul class="hero-links">
+        <li><a href="mailto:lpand003@fiu.edu">lpand003@fiu.edu</a></li>
+        <li><!-- TODO: replace # with your GitHub URL -->
+          <a href="#" rel="noopener">GitHub</a>
+        </li>
+        <li><!-- TODO: replace # with your LinkedIn URL -->
+          <a href="#" rel="noopener">LinkedIn</a>
+        </li>
+        <li><a href="lenish_CV.pdf">Resume (PDF)</a></li>
+      </ul>
+    </header>
 
-        // Call the hideLoader function after 3 seconds (3000 milliseconds)
-        setTimeout(hideLoader, 2000);
-    </script>
+    <section id="about" class="section">
+      <h2 class="section-title"><span class="tick">/</span> About</h2>
+      <div class="prose">
+        <p>
+          I grew up in Nepal in a family where money was always short but curiosity never was.
+          I taught myself quantum computing on borrowed library machines, worked on real IBM
+          Quantum hardware at nineteen, and published my first peer-reviewed paper before
+          leaving Kathmandu.
+        </p>
+        <p>
+          I&rsquo;m now a Presidential Premier Honors Scholar at FIU with a 3.86 GPA, majoring in
+          Mathematical Data Science. Research takes up most of my week: neural-network
+          pruning with Dr. Bernard Gerstman in the Physics Department, and a
+          conductance-based model of the Drosophila Giant Fiber System with the Pena Lab
+          (FAU / FIU / FSU collaboration).
+        </p>
+        <p>
+          The rest of my time goes to teaching. I&rsquo;m a Learning Assistant for Calculus and
+          Physics, an FIUteach fellow at South Miami Middle School, and a peer mentor for
+          incoming international students. If I know something, I try to pass it along.
+        </p>
+      </div>
 
-
-
-
-
-
-    <nav id="main_nav">
-
-
-        <div class="menu-icon" id="menuIcon" onclick="entering()">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span id="menuText"></span>
-        </div>
-
-    </nav>
-
-
-
-
-    <div class="overlay" id="menuOverlay">
-        <button class="close-overlay" onclick="closeOverlay() , exiting"><img src="allgraphics/cross.png" alt=""
-                style="width: 8vh; height: 8vh;"></button>
-        <div class="menu-wrapper" id="cotaineroverlay">
-            <div class="left-content">
-                <div class="menu-content">
-                    <ul class="vertical-list">
-                        <li><a onclick="closeOverlay()">Home</a></li>
-                        <li><a href="aboutme.html">About Me</a></li>
-                        <li><a href="projects.html">Research and Projects</a></li>
-                        <li><a href="Awards.html">Awards and Honors</a></li>
-
-                    </ul>
-                </div>
-            </div>
-
-
-            <div class="search-container">
-                <div>
-                    <ul class="vertical-list">
-                        <li><a href="experience.html">Experience</a></li>
-                        <li><a href="https://lenishpandey.blogspot.com/">My Blogs</a></li>
-                        <li><a href="projects.html">Resources</a></li>
-                    </ul>
-                </div>
-
-
-            </div>
-
-
-
-        </div>
-
-
-    </div>
-
-
-
-
-
-
-
-
-
-    <section class="first-view ">
-        <div class="profile">
-            <div class="myphoto">
-                <img src="allgraphics/profile_picture.JPG" alt="My Photo"
-                    style="width: 100%; height: 100%; object-fit: cover;">
-            </div>
-            <div class="profiletext">
-                <div class="upper-div">
-                    <div class="cover-name-fname ">
-                        <div class="myfname">
-
-                            <div clas="fname">Lenish</div>
-
-                        </div>
-                    </div>
-                    <div class="cover-name-lname ">
-                        <div class="mylname">
-
-                            <div clas="lname">Pandey</div>
-
-                        </div>
-                    </div>
-
-                    <div class="mybio">
-                        <p>Student Researcher</p>
-                    </div>
-                </div>
-
-                <div class="lower-div">
-                    <a href="https://drive.google.com/file/d/1UD5xGIHRInO6p1Sb9psBNtZ--L7YTcz9/view">
-                        <button class="profile-btn btn">
-                            CV </button> </a>
-                    <a href="https://drive.google.com/file/d/195CfkQAO8rMxtg3zY-vaQwyBlWF-acUn/view">
-                        <button class="profile-btn btn">Resume</button> </a>
-                </div>
-
-                <div class="profile-icons">
-                    <div class="profile-allicons">
-                        <button class="my-icons"><a href="https://www.facebook.com/lenish.pandey"> <img
-                                    src="allgraphics/facebook.png"></a></button>
-                        <button class="my-icons">
-                            <a href="https://www.linkedin.com/in/lenish-pandey-830720214/?originalSubdomain=np">
-                                <img src="allgraphics/linkedin.png"></a></button>
-                        <button class="my-icons"><img src="allgraphics/github.png"></button>
-
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
+      <dl class="facts">
+        <div><dt>Degree</dt><dd>B.S. Mathematical Data Science, FIU</dd></div>
+        <div><dt>GPA</dt><dd>3.86</dd></div>
+        <div><dt>Scholarship</dt><dd>Presidential Premier Honors Scholar</dd></div>
+        <div><dt>Origin</dt><dd>Kathmandu, Nepal</dd></div>
+        <div><dt>Pronouns</dt><dd>he / him</dd></div>
+        <div><dt>Status</dt><dd>Open to summer &rsquo;26 internships</dd></div>
+      </dl>
     </section>
 
+    <section id="focus" class="section">
+      <h2 class="section-title"><span class="tick">/</span> What I&rsquo;m focused on</h2>
+      <p class="section-lede">Three tracks I&rsquo;m building toward in parallel.</p>
 
+      <div class="cards">
+        <article class="card">
+          <h3>Building &amp; Leadership</h3>
+          <p>Co-founded <strong>QNepal</strong>. Led a 10-week quantum mentorship for high-school grads through Student&rsquo;s Research Council Nepal. Ran interdisciplinary side-projects with teams spanning marketing, neuroscience, bio-engineering, and economics.</p>
+          <p class="card-aim">Long-term: an interdisciplinary research org that pairs experts across fields and pays them fairly.</p>
+        </article>
 
+        <article class="card">
+          <h3>Graduate School</h3>
+          <p>Targeting a PhD in computational / information science &mdash; quantum algorithms, ML theory, or computational neuroscience. Currently publishing in ML pruning and BRIAN2-based neural simulation.</p>
+          <p class="card-aim">Next: Quantum Mechanics I, Thermodynamics, Quantitative Risk Management, and a stronger publication record.</p>
+        </article>
 
-
-
-
-
-
-
-
-    <div id="container">
-
-
-        <div id="experience">
-            <div class="myweb-allheading cover">Experience</div>
-        </div>
-
-        <div id="images-container">
-            <div id="allimages">
-                <div class="image hiddenleft"><a href="experience.html#qnepal"
-                        style="text-decoration: none; color: white;">
-                        <img src="allgraphics/qnepal.png" alt="Image 1">
-                        <h3>QNepal</h3>
-                        <p>General Manager</p>
-                    </a>
-                </div>
-                <div class="image hiddenleft"><a href="experience.html#fusemachineai"
-                        style="text-decoration: none; color: white;">
-                        <img src="allgraphics/fuse.png" alt="Image 2">
-                        <h3>Fuse Machine</h3>
-                        <p>ML Engineer Intern</p>
-                    </a>
-                </div>
-
-                <div class="image hiddenleft"><a href="experience.html#fusemachineai"
-                        style="text-decoration: none; color: white;">
-                        <img src="allgraphics/incu.png" alt="Image 3">
-                        <h3>Incubate Nepal</h3>
-                        <p>Researcher Scholar</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="viewmore">
-            <div class="viewall">
-                <center> <a href="experience.html"><img src="allgraphics/plus.png"
-                            style="width: 10vh ; height: 10vh;"></a>
-                </center>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-
-
-
-    <script>
-        function redirectToProject() {
-            var clickedDiv = event.target; // Get the clicked element
-            if (clickedDiv.id === "more_projects" || clickedDiv.id === "CO2" || clickedDiv.id === "baghchal" || clickedDiv.id === "datanexus" || clickedDiv.id === "vocab" || clickedDiv.id === "shor" || clickedDiv.id === "vqe") {
-                // Redirect to the "project.html" page
-                window.location.href = 'projects.html';
-            }
-        }
-    </script>
-
-
-    <section class="projects">
-        <div class="project-container hiddenleft cornor1">
-            <div class="top">Projects </div>
-            <div class="bottom" id="more_projects" onclick="redirectToProject()">See More <img
-                    src="allgraphics/seemoreicon.png"
-                    style="width: 20vh; height: 20vh; margin: 3vh; pointer-events: none;"></div>
-
-        </div>
-
-        <div class="project-container hiddenleft center1">
-            <div class="top" id="CO2" onclick="redirectToProject()">
-                <div class="bottom-text">Vehicle's CO2 Emission Prediction Model</div>
-            </div>
-
-            <div class="bottom" id="baghchal" onclick="redirectToProject()">
-                <div class="bottom-text">Implementing DQN in Bagchal </div>
-            </div>
-        </div>
-
-
-        <div class="project-container hiddenright center2">
-            <div class="top" id="datanexus" onclick="redirectToProject()">
-                <div class="bottom-text">Data Nexus</div>
-            </div>
-
-
-            <div class="bottom" id="vocab" onclick="redirectToProject()">
-                <div class="bottom-text">AI Powered Text Summarization</div>
-            </div>
-
-        </div>
-
-        <div class="project-container hiddenright cornor2">
-
-            <div class="top" id="shor" onclick="redirectToProject()">
-                <div class="bottom-text">Shor's Color Encoding </div>
-            </div>
-
-            <div class="bottom" id="vqe" onclick="redirectToProject()">
-                <div class="bottom-text">Variational Quantum Eigensolver </div>
-            </div>
-
-        </div>
+        <article class="card">
+          <h3>Quantum Computing &amp; AI Roles</h3>
+          <p>Hands-on quantum work on IBM hardware, year-long FuseMachines AI fellowship, production-style PyTorch and TensorFlow pipelines, reproducible-research infrastructure.</p>
+          <p class="card-aim">Targeting quantum-software, ML research-engineering, and applied-AI roles &mdash; internship first, full-time after.</p>
+        </article>
+      </div>
     </section>
 
+    <section id="experience" class="section">
+      <h2 class="section-title"><span class="tick">/</span> Experience</h2>
 
+      <ol class="timeline">
+        <li>
+          <div class="tl-head">
+            <h3>Learning Assistant <span class="at">&middot; FIU Mathematics Department</span></h3>
+            <span class="when">Fall 2024 &ndash; Present</span>
+          </div>
+          <p>20 hrs/week across three semesters. Supported 400+ students through Pre-Calculus, Calculus I &amp; II, and Physics. Run problem-solving sessions, lead office hours, co-design recitation material.</p>
+        </li>
 
+        <li>
+          <div class="tl-head">
+            <h3>FIUteach Fellow <span class="at">&middot; South Miami Middle School</span></h3>
+            <span class="when">2024 &ndash; Present</span>
+          </div>
+          <p>Designed and taught four physical-science lessons to real middle-school classes. Co-developed curricula with FIU faculty and mentor teachers. Learned classroom management the only way possible &mdash; by doing it.</p>
+        </li>
 
+        <li>
+          <div class="tl-head">
+            <h3>Peer Mentor <span class="at">&middot; FIU</span></h3>
+            <span class="when">2024 &ndash; Present</span>
+          </div>
+          <p>Mentor incoming freshmen and international students through the transition to university.</p>
+        </li>
 
-    <div id="research">
-        <div id="research-left">
-            <div id="r-left-top">
-                <div class="myweb-allheading cover">Research</div>
-            </div>
-            <div id="r-left-down">
-                <img src="allgraphics/research.gif" alt="Research Gif">
-            </div>
-        </div>
-        <div id="research-right">
-            <div class="research-right-item hiddenleft">
-                <div class="research-title">Solve Kathmandu Hopspital’s Scheduling Problem using Grovers algorithm</div>
-                <div class="research-description">In this paper, we aimed to address the Hospital Scheduling problem in
-                    Kathmandu by framing it as a graph coloring problem. We utilized Grover's algorithm on an IBM
-                    quantum computer simulator to explore potential solutions.</div>
-                <button class="readmore"><a
-                        href="https://drive.google.com/file/d/1dBTwBAyzOHFyskLSD1Y-_Hs7XdEms-B1/view?usp=sharing"
-                        style="color: #FFDE59;"> - Read More </a></button>
-            </div>
-            <div class="research-right-item hiddenleft">
-                <div class="research-title">Bekenstein-Hawking Entropy: parameters the entropy of black hole depends on
-                </div>
-                <div class="research-description">
-                    This paper explores how black holes challenge quantum mechanics and thermodynamics, emphasizing the
-                    need for a theory to explain black hole entropy. We delve into the factors influencing black hole
-                    entropy and derive the corresponding equation.</div>
-                <button class="readmore"><a
-                        href="https://drive.google.com/file/d/1vc4E7ZlRNpHj96TbLwE0J_WtR1ImwioN/view?usp=share_link"
-                        style="color: #FFDE59;"> - Read More </a></button>
-            </div>
-            <div class="research-right-item hiddenleft">
-                <div class="research-title">Using Liquid Neural Network in Quantum Computing</div>
-                <div class="research-description">It is research idea which I am searching about and wish to work on.
-                </div>
-                <button class="readmore"><a href="" style="color: grey;"> - Read More </a></button>
-            </div>
-        </div>
-    </div>
+        <li>
+          <div class="tl-head">
+            <h3>AI Fellow <span class="at">&middot; FuseMachines, Kathmandu</span></h3>
+            <span class="when">2022 &ndash; 2023</span>
+          </div>
+          <p>Year-plus fellowship covering ML, deep learning, computer vision, and NLP. Built a reinforcement-learning agent for Baghchal (a traditional Nepali board game) and an end-to-end carbon-emission prediction pipeline.</p>
+        </li>
 
+        <li>
+          <div class="tl-head">
+            <h3>Quantum Computing Researcher <span class="at">&middot; Incubate Nepal</span></h3>
+            <span class="when">2022 &ndash; 2023</span>
+          </div>
+          <p>Selected from 600+ applicants. Built a quantum oracle for scheduling optimization under Dr. Mukesh Ghimire and ran circuits on IBM Quantum hardware.</p>
+        </li>
 
-
-
-
-
-
-
-
-    <section class="comments">
-        <div class="allreviews">
-            <div class="review-heading">
-                <div class="myweb-allheading cover">My Mentor's Messages</div>
-            </div>
-            <div class="review-container">
-                <div class="review-box hiddenleft">
-                    <img src="allgraphics/mukeshdai.jfif" alt="User 1">
-                    <h1>Dr. Mukesh Ghimire<br>
-                        <h3 style="color: grey;">Experimental Particle Physicist</h3>
-                        <p>"As Lenish's mentor at Incubate Nepal, I witnessed his invaluable contributions to our
-                            Quantum Computing project. Lenish led the theoretical and computational team. Lenish also
-                            conducted a highly informative workshop on quantum computing for our team. Lenish stands out
-                            for his honesty and integrity."</p>
-                </div>
-                <div class="review-box hiddenleft">
-                    <img src="allgraphics/sabindai.jfif" alt="User 2">
-                    <h1>Sabin Thapa<br>
-                        <h3 style="color: grey;">President-Founder, QNepal</h3>
-                        <p>"Lenish has contributed to developing the Quantum Computing learning environment in Nepal.
-                            Lenish's role in QNepal was working as a steering community in conducting workshops and
-                            contributing to mentoring in the lecture. He also worked in the outreach team and media team
-                            to reach a larger audience. "</p>
-                </div>
-                <div class="review-box hiddenleft">
-                    <img src="allgraphics/gauravdai.jfif">
-                    <h1>Gaurav Pandya<br>
-                        <h3 style="color: grey;">ML Engineer, FuseMachineAI</h3>
-                    </h1>
-                    <p>"In FuseMachine Fellowship, I was his TA and he was in the participating and presenting in the
-                        course. With 1 year of fellowship in AI, I can confirm that he is knowledgeable in the field of
-                        AL especially in the field of Computer Vision. I hope him all the best"
-                    </p>
-                </div>
-            </div>
-        </div>
+        <li>
+          <div class="tl-head">
+            <h3>Co-Founder &amp; Instructor <span class="at">&middot; QNepal</span></h3>
+            <span class="when">2023 &ndash; Present</span>
+          </div>
+          <p>Organized a QWorld-certified workshop with 200+ participants. Personally delivered lectures on superdense coding and quantum teleportation.</p>
+        </li>
+      </ol>
     </section>
 
-    <script src="onscroll.js"></script>
-    <script src="myweb.js"></script>
+    <section id="research" class="section">
+      <h2 class="section-title"><span class="tick">/</span> Research</h2>
+
+      <div class="research-list">
+        <article class="research-item">
+          <h3>Neural-network pruning &amp; the Information Processing Ability metric</h3>
+          <p class="meta">Dr. Bernard Gerstman &middot; FIU Physics &middot; Spring 2025 &ndash; Present &middot; 10 hrs/week</p>
+          <p>Built a modular mask-pruning pipeline for DenseNet-121 in both PyTorch and TensorFlow. Developed a new metric &mdash; <strong>Information Processing Ability (IPA)</strong> &mdash; to benchmark how well models learn under different pruning configurations.</p>
+        </article>
+
+        <article class="research-item">
+          <h3>Conductance-based simulation of the Drosophila Giant Fiber System</h3>
+          <p class="meta">Pena Lab &middot; FAU / FIU / FSU collaboration &middot; 4&ndash;5 hrs/week</p>
+          <p>Building BRIAN2 simulations to reproduce experimental data on how neural signals slow down with age. Lead the team&rsquo;s internal workshops on Docker, CI/CD, and reproducible research workflows.</p>
+        </article>
+
+        <article class="research-item">
+          <h3>Quantum oracle for scheduling optimization</h3>
+          <p class="meta">Incubate Nepal &middot; with Dr. Mukesh Ghimire &middot; 2022 &ndash; 2023</p>
+          <p>Designed and implemented a Grover-based oracle on IBM Quantum hardware for a scheduling optimization problem.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2 class="section-title"><span class="tick">/</span> Selected Projects</h2>
+
+      <div class="project-grid">
+        <article class="project">
+          <h3>Grover&rsquo;s algorithm for planar graph coloring</h3>
+          <p>Formulated a planar-graph-coloring solver using Grover&rsquo;s search. Peer-reviewed and published.</p>
+          <p class="tags"><span>Qiskit</span><span>Quantum</span><span>Algorithms</span></p>
+        </article>
+
+        <article class="project">
+          <h3>DenseNet-121 mask-pruning pipeline</h3>
+          <p>Framework-portable pruning masks (PyTorch + TensorFlow) and the IPA metric for benchmarking learning under pruning.</p>
+          <p class="tags"><span>PyTorch</span><span>TensorFlow</span><span>Model compression</span></p>
+        </article>
+
+        <article class="project">
+          <h3>Baghchal RL agent</h3>
+          <p>Reinforcement-learning agent for Baghchal, a traditional Nepali board game. Custom environment, reward shaping, self-play.</p>
+          <p class="tags"><span>RL</span><span>Python</span></p>
+        </article>
+
+        <article class="project">
+          <h3>Carbon-emission prediction pipeline</h3>
+          <p>End-to-end: ingestion, cleaning, feature engineering, model training, evaluation dashboard.</p>
+          <p class="tags"><span>ML</span><span>Data pipeline</span></p>
+        </article>
+
+        <article class="project">
+          <h3>n8n scheduling agent</h3>
+          <p>Automation agent that schedules and registers congressional outreach across organizations. Built with an interdisciplinary team (marketing, neuroscience, psychology, math).</p>
+          <p class="tags"><span>n8n</span><span>Automation</span><span>Agents</span></p>
+        </article>
+
+        <article class="project">
+          <h3>Eye-tracking mouse replacement</h3>
+          <p>Prototype that replaces mouse input with gaze tracking. Six-discipline team: CS, data science/AI, bio-engineering, economics, media.</p>
+          <p class="tags"><span>Computer vision</span><span>Accessibility</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="publications" class="section">
+      <h2 class="section-title"><span class="tick">/</span> Publications</h2>
+      <ul class="pub-list">
+        <li>
+          <p class="pub-title">Solving the Planar Graph Coloring Problem with Grover&rsquo;s Algorithm</p>
+          <p class="pub-venue">International Journal of Innovative Science and Research Technology (IJISRT)</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="teaching" class="section">
+      <h2 class="section-title"><span class="tick">/</span> Teaching, Leadership &amp; Service</h2>
+      <div class="split">
+        <div>
+          <h3>Teaching</h3>
+          <ul>
+            <li>Learning Assistant &mdash; Pre-Calculus, Calculus I &amp; II, Physics (3 semesters, 400+ students)</li>
+            <li>FIUteach fellow &mdash; South Miami Middle School, physical science</li>
+            <li>Peer Mentor &mdash; incoming international students at FIU</li>
+            <li>Instructor &mdash; QNepal QWorld-certified quantum computing workshop</li>
+            <li>Lead mentor &mdash; 10-week quantum computing mentorship, Student&rsquo;s Research Council Nepal</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Leadership &amp; service</h3>
+          <ul>
+            <li>Co-founder &mdash; QNepal</li>
+            <li>Treasurer &mdash; Nepali Student Association, FIU</li>
+            <li>Member &mdash; INIT, SUMAC</li>
+            <li>Next semester &mdash; leading a BUILD club project (10+ students)</li>
+            <li>Judge &mdash; South Florida Regional Science &amp; Engineering Fair</li>
+            <li>Participant &mdash; FEA Conference</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <h2 class="section-title"><span class="tick">/</span> Skills &amp; Tooling</h2>
+      <div class="skills">
+        <div class="skill-group">
+          <h4>Languages</h4>
+          <p class="tags"><span>Python</span><span>C / C++</span><span>JavaScript</span><span>SQL</span><span>LaTeX</span></p>
+        </div>
+        <div class="skill-group">
+          <h4>ML &amp; scientific computing</h4>
+          <p class="tags"><span>PyTorch</span><span>TensorFlow</span><span>scikit-learn</span><span>NumPy</span><span>Pandas</span><span>BRIAN2</span></p>
+        </div>
+        <div class="skill-group">
+          <h4>Quantum</h4>
+          <p class="tags"><span>Qiskit</span><span>IBM Quantum</span><span>Grover&rsquo;s algorithm</span><span>Quantum oracles</span></p>
+        </div>
+        <div class="skill-group">
+          <h4>Infra &amp; tooling</h4>
+          <p class="tags"><span>Docker</span><span>CI/CD</span><span>Git</span><span>n8n</span><span>Linux</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <h2 class="section-title"><span class="tick">/</span> Education &amp; Coursework</h2>
+      <div class="edu">
+        <h3>Florida International University</h3>
+        <p class="meta">B.S. Mathematical Data Science &middot; GPA 3.86 &middot; Presidential Premier Honors Scholar</p>
+        <p><strong>Outside coursework:</strong> CodePath AI &amp; Machine Learning, Technical Interview Prep, Breakthrough Tech, Sprinternship workshop.</p>
+        <p><strong>On the list:</strong> Quantum Mechanics I, Modern Physics, Thermodynamics, Optics, Quantitative Risk Management, Entrepreneurship certificate.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <h2 class="section-title"><span class="tick">/</span> Get in touch</h2>
+      <p>
+        I&rsquo;m always up for a conversation about quantum computing, ML research, interdisciplinary
+        teams, or teaching. The fastest way to reach me is email.
+      </p>
+      <p class="contact-actions">
+        <a class="btn primary" href="mailto:lpand003@fiu.edu">lpand003@fiu.edu</a>
+        <a class="btn" href="lenish_CV.pdf">Resume (PDF)</a>
+      </p>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Lenish Pandey &middot; Built with plain HTML &amp; CSS &middot; <a href="#top">Back to top</a></p>
+    </footer>
+
+  </main>
+
 </body>
-
 </html>
