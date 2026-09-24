@@ -5,10 +5,10 @@
   <meta name="description" content="Lenish Pandey — mathematics student at FIU working across neural networks, quantum computing, and quantitative research.">
   <title>Lenish Pandey — Neural, Quantum &amp; Quant</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="app.css?v=20260926">
-  <link rel="stylesheet" href="story.css?v=20260926">
-  <script src="viz.js?v=20260926" defer></script><script src="app.js?v=20260926" defer></script>
-  <script src="story.js?v=20260926" type="module"></script>
+  <link rel="stylesheet" href="app.css?v=20260924b">
+  <link rel="stylesheet" href="story.css?v=20260924b">
+  <script src="viz.js?v=20260924b" defer></script><script src="app.js?v=20260924b" defer></script>
+  <script src="story.js?v=20260924b" type="module"></script>
 </head>
 <body class="story" data-field="neural">
   <svg class="sprite" aria-hidden="true">
@@ -48,6 +48,7 @@
     <section class="step hero-step" data-form="neural.constellation" data-frame="hero" data-caption="A layered neural network: signals stream along every connection." aria-labelledby="hero-title">
       <h1 id="hero-title" class="sr-only">Lenish Pandey — neural networks, quantum computing and quantitative research</h1>
       <div class="hero-foot">
+        <a class="resume-link" href="resume.html" target="_blank" rel="noopener">Résumé ↗</a>
         <div class="icons" aria-label="Contact">
           <a class="icon" href="mailto:lenishpandeynepal@gmail.com" aria-label="Email"><svg><use href="#i-mail"/></svg></a>
           <a class="icon" href="https://www.linkedin.com/in/lenish-pandey-830720214/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg><use href="#i-in"/></svg></a>
@@ -59,14 +60,18 @@
 
     <!-- ============================== NEURAL ============================== -->
     <div class="chapter" id="neural" data-chapter="neural">
-      <section class="step" id="rag" data-form="neural.rag" data-caption="RAG pipeline: documents are chunked and embedded; a question retrieves its nearest passages; the model answers from them.">
-        <article class="card job">
-          <p class="kicker">Neural <span class="type">Job</span></p>
-          <header class="role">
-            <h2>HPC Administration and Optimization Intern</h2>
-            <p class="where"><span>Instructional &amp; Research Computing Center, FIU</span><span>Jun 2026 – Present</span></p>
+      <div class="hpc-sequence" aria-labelledby="hpc-role-title">
+        <div class="hpc-heading-track">
+          <header class="hpc-heading">
+            <p class="kicker">Neural / Experience</p>
+            <h2 id="hpc-role-title">HPC Administration &amp; Operations Intern</h2>
+            <p>Instructional &amp; Research Computing Center, FIU</p>
+            <p class="tenure">Jun 2026 – Present</p>
           </header>
-          <p class="project"><span>Project 1 of 2</span>HPC Agent: a chat assistant for the cluster</p>
+        </div>
+      <section class="step" id="rag" data-form="neural.rag" data-caption="RAG pipeline: documents are chunked and embedded; a question retrieves its nearest passages; the model answers from them.">
+        <article class="entry job">
+          <h3 class="project"><span>01 / 02</span>HPC Agent: a chat assistant for the cluster</h3>
           <p class="lead">An assistant that answers researchers’ questions about FIU’s Slurm cluster from its own documentation, writes and checks job scripts, and reads live cluster state, in web chat, Microsoft Teams and Telegram.</p>
           <button type="button" class="arch-thumb" data-demo="architecture" aria-label="Open the architecture flowchart">
             <svg viewBox="0 0 480 132" aria-hidden="true">
@@ -98,13 +103,8 @@
       </section>
 
       <section class="step" id="hpc" data-form="neural.hpc" data-caption="HPC cluster: racks of compute blades running jobs, leaf and spine switches, MPI traffic between blades.">
-        <article class="card job">
-          <p class="kicker">Neural <span class="type">Job</span></p>
-          <header class="role">
-            <h2>HPC Administration and Optimization Intern</h2>
-            <p class="where"><span>Instructional &amp; Research Computing Center, FIU</span><span>Jun 2026 – Present</span></p>
-          </header>
-          <p class="project"><span>Project 2 of 2</span>Running the cluster fairly, and visibly</p>
+        <article class="entry job">
+          <h3 class="project"><span>02 / 02</span>Running the cluster fairly, and visibly</h3>
           <ul class="outcomes">
             <li>Researchers can see the CPU, memory and GPUs their jobs actually use.</li>
             <li>Researchers can run one job across multiple nodes with MPI.</li>
@@ -162,8 +162,10 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
         </article>
       </section>
 
+      </div>
+
       <section class="step tall" id="ipa" data-form="neural.densenet" data-caption="DenseNet: dense blocks where every layer feeds every later one. Scroll to remove connections at random.">
-        <article class="card research">
+        <article class="entry research">
           <p class="kicker">Neural <span class="type">Research</span></p>
           <header class="role">
             <h2>Undergraduate Research Assistant</h2>
@@ -220,7 +222,7 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
       </section>
 
       <section class="step" id="neuro" data-form="neural.fly" data-caption="Fruit-fly brain after the FlyWire and hemibrain connectome maps: optic lobes, mushroom bodies, the central-complex compass.">
-        <article class="card research">
+        <article class="entry research">
           <p class="kicker">Neural <span class="type">Research</span></p>
           <header class="role">
             <h2>Computational Neuroscience Researcher</h2>
@@ -243,7 +245,7 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
 
       <section class="step" id="roles" data-form="neural.net" data-caption="Campus network: core routers, distribution and access switches. A core link fails and traffic reroutes around it.">
         <div class="stack">
-          <article class="card job spotlight">
+          <article class="entry job spotlight">
             <p class="kicker">Neural <span class="type">Job</span></p>
             <header class="role">
               <h2>Software Engineering Intern</h2>
@@ -259,7 +261,7 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
             <div class="chips"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Firebase</span><span>REST APIs</span><span>Agile</span></div>
             <div class="links"><a class="link-pill primary" href="https://classes.fiu.edu/" target="_blank" rel="noopener noreferrer">Public Class Search ↗</a><button class="link-pill" data-demo="panthersoft">The numbers ▷</button></div>
           </article>
-          <article class="card job">
+          <article class="entry job">
             <p class="kicker">Neural <span class="type">Job</span></p>
             <header class="role">
               <h2>IT Network Operations Assistant</h2>
@@ -274,7 +276,7 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
       </section>
 
       <section class="step" id="projects" data-form="neural.brain" data-caption="A human brain: waves of activity spread over the cortex while signals run through white-matter tracts.">
-        <article class="card">
+        <article class="entry">
           <p class="kicker">Neural <span class="type">Projects</span></p>
           <h2>Projects</h2>
           <div class="proj big">
@@ -295,7 +297,7 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
     <!-- ============================== QUANTUM ============================== -->
     <div class="chapter" id="quantum-chapter" data-chapter="quantum">
       <section class="step" id="quantum" data-form="quantum.vqe" data-zoom="1.15" data-caption="VQE energy landscape: the optimizer descends past local minima to the ground state; energy per iteration on the back wall.">
-        <article class="card research">
+        <article class="entry research">
           <p class="kicker">Quantum <span class="type">Research</span></p>
           <header class="role">
             <h2>Quantum ML Research Assistant</h2>
@@ -324,7 +326,7 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
       </section>
 
       <section class="step" id="grover" data-form="quantum.grover" data-caption="Grover search on a graph: the oracle flips valid colorings, diffusion amplifies them, and a measurement colors the graph.">
-        <article class="card research">
+        <article class="entry research">
           <p class="kicker">Quantum <span class="type">Publication</span></p>
           <h2>Solving the general planar graph coloring problem using Grover’s algorithm</h2>
           <p class="meta">International Journal of Innovative Science and Research Technology, Vol. 8 (2023) · Lenish Pandey et al.</p>
@@ -338,7 +340,7 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
       </section>
 
       <section class="step" id="credentials" data-form="quantum.slit" data-caption="Double slit: single particles pass two slits and land one at a time, building interference fringes.">
-        <article class="card">
+        <article class="entry">
           <p class="kicker">Quantum <span class="type">Credentials</span></p>
           <h2>Credentials</h2>
           <div class="creds">
@@ -354,7 +356,7 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
     <!-- ============================== QUANT ============================== -->
     <div class="chapter" id="quant-chapter" data-chapter="quant">
       <section class="step" id="quant" data-form="quant.tape" data-caption="Price tape: a live price line, candlesticks, and the distribution of returns at the edge.">
-        <article class="card">
+        <article class="entry">
           <p class="kicker">Quant</p>
           <h2>Probability, priced</h2>
           <p class="lead">Probability and computation applied to markets: option-trading research, the Student Managed Investment Fund, and a self-custody crypto wallet.</p>
@@ -363,7 +365,7 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
       </section>
 
       <section class="step" id="options" data-form="quant.bs" data-caption="Black–Scholes call-price surface C(S, τ), with simulated price paths riding it to expiry.">
-        <article class="card research">
+        <article class="entry research">
           <p class="kicker">Quant <span class="type">Research</span></p>
           <h2>Option trading research <span class="pending">details to add</span></h2>
           <p class="meta">Mathematics research · Florida International University</p>
@@ -374,7 +376,7 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
       </section>
 
       <section class="step" id="smif" data-form="quant.smile" data-caption="Implied-volatility smile: the surface of volatilities the market implies across strikes and expiries, with a live price tape behind it.">
-        <article class="card job">
+        <article class="entry job">
           <p class="kicker">Quant <span class="type">Experience</span></p>
           <header class="role">
             <h2>Student Managed Investment Fund</h2>
@@ -385,7 +387,7 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
       </section>
 
       <section class="step" id="cashify" data-form="quant.wallet" data-caption="Self-custody wallet: each payment is reviewed, signed on the device, broadcast to a network and confirmed into a block.">
-        <article class="card job">
+        <article class="entry job">
           <p class="kicker">Quant <span class="type">Job</span></p>
           <header class="role">
             <h2>Co-founder &amp; Backend Engineer</h2>

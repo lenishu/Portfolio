@@ -15,20 +15,20 @@ const railSteps = $$('.rail .steps a');
 const caption = $('#caption');
 const ipa = $('#ipa');
 
-// Where the picture sits: centred for the hero and contact; beside the cards, centred in the
-// free band between the rail and the card and scaled to fit it; in the top half on phones.
+// Where the picture sits: centred for the hero and contact; beside the entries, centred in the
+// free band between the rail and the entry and scaled to fit it; in the top half on phones.
 function frameFor(step) {
   const kind = step.dataset.frame, W = innerWidth, H = innerHeight;
   if (kind === 'hero') return { x: 0, y: .04, zoom: 1 };
   if (narrow.matches) return { x: 0, y: .21, zoom: 1.18 };
   if (kind === 'center') return { x: 0, y: .06, zoom: 1.12 };
-  const left = 250, right = W - .06 * W - Math.min(540, .44 * W) - 24;   // rail edge, card edge (story.css)
+  const left = 250, right = W - .06 * W - Math.min(540, .44 * W) - 24;   // rail edge, entry edge (story.css)
   return { x: .5 - (left + right) / 2 / W, y: .03, zoom: clamp(1.02 * H / (right - left), 1.15, 2.2) * (+step.dataset.zoom || 1) };
 }
 
 const particles = createParticles($('#particles'), {
   // the particles react to the pointer only over open space, not over text or controls
-  hoverTest: e => !e.target.closest?.('.card, .rail, .nav, .menu, .caption, .contact-inner, a, button, dialog, footer'),
+  hoverTest: e => !e.target.closest?.('.entry, .rail, .nav, .menu, .caption, .contact-inner, a, button, dialog, footer'),
   parallax: reduced ? 0 : 1,
   frame: frameFor(steps[0]),
 });
@@ -73,7 +73,7 @@ function onScroll() {
   for (const s of steps) if (s.getBoundingClientRect().top <= mid) now = s;
   if (now !== active) activate(now);
   if (ipa) {
-    // 0 when the section's top reaches mid-screen, 1 by the time its card lets go
+    // 0 when the section's top reaches mid-screen, 1 by the time its entry lets go
     const r = ipa.getBoundingClientRect(), prog = clamp((mid - r.top) / r.height, 0, 1);
     setPrune(clamp(prog / (narrow.matches ? .8 : .82), 0, 1));
   }

@@ -14,8 +14,8 @@ Open http://127.0.0.1:8000. This server tells the browser not to cache, so edits
 
 ## Pages
 
-- `index.html` (Home): a particle network fills the first screen. Scrolling walks through three fields, and the particles morph for each step while a card on the right tells the story. The rail on the left (a strip under the nav on phones) shows the field and step.
-  - Every experience card has the same shape: role, place and dates; what the project was about; a figure; and a **More** section with what was done and how, the numbers, and skills and tools. Job cards carry a solid tag and edge, research cards a dashed one.
+- `index.html` (Home): a particle network fills the first screen. Scrolling walks through three fields, and the particles morph for each step while open text on the right tells the story. The rail on the left (a strip under the nav on phones) shows the field and step.
+  - Experience sections use borderless text: role, place and dates; what the project was about; a figure; and a **More** section with what was done and how, the numbers, and skills and tools. The HPC role floats beside two projects that change on scroll.
   - **Neural**: HPC Agent, the RAG assistant (architecture flowchart and cluster diagram dialogs), HPC administration (outcomes, cgroup v2 config, Grafana-style CPU/GPU panel, pam_slurm_adopt flowchart, MPI benchmark; the cluster items light up what they describe), information processing ability (the measured IPA plot with a dot that follows the scroll while the DenseNet prunes; phase transition; the formula), computational neuroscience (fly brain), PantherSoft and IT network operations, projects (PaperQuest, MathSphere).
   - **Quantum**: quantum learning rates at DaMRL (energy landscape), Grover graph coloring (paper, DOI, code, demo), credentials.
   - **Quant**: markets, option-trading research, the Student Managed Investment Fund, Cashify wallet. Contact closes the page and points to About.
@@ -26,7 +26,7 @@ Open http://127.0.0.1:8000. This server tells the browser not to cache, so edits
 
 ## Code
 
-- `app.css`: design system (Inter Tight / Inter, dark palette, field colors: AI blue, Quantum violet, Quant green).
+- `app.css`: design system (Helvetica, dark palette, field colors: AI blue, Quantum violet, Quant green).
 - `particles.js`: the particle engine and every form (neural networks, RAG, HPC cluster, DenseNet with pruning, fly connectome, campus network, double slit, VQE landscape, Grover coloring, price tape, Black–Scholes surface, wallet, …). Positions are simulated on the CPU so each form runs a real process; morphs blend two live forms particle by particle.
 - `story.js` + `story.css`: the home page's scroll story: which form each step shows, framing beside the cards, the rail, the IPA pruning and figure tabs, the HPC focus, a pause button. With reduced motion the particles run slower and the camera stops following the pointer.
 - `app.js`: nav and mobile menu, copy email, demo dialogs, optional scrubbed figure video.
