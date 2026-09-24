@@ -34,7 +34,7 @@
 
   // Energy falls toward the ground state while a variance bound brackets the gap.
   function quantum(host) {
-    host.className = 'dialog-viz viz-quantum';
+    host.classList.add('dialog-viz', 'viz-quantum');
     const svg = frame(host, 640, 250, 'Sketch: energy converging to the ground state in two phases, bracketed by a shrinking bound');
     const E0 = 190, points = [];
     for (let k = 0; k < 20; k++) {
@@ -60,7 +60,7 @@
 
   // Researcher → assistant and scheduler; jobs light up spans of compute nodes.
   function hpc(host) {
-    host.className = 'dialog-viz viz-hpc';
+    host.classList.add('dialog-viz', 'viz-hpc');
     const svg = frame(host, 640, 270, 'Diagram: a researcher asks a RAG assistant and submits jobs through Slurm to compute nodes');
     const ask = 'M82 120 C 130 70, 150 70, 196 70', submit = 'M82 150 C 130 200, 150 200, 196 200';
     el('path', { class: 'h-wire', d: ask }, svg);
@@ -111,7 +111,7 @@
 
   // Drag the sparsity and watch the weakest connections disappear.
   function pruning(host) {
-    host.className = 'dialog-viz viz-pruning';
+    host.classList.add('dialog-viz', 'viz-pruning');
     const svg = frame(host, 640, 240, 'Toy network: connections disappear as sparsity increases');
     const layers = [5, 8, 8, 4], xs = [90, 250, 410, 560], random = seeded(7);
     const pos = layers.map((n, l) => [...Array(n)].map((_, i) => [xs[l], 20 + (200 / (n - 1)) * i]));
@@ -157,7 +157,7 @@
 
   // Before/after bars for the class-search prototype.
   function panthersoft(host) {
-    host.className = 'dialog-viz viz-bars';
+    host.classList.add('dialog-viz', 'viz-bars');
     const groups = [
       ['Response time', [['Legacy search', 100, '10 s'], ['With client-side caching', 9, '< 1 s']]],
       ['Page load time', [['Before', 100, 'baseline'], ['Prototype', 65, '35% faster']]],
@@ -175,7 +175,7 @@
 
   // Amplitude amplification on a toy search space: 16 candidates, one valid.
   function publication(host) {
-    host.className = 'dialog-viz viz-grover';
+    host.classList.add('dialog-viz', 'viz-grover');
     const N = 16, marked = 11, W = 640, H = 230, base = 125, scale = 96;
     const svg = frame(host, W, H, 'Grover search: amplitude bars for 16 candidate colorings');
     const graph = el('g', { class: 'g-graph', transform: 'translate(22 30)' }, svg);
@@ -241,5 +241,62 @@
     }
   }
 
-  window.Viz = { quantum, hpc, pruning, panthersoft, publication, groverMini };
+
+  // Concept demo for the quant field: GBM paths, the terminal distribution,
+  // and a European call priced by Black–Scholes and by Monte Carlo.
+  function options(host) {
+    host.classList.add('dialog-viz', 'viz-options');
+    const W = 640, H = 260, x0 = 44, x1 = 468, top = 16, bottom = 226, lo = 30, hi = 230;
+    const S0 = 100, K = 100, T = 1, r = .03, steps = 64, drawn = 48, samples = 4000;
+    const svg = frame(host, W, H, 'Monte Carlo price paths and the distribution of final prices');
+    const y = s => bottom - (Math.min(hi, Math.max(lo, s)) - lo) / (hi - lo) * (bottom - top);
+    el('line', { class: 'o-axis', x1: x0, x2: x1, y1: bottom, y2: bottom }, svg);
+    for (const s of [50, 100, 150, 200]) { el('line', { class: 'o-grid', x1: x0, x2: W - 10, y1: y(s), y2: y(s) }, svg); label(svg, x0 - 8, y(s) + 4, '$' + s, { class: 'o-note', 'text-anchor': 'end' }); }
+    el('line', { class: 'o-strike', x1: x0, x2: W - 10, y1: y(K), y2: y(K) }, svg);
+    label(svg, W - 12, y(K) - 6, 'strike K = $100', { class: 'o-note', 'text-anchor': 'end' });
+    label(svg, x0, H - 10, 'today', { class: 'o-note' });
+    label(svg, x1, H - 10, '1 year', { class: 'o-note', 'text-anchor': 'end' });
+    label(svg, 560, H - 10, 'final prices', { class: 'o-note', 'text-anchor': 'middle' });
+    const paths = el('g', { class: 'o-paths' }, svg), hist = el('g', { class: 'o-hist' }, svg);
+    const controls = document.createElement('div');
+    controls.className = 'viz-controls';
+    controls.innerHTML = '<label for="vol">Volatility</label><input id="vol" type="range" min="5" max="80" value="25"><button type="button" class="button">Resample paths</button><output aria-live="polite"></output>';
+    host.append(controls);
+    const input = controls.querySelector('input'), output = controls.querySelector('output');
+    const erf = x => { const s = Math.sign(x), t = 1 / (1 + .3275911 * Math.abs(x)); return s * (1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - .284496736) * t + .254829592) * t * Math.exp(-x * x)); };
+    const cdf = x => .5 * (1 + erf(x / Math.SQRT2));
+    let seed = 11;
+    function draw() {
+      const sigma = +input.value / 100, rand = seeded(seed);
+      const gauss = () => Math.sqrt(-2 * Math.log(rand() + 1e-12)) * Math.cos(2 * Math.PI * rand());
+      const dt = T / steps, drift = (r - sigma * sigma / 2) * dt, vol = sigma * Math.sqrt(dt);
+      paths.replaceChildren();
+      for (let p = 0; p < drawn; p++) {
+        let s = S0, d = `M${x0} ${y(s).toFixed(1)}`;
+        for (let i = 1; i <= steps; i++) { s *= Math.exp(drift + vol * gauss()); d += `L${(x0 + (x1 - x0) * i / steps).toFixed(1)} ${y(s).toFixed(1)}`; }
+        el('path', { d, class: s > K ? 'o-path itm' : 'o-path' }, paths);
+      }
+      const bins = new Array(40).fill(0); let payoff = 0;
+      for (let i = 0; i < samples; i++) {
+        const s = S0 * Math.exp((r - sigma * sigma / 2) * T + sigma * Math.sqrt(T) * gauss());
+        payoff += Math.max(s - K, 0);
+        const b = Math.floor((Math.min(hi - .01, Math.max(lo, s)) - lo) / (hi - lo) * bins.length); bins[b]++;
+      }
+      const peak = Math.max(...bins);
+      hist.replaceChildren();
+      bins.forEach((count, b) => {
+        const sLo = lo + (hi - lo) * b / bins.length, sHi = lo + (hi - lo) * (b + 1) / bins.length;
+        el('rect', { x: 490, y: y(sHi), width: Math.max(1, count / peak * 130), height: Math.max(1, y(sLo) - y(sHi) - 1), class: sLo >= K ? 'o-bar itm' : 'o-bar' }, hist);
+      });
+      const d1 = (Math.log(S0 / K) + (r + sigma * sigma / 2) * T) / (sigma * Math.sqrt(T)), d2 = d1 - sigma * Math.sqrt(T);
+      const bs = S0 * cdf(d1) - K * Math.exp(-r * T) * cdf(d2), mc = Math.exp(-r * T) * payoff / samples;
+      output.textContent = `σ = ${input.value}% · Black–Scholes $${bs.toFixed(2)} · Monte Carlo (${samples.toLocaleString()} paths) $${mc.toFixed(2)}`;
+    }
+    input.addEventListener('input', draw);
+    controls.querySelector('button').addEventListener('click', () => { seed = Math.floor(Math.random() * 1e6) + 1; draw(); });
+    draw();
+    caption(host, 'Concept illustration, not a research result: risk-neutral GBM with r = 3%, S₀ = K = $100, T = 1 year. Green paths and bars finish in the money.');
+  }
+
+  window.Viz = { quantum, hpc, pruning, panthersoft, publication, groverMini, options };
 })();
