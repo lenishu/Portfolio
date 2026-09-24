@@ -1,321 +1,107 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lenish Pandey &mdash; Mathematical Data Science, Quantum Computing, AI</title>
-  <meta name="description" content="Lenish Pandey. Mathematical Data Science at FIU. Quantum computing, AI research, and building interdisciplinary teams." />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f4f1e9">
+  <meta name="description" content="Lenish Pandey — mathematical science student at FIU working on quantum optimization, machine learning, and quantitative methods. Research portfolio for AI, quantum, and quantitative research.">
+  <title>Lenish Pandey — AI, Quantum &amp; Quantitative Research</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><script src="viz.js" defer></script><script src="site.js" defer></script>
 </head>
 <body>
-
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="#top" class="brand">Lenish Pandey</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#focus">Focus</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#teaching">Teaching</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <main id="top">
-
-    <header class="hero">
-      <p class="eyebrow">Based in Miami &middot; from Kathmandu</p>
-      <h1>Hi, I&rsquo;m Lenish.</h1>
-      <p class="lede">
-        I study <strong>Mathematical Data Science</strong> at Florida International University,
-        research <strong>neural-network pruning</strong> in a physics lab, simulate
-        <strong>fruit-fly neurons</strong> in a computational-neuroscience collaboration,
-        and spend my other hours teaching math and quantum computing.
-      </p>
-      <div class="hero-actions">
-        <a class="btn primary" href="mailto:lpand003@fiu.edu">Email me</a>
-        <a class="btn" href="lenish_CV.pdf">Download resume</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><a class="wordmark" href="#home" aria-label="Lenish Pandey home">lenish<span>✳</span></a><nav aria-label="Main navigation"><a href="#focus">Research</a><a href="about.html">About</a><a href="#experience">Experience</a></nav><a class="header-contact" href="#contact">Contact <span aria-hidden="true">↗</span></a></header>
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy"><p class="eyebrow"><span class="status-dot"></span> MATHEMATICAL SCIENCE · COMPUTATIONAL TRACK · FIU</p><h1 id="hero-title">Mathematics,<br>made <em>computational.</em></h1><p class="hero-intro"><strong>Lenish Pandey.</strong> Research in quantum optimization and machine learning, grounded in probability, numerical methods and proof.</p><ul class="hero-fields" aria-label="Research tracks"><li><a href="#track-ai"><span aria-hidden="true">∇</span>AI research</a></li><li><a href="#track-quantum"><span aria-hidden="true">ψ</span>Quantum research</a></li><li><a href="#track-quant"><span aria-hidden="true">σ</span>Quantitative research</a></li></ul><div class="hero-actions"><a class="button primary" href="#focus">View research <span aria-hidden="true">↘</span></a><a class="text-link" href="resume.html" target="_blank" rel="noopener">Résumé <span aria-hidden="true">↗</span></a></div><p class="location"><span aria-hidden="true">◎</span> Miami, FL · Honors College · 3.9 GPA</p></div>
+      <div class="hero-deck" aria-label="Featured work">
+        <div class="orbit orbit-one" aria-hidden="true"></div>
+        <button class="deck-card" data-project="quantum" aria-label="Open hyperparameter-free quantum optimizers"><span class="deck-art quantum-art" aria-hidden="true"><span class="quantum-orbit q1"></span><span class="quantum-orbit q2"></span><span class="quantum-orbit q3"></span><span class="quantum-core">ψ</span></span><span class="deck-label"><small>Quantum research</small>Hyperparameter-free quantum optimizers</span></button>
+        <button class="deck-card" data-project="pruning" aria-label="Open the DenseNet-121 pruning study"><span class="deck-art pruning-art" aria-hidden="true"><svg viewBox="0 0 500 240"><g class="network-lines"><path d="M90 60L220 40 360 70M90 60L220 120 360 70M90 120L220 40 360 180M90 120L220 120 360 180M90 190L220 120M90 190L220 200 360 180M220 200L360 70"/><path class="pruned-line" d="M90 60L220 200M90 190L220 40M90 120L220 200M220 40L360 180"/></g><g class="network-nodes"><circle cx="90" cy="60" r="12"/><circle cx="90" cy="120" r="12"/><circle cx="90" cy="190" r="12"/><circle cx="220" cy="40" r="12"/><circle cx="220" cy="120" r="12"/><circle cx="220" cy="200" r="12"/><circle cx="360" cy="70" r="12"/><circle cx="360" cy="180" r="12"/></g></svg></span><span class="deck-label"><small>AI research</small>DenseNet-121 pruning study</span></button>
+        <button class="deck-card" data-project="hpc" aria-label="Open HPC operations and RAG assistant"><span class="deck-art hpc-art" aria-hidden="true"><span class="deck-nodes"><i></i><i class="on"></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span><span class="deck-label"><small>Research computing</small>HPC operations &amp; RAG assistant</span></button>
       </div>
-      <ul class="hero-links">
-        <li><a href="mailto:lpand003@fiu.edu">lpand003@fiu.edu</a></li>
-        <li><!-- TODO: replace # with your GitHub URL -->
-          <a href="#" rel="noopener">GitHub</a>
-        </li>
-        <li><!-- TODO: replace # with your LinkedIn URL -->
-          <a href="#" rel="noopener">LinkedIn</a>
-        </li>
-        <li><a href="lenish_CV.pdf">Resume (PDF)</a></li>
-      </ul>
-    </header>
-
-    <section id="about" class="section">
-      <h2 class="section-title"><span class="tick">/</span> About</h2>
-      <div class="prose">
-        <p>
-          I grew up in Nepal in a family where money was always short but curiosity never was.
-          I taught myself quantum computing on borrowed library machines, worked on real IBM
-          Quantum hardware at nineteen, and published my first peer-reviewed paper before
-          leaving Kathmandu.
-        </p>
-        <p>
-          I&rsquo;m now a Presidential Premier Honors Scholar at FIU with a 3.86 GPA, majoring in
-          Mathematical Data Science. Research takes up most of my week: neural-network
-          pruning with Dr. Bernard Gerstman in the Physics Department, and a
-          conductance-based model of the Drosophila Giant Fiber System with the Pena Lab
-          (FAU / FIU / FSU collaboration).
-        </p>
-        <p>
-          The rest of my time goes to teaching. I&rsquo;m a Learning Assistant for Calculus and
-          Physics, an FIUteach fellow at South Miami Middle School, and a peer mentor for
-          incoming international students. If I know something, I try to pass it along.
-        </p>
-      </div>
-
-      <dl class="facts">
-        <div><dt>Degree</dt><dd>B.S. Mathematical Data Science, FIU</dd></div>
-        <div><dt>GPA</dt><dd>3.86</dd></div>
-        <div><dt>Scholarship</dt><dd>Presidential Premier Honors Scholar</dd></div>
-        <div><dt>Origin</dt><dd>Kathmandu, Nepal</dd></div>
-        <div><dt>Pronouns</dt><dd>he / him</dd></div>
-        <div><dt>Status</dt><dd>Open to summer &rsquo;26 internships</dd></div>
-      </dl>
+      <div class="hero-bottom"><span>AI RESEARCH · QUANTUM RESEARCH · QUANTITATIVE RESEARCH</span><a href="#focus">SCROLL <span aria-hidden="true">↓</span></a></div>
     </section>
 
-    <section id="focus" class="section">
-      <h2 class="section-title"><span class="tick">/</span> What I&rsquo;m focused on</h2>
-      <p class="section-lede">Three tracks I&rsquo;m building toward in parallel.</p>
-
-      <div class="cards">
-        <article class="card">
-          <h3>Building &amp; Leadership</h3>
-          <p>Co-founded <strong>QNepal</strong>. Led a 10-week quantum mentorship for high-school grads through Student&rsquo;s Research Council Nepal. Ran interdisciplinary side-projects with teams spanning marketing, neuroscience, bio-engineering, and economics.</p>
-          <p class="card-aim">Long-term: an interdisciplinary research org that pairs experts across fields and pays them fairly.</p>
+    <section class="focus section" id="focus" aria-labelledby="focus-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / RESEARCH FOCUS</p><h2 id="focus-title">Three directions, <em>one foundation.</em></h2></div><p>Evidence for each track.<br>Items with ↗ open the full project.</p></div>
+      <div class="pillars">
+        <article class="pillar pillar-ai" id="track-ai" aria-labelledby="track-ai-title">
+          <div class="pillar-head"><span class="pillar-glyph" aria-hidden="true">∇</span><div><h3 id="track-ai-title">AI research</h3><p>Efficient, well-understood learning systems.</p></div></div>
+          <svg class="pillar-figure" viewBox="0 0 240 70" aria-hidden="true"><g class="pf-lines"><path d="M30 15L100 10 170 22 215 35M30 35L100 35 170 48 215 35M30 55L100 60 170 22M30 15L100 35M30 55L100 35 170 48"/><path class="pf-cut" d="M30 35L100 60M100 10L170 48M30 15L100 60"/></g><g class="pf-nodes"><circle cx="30" cy="15" r="5"/><circle cx="30" cy="35" r="5"/><circle cx="30" cy="55" r="5"/><circle cx="100" cy="10" r="5"/><circle cx="100" cy="35" r="5"/><circle cx="100" cy="60" r="5"/><circle cx="170" cy="22" r="5"/><circle cx="170" cy="48" r="5"/><circle cx="215" cy="35" r="5"/></g></svg>
+          <ul class="evidence">
+            <li><button data-project="pruning"><b>Neural-network pruning study</b><span>DenseNet-121, 15 configurations · led a 5-person team</span><i aria-hidden="true">↗</i></button></li>
+            <li><a href="https://github.com/lenishu/Solve_baghchal" target="_blank" rel="noopener noreferrer"><b>Deep reinforcement learning</b><span>Custom environment + DQN agent · 85% win rate</span><i aria-hidden="true">↗</i></a></li>
+            <li><button data-project="hpc"><b>Retrieval-augmented generation</b><span>RAG assistant for HPC support, in development</span><i aria-hidden="true">↗</i></button></li>
+          </ul>
         </article>
-
-        <article class="card">
-          <h3>Graduate School</h3>
-          <p>Targeting a PhD in computational / information science &mdash; quantum algorithms, ML theory, or computational neuroscience. Currently publishing in ML pruning and BRIAN2-based neural simulation.</p>
-          <p class="card-aim">Next: Quantum Mechanics I, Thermodynamics, Quantitative Risk Management, and a stronger publication record.</p>
+        <article class="pillar pillar-quantum" id="track-quantum" aria-labelledby="track-quantum-title">
+          <div class="pillar-head"><span class="pillar-glyph" aria-hidden="true">ψ</span><div><h3 id="track-quantum-title">Quantum research</h3><p>Quantum algorithms with provable behavior.</p></div></div>
+          <svg class="pillar-figure" viewBox="0 0 240 70" aria-hidden="true"><path class="pf-wave" d="M10 35 C 30 5, 50 5, 70 35 S 110 65, 130 35 S 170 5, 190 35 S 220 60, 232 44"/><path class="pf-wave faint" d="M10 35 C 30 55, 50 55, 70 35 S 110 12, 130 35 S 170 58, 190 35"/><g class="pf-bars"><rect x="150" y="52" width="6" height="8"/><rect x="160" y="52" width="6" height="8"/><rect class="hit" x="170" y="14" width="6" height="46"/><rect x="180" y="52" width="6" height="8"/><rect x="190" y="52" width="6" height="8"/></g></svg>
+          <ul class="evidence">
+            <li><button data-project="quantum"><b>Hyperparameter-free quantum optimizers</b><span>Proved equivalent to normalized Imaginary Time Evolution</span><i aria-hidden="true">↗</i></button></li>
+            <li><button data-project="publication"><b>Grover’s search for graph coloring</b><span>Published in IJISRT, 2023 · Qiskit circuits</span><i aria-hidden="true">↗</i></button></li>
+            <li><div><b>Quantum information geometry</b><span>Fubini–Study metric · Weinstein &amp; Temple bounds</span></div></li>
+          </ul>
         </article>
-
-        <article class="card">
-          <h3>Quantum Computing &amp; AI Roles</h3>
-          <p>Hands-on quantum work on IBM hardware, year-long FuseMachines AI fellowship, production-style PyTorch and TensorFlow pipelines, reproducible-research infrastructure.</p>
-          <p class="card-aim">Targeting quantum-software, ML research-engineering, and applied-AI roles &mdash; internship first, full-time after.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="experience" class="section">
-      <h2 class="section-title"><span class="tick">/</span> Experience</h2>
-
-      <ol class="timeline">
-        <li>
-          <div class="tl-head">
-            <h3>Learning Assistant <span class="at">&middot; FIU Mathematics Department</span></h3>
-            <span class="when">Fall 2024 &ndash; Present</span>
-          </div>
-          <p>20 hrs/week across three semesters. Supported 400+ students through Pre-Calculus, Calculus I &amp; II, and Physics. Run problem-solving sessions, lead office hours, co-design recitation material.</p>
-        </li>
-
-        <li>
-          <div class="tl-head">
-            <h3>FIUteach Fellow <span class="at">&middot; South Miami Middle School</span></h3>
-            <span class="when">2024 &ndash; Present</span>
-          </div>
-          <p>Designed and taught four physical-science lessons to real middle-school classes. Co-developed curricula with FIU faculty and mentor teachers. Learned classroom management the only way possible &mdash; by doing it.</p>
-        </li>
-
-        <li>
-          <div class="tl-head">
-            <h3>Peer Mentor <span class="at">&middot; FIU</span></h3>
-            <span class="when">2024 &ndash; Present</span>
-          </div>
-          <p>Mentor incoming freshmen and international students through the transition to university.</p>
-        </li>
-
-        <li>
-          <div class="tl-head">
-            <h3>AI Fellow <span class="at">&middot; FuseMachines, Kathmandu</span></h3>
-            <span class="when">2022 &ndash; 2023</span>
-          </div>
-          <p>Year-plus fellowship covering ML, deep learning, computer vision, and NLP. Built a reinforcement-learning agent for Baghchal (a traditional Nepali board game) and an end-to-end carbon-emission prediction pipeline.</p>
-        </li>
-
-        <li>
-          <div class="tl-head">
-            <h3>Quantum Computing Researcher <span class="at">&middot; Incubate Nepal</span></h3>
-            <span class="when">2022 &ndash; 2023</span>
-          </div>
-          <p>Selected from 600+ applicants. Built a quantum oracle for scheduling optimization under Dr. Mukesh Ghimire and ran circuits on IBM Quantum hardware.</p>
-        </li>
-
-        <li>
-          <div class="tl-head">
-            <h3>Co-Founder &amp; Instructor <span class="at">&middot; QNepal</span></h3>
-            <span class="when">2023 &ndash; Present</span>
-          </div>
-          <p>Organized a QWorld-certified workshop with 200+ participants. Personally delivered lectures on superdense coding and quantum teleportation.</p>
-        </li>
-      </ol>
-    </section>
-
-    <section id="research" class="section">
-      <h2 class="section-title"><span class="tick">/</span> Research</h2>
-
-      <div class="research-list">
-        <article class="research-item">
-          <h3>Neural-network pruning &amp; the Information Processing Ability metric</h3>
-          <p class="meta">Dr. Bernard Gerstman &middot; FIU Physics &middot; Spring 2025 &ndash; Present &middot; 10 hrs/week</p>
-          <p>Built a modular mask-pruning pipeline for DenseNet-121 in both PyTorch and TensorFlow. Developed a new metric &mdash; <strong>Information Processing Ability (IPA)</strong> &mdash; to benchmark how well models learn under different pruning configurations.</p>
-        </article>
-
-        <article class="research-item">
-          <h3>Conductance-based simulation of the Drosophila Giant Fiber System</h3>
-          <p class="meta">Pena Lab &middot; FAU / FIU / FSU collaboration &middot; 4&ndash;5 hrs/week</p>
-          <p>Building BRIAN2 simulations to reproduce experimental data on how neural signals slow down with age. Lead the team&rsquo;s internal workshops on Docker, CI/CD, and reproducible research workflows.</p>
-        </article>
-
-        <article class="research-item">
-          <h3>Quantum oracle for scheduling optimization</h3>
-          <p class="meta">Incubate Nepal &middot; with Dr. Mukesh Ghimire &middot; 2022 &ndash; 2023</p>
-          <p>Designed and implemented a Grover-based oracle on IBM Quantum hardware for a scheduling optimization problem.</p>
+        <article class="pillar pillar-quant" id="track-quant" aria-labelledby="track-quant-title">
+          <div class="pillar-head"><span class="pillar-glyph" aria-hidden="true">σ</span><div><h3 id="track-quant-title">Quantitative research</h3><p>Modeling, optimization and computation.</p></div></div>
+          <svg class="pillar-figure" viewBox="0 0 240 70" aria-hidden="true"><path class="pf-density" d="M10 62 C 60 62, 80 8, 120 8 S 180 62, 230 62"/><path class="pf-area" d="M120 8 C 150 8, 165 40, 180 52 L 180 62 L 120 62 Z"/><line class="pf-axis" x1="10" y1="62" x2="230" y2="62"/><line class="pf-mean" x1="120" y1="8" x2="120" y2="62"/></svg>
+          <ul class="evidence">
+            <li><button data-project="quantum"><b>Optimization with guarantees</b><span>Suboptimality bounded through energy variance</span><i aria-hidden="true">↗</i></button></li>
+            <li><div><b>Predictive modeling</b><span>Emission-prediction pipeline · +18% accuracy over baseline</span></div></li>
+            <li><button data-project="hpc"><b>Parallel computation</b><span>C++, MPI and Slurm on research clusters</span><i aria-hidden="true">↗</i></button></li>
+          </ul>
         </article>
       </div>
+      <div class="foundation"><span class="foundation-label">Foundation</span><ul><li>Probability &amp; statistics</li><li>Linear algebra</li><li>Numerical methods</li><li>Optimization theory</li><li>Discrete mathematics</li><li>Statistical physics</li></ul><span class="foundation-meta">B.S. Mathematical Science · 3.9 GPA</span></div>
     </section>
 
-    <section id="projects" class="section">
-      <h2 class="section-title"><span class="tick">/</span> Selected Projects</h2>
-
+    <section class="work section" id="work" aria-labelledby="work-title">
+      <div class="section-heading"><div><p class="eyebrow">02 / SELECTED WORK</p><h2 id="work-title">Research and <em>builds.</em></h2></div><p>Each project opens with a figure,<br>key results, and source links.</p></div>
       <div class="project-grid">
-        <article class="project">
-          <h3>Grover&rsquo;s algorithm for planar graph coloring</h3>
-          <p>Formulated a planar-graph-coloring solver using Grover&rsquo;s search. Peer-reviewed and published.</p>
-          <p class="tags"><span>Qiskit</span><span>Quantum</span><span>Algorithms</span></p>
-        </article>
+        <article class="project-card"><button class="project-open" data-project="quantum" aria-label="Read about hyperparameter-free quantum optimizers"><div class="project-art quantum-art" aria-hidden="true"><div class="quantum-orbit q1"></div><div class="quantum-orbit q2"></div><div class="quantum-orbit q3"></div><div class="quantum-core">ψ</div><span class="art-label">PROVABLE STEP SIZES</span><span class="art-index">01 — QML</span></div><div class="project-info"><span class="project-type">QUANTUM MACHINE LEARNING · DaMRL · 2026</span><h3>Hyperparameter-free quantum optimizers <span>↗</span></h3><p>Adaptive step sizes with suboptimality bounds from spectral inequalities.</p><div class="tracks"><span class="t-quantum">Quantum</span><span class="t-quant">Quant</span></div></div></button></article>
+        <article class="project-card"><button class="project-open" data-project="pruning" aria-label="Read about the DenseNet-121 pruning study"><div class="project-art pruning-art" aria-hidden="true"><svg viewBox="0 0 500 240"><g class="network-lines"><path d="M90 60L220 40 360 70M90 60L220 120 360 70M90 120L220 40 360 180M90 120L220 120 360 180M90 190L220 120M90 190L220 200 360 180M220 200L360 70"/><path class="pruned-line" d="M90 60L220 200M90 190L220 40M90 120L220 200M220 40L360 180"/></g><g class="network-nodes"><circle cx="90" cy="60" r="12"/><circle cx="90" cy="120" r="12"/><circle cx="90" cy="190" r="12"/><circle cx="220" cy="40" r="12"/><circle cx="220" cy="120" r="12"/><circle cx="220" cy="200" r="12"/><circle cx="360" cy="70" r="12"/><circle cx="360" cy="180" r="12"/></g></svg><span class="art-label">SPARSITY 0–100%</span><span class="art-index">02 — DEEP LEARNING</span></div><div class="project-info"><span class="project-type">MACHINE LEARNING RESEARCH · FIU PHYSICS · 2025–26</span><h3>DenseNet-121 pruning study <span>↗</span></h3><p>Mask pruning across 15 configurations with an information-processing metric.</p><div class="tracks"><span class="t-ai">AI</span></div></div></button><div class="project-links"><a href="https://github.com/lenishu/IPA_using_Densenet" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a></div></article>
+        <article class="project-card"><button class="project-open" data-project="hpc" aria-label="Read about HPC operations and the RAG assistant"><div class="project-art hpc-art" aria-hidden="true"><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><span>research@ircc:~</span></div><p><b>❯</b> squeue --me</p><div class="terminal-grid"><span>COMPUTE</span><span>STATE</span><span>cluster / 01</span><strong>● running</strong><span>inference / 02</span><strong>● running</strong><span>retrieval / 03</span><strong>● building</strong></div><p><b>❯</b> _</p></div><span class="art-index">03 — SYSTEMS</span></div><div class="project-info"><span class="project-type">RESEARCH COMPUTING · IRCC · 2026</span><h3>HPC operations &amp; RAG assistant <span>↗</span></h3><p>Slurm and xCAT cluster operations, MPI workflows, retrieval-augmented support.</p><div class="tracks"><span class="t-ai">AI</span><span class="t-sys">Systems</span></div></div></button><div class="project-links"><a href="https://github.com/lenishu/HPC-IRCC" target="_blank" rel="noopener noreferrer">Documentation &amp; source <span aria-hidden="true">↗</span></a></div></article>
+        <article class="project-card"><button class="project-open" data-project="panthersoft" aria-label="Read about PantherSoft class search"><div class="project-art search-art" aria-hidden="true"><div class="search-preview"><div class="mini-brand">FIU <span>CLASS SEARCH</span></div><div class="mini-search">⌕ &nbsp; Search courses <span>↵</span></div><div class="mini-course"><i></i><div><b>Mathematics</b><span>Sections, seats and schedules.</span></div><em>↗</em></div><div class="speed-badge">10s <span>→</span> &lt;1s <small>RESPONSE TIME</small></div></div><span class="art-index">04 — SOFTWARE</span></div><div class="project-info"><span class="project-type">SOFTWARE ENGINEERING · PANTHERSOFT · 2026</span><h3>Public Class Search, rebuilt <span>↗</span></h3><p>Client-side caching cut response time from 10 s to under 1 s.</p><div class="tracks"><span class="t-sys">Systems</span></div></div></button><div class="project-links"><a href="https://classes.fiu.edu/" target="_blank" rel="noopener noreferrer">Live FIU class search <span aria-hidden="true">↗</span></a></div></article>
+        <article class="upcoming-card"><span class="upcoming-icon" aria-hidden="true">↗</span><div><span class="project-type">IN PROGRESS</span><h3>Paper Quest</h3><p>Write-up in preparation.</p></div></article>
+        <article class="upcoming-card"><span class="upcoming-icon" aria-hidden="true">◎</span><div><span class="project-type">IN PROGRESS</span><h3>Mathsphere</h3><p>Write-up in preparation.</p></div></article>
+      </div>
+      <div class="project-archive"><p class="eyebrow">OTHER PROJECTS</p><div class="archive-grid">
+        <article><div><h3>Carbon-emission prediction</h3><p>End-to-end prediction pipeline with feature engineering in scikit-learn and pandas; +18% accuracy over baseline.</p></div></article>
+        <article><div><h3>Baghchal RL</h3><p>Custom Gym environment and DQN agent; 85% win rate against a rule-based opponent.</p></div><a href="https://github.com/lenishu/Solve_baghchal" target="_blank" rel="noopener noreferrer">Source ↗</a></article>
+        <article><div><h3>Data Nexus</h3><p>Open-data platform with 1,500+ datasets and a climate model trained on historical CO₂ data.</p></div><a href="https://data-nexus.netlify.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a></article>
+      </div></div>
+      <div class="github-line"><span>More code on GitHub.</span><a class="text-link" href="https://github.com/lenishu" target="_blank" rel="noopener noreferrer">github.com/lenishu ↗</a></div>
+    </section>
 
-        <article class="project">
-          <h3>DenseNet-121 mask-pruning pipeline</h3>
-          <p>Framework-portable pruning masks (PyTorch + TensorFlow) and the IPA metric for benchmarking learning under pruning.</p>
-          <p class="tags"><span>PyTorch</span><span>TensorFlow</span><span>Model compression</span></p>
-        </article>
-
-        <article class="project">
-          <h3>Baghchal RL agent</h3>
-          <p>Reinforcement-learning agent for Baghchal, a traditional Nepali board game. Custom environment, reward shaping, self-play.</p>
-          <p class="tags"><span>RL</span><span>Python</span></p>
-        </article>
-
-        <article class="project">
-          <h3>Carbon-emission prediction pipeline</h3>
-          <p>End-to-end: ingestion, cleaning, feature engineering, model training, evaluation dashboard.</p>
-          <p class="tags"><span>ML</span><span>Data pipeline</span></p>
-        </article>
-
-        <article class="project">
-          <h3>n8n scheduling agent</h3>
-          <p>Automation agent that schedules and registers congressional outreach across organizations. Built with an interdisciplinary team (marketing, neuroscience, psychology, math).</p>
-          <p class="tags"><span>n8n</span><span>Automation</span><span>Agents</span></p>
-        </article>
-
-        <article class="project">
-          <h3>Eye-tracking mouse replacement</h3>
-          <p>Prototype that replaces mouse input with gaze tracking. Six-discipline team: CS, data science/AI, bio-engineering, economics, media.</p>
-          <p class="tags"><span>Computer vision</span><span>Accessibility</span></p>
-        </article>
+    <section class="experience section" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading"><div><p class="eyebrow">03 / EXPERIENCE</p><h2 id="experience-title">Research &amp; <em>experience.</em></h2></div><p class="legend"><span class="key-research">Research</span><span class="key-engineering">Engineering</span></p></div>
+      <div class="timeline" id="timeline">
+        <div class="timeline-axis" aria-hidden="true"><span></span><span class="axis-track" id="axis-track"></span><span></span></div>
+        <details class="role" data-track="research" data-start="2026-05" data-end="present" open><summary><span class="role-name">Quantum ML Research Assistant<small>Data Management Research Lab · FIU</small></span><span class="role-track" aria-hidden="true"><span class="role-bar"></span></span><span class="role-dates"></span></summary><div class="role-detail"><p>Hyperparameter-free optimizers for quantum machine learning, with Prof. Janki Bhimani.</p><div class="tags"><span>Spectral bounds</span><span>Proofs</span><span>Imaginary Time Evolution</span></div></div></details>
+        <details class="role" data-track="engineering" data-start="2026-06" data-end="present"><summary><span class="role-name">HPC Administrative Intern<small>Instructional Research &amp; Computing Center · FIU</small></span><span class="role-track" aria-hidden="true"><span class="role-bar"></span></span><span class="role-dates"></span></summary><div class="role-detail"><p>Slurm and xCAT cluster operations, MPI workflows, and a RAG assistant for HPC questions.</p><div class="tags"><span>Slurm</span><span>xCAT</span><span>MPI</span><span>RAG</span></div></div></details>
+        <details class="role" data-track="engineering" data-start="2026-07" data-end="present"><summary><span class="role-name">IT Network Operations Assistant<small>Division of IT · FIU</small></span><span class="role-track" aria-hidden="true"><span class="role-bar"></span></span><span class="role-dates"></span></summary><div class="role-detail"><p>Network operations with FIU’s IT Operations team.</p><div class="tags"><span>Operations</span></div></div></details>
+        <details class="role" data-track="engineering" data-start="2026-04" data-end="2026-06"><summary><span class="role-name">Software Engineering Intern<small>PantherSoft · FIU</small></span><span class="role-track" aria-hidden="true"><span class="role-bar"></span></span><span class="role-dates"></span></summary><div class="role-detail"><p>Modernized Public Class Search on a five-person Agile team.</p><div class="tags"><span>10 s → &lt;1 s response</span><span>35% faster load</span><span>React · TypeScript</span></div></div></details>
+        <details class="role" data-track="research" data-start="2026-01" data-end="2026-04"><summary><span class="role-name">Computational Neuroscience Researcher<small>Pena Lab · FAU / FIU / FSU</small></span><span class="role-track" aria-hidden="true"><span class="role-bar"></span></span><span class="role-dates"></span></summary><div class="role-detail"><p>BRIAN2 simulations of the Drosophila Giant Fiber System; led Docker, CI/CD and Git workshops.</p><div class="tags"><span>BRIAN2</span><span>3 universities</span></div></div></details>
+        <details class="role" data-track="research" data-start="2025-01" data-end="2026-04"><summary><span class="role-name">Deep Learning Research Assistant<small>Department of Physics · FIU</small></span><span class="role-track" aria-hidden="true"><span class="role-bar"></span></span><span class="role-dates"></span></summary><div class="role-detail"><p>Led a five-person team studying DenseNet-121 pruning.</p><div class="tags"><span>15 configurations</span><span>+30% eval throughput</span></div></div></details>
+        <details class="role" data-track="research" data-start="2022-12" data-end="2024-01"><summary><span class="role-name">AI Fellow<small>Fusemachines AI Fellowship</small></span><span class="role-track" aria-hidden="true"><span class="role-bar"></span></span><span class="role-dates"></span></summary><div class="role-detail"><p>Deep Q-Network agent in a custom Gym environment, and a carbon-emission prediction pipeline.</p><div class="tags"><span>85% win rate</span><span>+18% over baseline</span><span>DQN</span></div><a class="text-link" href="https://github.com/lenishu/Solve_baghchal" target="_blank" rel="noopener noreferrer">Repository ↗</a></div></details>
       </div>
     </section>
 
-    <section id="publications" class="section">
-      <h2 class="section-title"><span class="tick">/</span> Publications</h2>
-      <ul class="pub-list">
-        <li>
-          <p class="pub-title">Solving the Planar Graph Coloring Problem with Grover&rsquo;s Algorithm</p>
-          <p class="pub-venue">International Journal of Innovative Science and Research Technology (IJISRT)</p>
-        </li>
-      </ul>
-    </section>
-
-    <section id="teaching" class="section">
-      <h2 class="section-title"><span class="tick">/</span> Teaching, Leadership &amp; Service</h2>
-      <div class="split">
-        <div>
-          <h3>Teaching</h3>
-          <ul>
-            <li>Learning Assistant &mdash; Pre-Calculus, Calculus I &amp; II, Physics (3 semesters, 400+ students)</li>
-            <li>FIUteach fellow &mdash; South Miami Middle School, physical science</li>
-            <li>Peer Mentor &mdash; incoming international students at FIU</li>
-            <li>Instructor &mdash; QNepal QWorld-certified quantum computing workshop</li>
-            <li>Lead mentor &mdash; 10-week quantum computing mentorship, Student&rsquo;s Research Council Nepal</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Leadership &amp; service</h3>
-          <ul>
-            <li>Co-founder &mdash; QNepal</li>
-            <li>Treasurer &mdash; Nepali Student Association, FIU</li>
-            <li>Member &mdash; INIT, SUMAC</li>
-            <li>Next semester &mdash; leading a BUILD club project (10+ students)</li>
-            <li>Judge &mdash; South Florida Regional Science &amp; Engineering Fair</li>
-            <li>Participant &mdash; FEA Conference</li>
-          </ul>
-        </div>
+    <section class="toolbox section" aria-labelledby="toolbox-title"><div class="toolbox-head"><p class="eyebrow">04 / TOOLKIT</p><h2 id="toolbox-title">Theory to <em>terminal.</em></h2></div>
+      <div class="stack">
+        <div class="stack-layer"><h3>Mathematics</h3><ul><li>Probability &amp; statistics</li><li>Linear algebra</li><li>Numerical methods</li><li>Optimization theory</li><li>Statistical physics</li></ul></div>
+        <div class="stack-layer"><h3>Machine learning &amp; quantum</h3><ul><li>PyTorch</li><li>TensorFlow</li><li>scikit-learn</li><li>Stable-Baselines3</li><li>Hugging Face</li><li>Qiskit</li></ul></div>
+        <div class="stack-layer"><h3>Languages &amp; data</h3><ul><li>Python</li><li>C++</li><li>SQL</li><li>NumPy</li><li>pandas</li><li>LaTeX</li></ul></div>
+        <div class="stack-layer"><h3>Systems &amp; HPC</h3><ul><li>Linux</li><li>Slurm</li><li>xCAT</li><li>MPI</li><li>Docker</li><li>Git</li></ul></div>
+        <p class="stack-axis" aria-hidden="true"><span>theory</span><span>terminal</span></p>
       </div>
     </section>
 
-    <section id="skills" class="section">
-      <h2 class="section-title"><span class="tick">/</span> Skills &amp; Tooling</h2>
-      <div class="skills">
-        <div class="skill-group">
-          <h4>Languages</h4>
-          <p class="tags"><span>Python</span><span>C / C++</span><span>JavaScript</span><span>SQL</span><span>LaTeX</span></p>
-        </div>
-        <div class="skill-group">
-          <h4>ML &amp; scientific computing</h4>
-          <p class="tags"><span>PyTorch</span><span>TensorFlow</span><span>scikit-learn</span><span>NumPy</span><span>Pandas</span><span>BRIAN2</span></p>
-        </div>
-        <div class="skill-group">
-          <h4>Quantum</h4>
-          <p class="tags"><span>Qiskit</span><span>IBM Quantum</span><span>Grover&rsquo;s algorithm</span><span>Quantum oracles</span></p>
-        </div>
-        <div class="skill-group">
-          <h4>Infra &amp; tooling</h4>
-          <p class="tags"><span>Docker</span><span>CI/CD</span><span>Git</span><span>n8n</span><span>Linux</span></p>
-        </div>
-      </div>
-    </section>
+    <section class="publication section" aria-labelledby="publication-title"><svg class="grover-mini" viewBox="0 0 160 64" aria-hidden="true"></svg><div class="publication-copy"><p class="eyebrow">PUBLICATION · 2023</p><h2 id="publication-title">Solving the General Planar Graph Coloring<br>Problem Using Grover’s Algorithm</h2><p>International Journal of Innovative Science and Research Technology</p></div><div class="publication-actions"><a class="text-link" href="https://ijisrt.com/solving-the-general-planar-graph-coloring-problem-using-grovers-algorithm" target="_blank" rel="noopener noreferrer">Paper ↗</a><a class="text-link" href="https://github.com/lenishu/Grovers_algorithm_for_graph_coloring_problem" target="_blank" rel="noopener noreferrer">Code ↗</a><button class="button" data-project="publication">Run the demo <span aria-hidden="true">▷</span></button></div></section>
 
-    <section id="education" class="section">
-      <h2 class="section-title"><span class="tick">/</span> Education &amp; Coursework</h2>
-      <div class="edu">
-        <h3>Florida International University</h3>
-        <p class="meta">B.S. Mathematical Data Science &middot; GPA 3.86 &middot; Presidential Premier Honors Scholar</p>
-        <p><strong>Outside coursework:</strong> CodePath AI &amp; Machine Learning, Technical Interview Prep, Breakthrough Tech, Sprinternship workshop.</p>
-        <p><strong>On the list:</strong> Quantum Mechanics I, Modern Physics, Thermodynamics, Optics, Quantitative Risk Management, Entrepreneurship certificate.</p>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact">
-      <h2 class="section-title"><span class="tick">/</span> Get in touch</h2>
-      <p>
-        I&rsquo;m always up for a conversation about quantum computing, ML research, interdisciplinary
-        teams, or teaching. The fastest way to reach me is email.
-      </p>
-      <p class="contact-actions">
-        <a class="btn primary" href="mailto:lpand003@fiu.edu">lpand003@fiu.edu</a>
-        <a class="btn" href="lenish_CV.pdf">Resume (PDF)</a>
-      </p>
-    </section>
-
-    <footer>
-      <p>&copy; 2026 Lenish Pandey &middot; Built with plain HTML &amp; CSS &middot; <a href="#top">Back to top</a></p>
-    </footer>
-
+    <section class="contact section" id="contact" aria-labelledby="contact-title"><p class="eyebrow"><span class="status-dot"></span> CONTACT</p><h2 id="contact-title">Open to research<br><em>conversations.</em></h2><div class="contact-bottom"><a class="contact-email" href="mailto:lenishpandeynepal@gmail.com">lenishpandeynepal@gmail.com <span aria-hidden="true">↗</span></a><button id="copy-email" class="copy-button" aria-label="Copy email address">Copy email <span aria-hidden="true">⧉</span></button><span id="copy-status" class="sr-only" role="status"></span><div class="social-links"><a href="resume.html" target="_blank" rel="noopener">Résumé ↗</a><a href="https://github.com/lenishu" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/lenish-pandey-830720214/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div></section>
   </main>
-
+  <footer class="site-footer"><a class="wordmark" href="#home">lenish<span>✳</span></a><p>© <span id="year">2026</span> Lenish Pandey</p><a href="#home">BACK TO TOP ↑</a></footer>
+  <dialog id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Close project details">×</button><p class="eyebrow" id="dialog-category"></p><h2 id="dialog-title"></h2><p class="dialog-summary" id="dialog-summary"></p><figure class="dialog-viz" id="dialog-viz"></figure><dl class="dialog-stats" id="dialog-stats"></dl><div id="dialog-body"></div><button class="button dialog-done">Close</button></dialog>
 </body>
 </html>
