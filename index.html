@@ -5,10 +5,10 @@
   <meta name="description" content="Lenish Pandey — mathematics student at FIU working across neural networks, quantum computing, and quantitative research.">
   <title>Lenish Pandey — Neural, Quantum &amp; Quant</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="app.css?v=20260924b">
-  <link rel="stylesheet" href="story.css?v=20260924b">
-  <script src="viz.js?v=20260924b" defer></script><script src="app.js?v=20260924b" defer></script>
-  <script src="story.js?v=20260924b" type="module"></script>
+  <link rel="stylesheet" href="app.css?v=20260924c">
+  <link rel="stylesheet" href="story.css?v=20260924c">
+  <script src="viz.js?v=20260924c" defer></script><script src="app.js?v=20260924c" defer></script>
+  <script src="story.js?v=20260924c" type="module"></script>
 </head>
 <body class="story" data-field="neural">
   <svg class="sprite" aria-hidden="true">
@@ -33,7 +33,8 @@
       <li data-chapter="neural"><a class="ch" href="#neural"><i></i><span>Neural</span></a>
         <div class="steps"><ol>
           <li><a href="#rag">RAG system</a></li><li><a href="#hpc">HPC administration</a></li><li><a href="#ipa">Information processing</a></li>
-          <li><a href="#neuro">Fly brain</a></li><li><a href="#roles">PantherSoft &amp; IT ops</a></li><li><a href="#projects">Projects</a></li>
+          <li><a href="#neuro">Fly brain</a></li><li><a href="#roles">Public Class Search</a></li><li><a href="#it-operations">IT operations</a></li>
+          <li><a href="#projects">PaperQuest</a></li><li><a href="#mathsphere">MathSphere</a></li>
         </ol></div></li>
       <li data-chapter="quantum"><a class="ch" href="#quantum"><i></i><span>Quantum</span></a>
         <div class="steps"><ol><li><a href="#quantum">Learning rates</a></li><li><a href="#grover">Grover coloring</a></li><li><a href="#credentials">Credentials</a></li></ol></div></li>
@@ -60,9 +61,9 @@
 
     <!-- ============================== NEURAL ============================== -->
     <div class="chapter" id="neural" data-chapter="neural">
-      <div class="hpc-sequence" aria-labelledby="hpc-role-title">
-        <div class="hpc-heading-track">
-          <header class="hpc-heading">
+      <div class="experience-sequence" aria-labelledby="hpc-role-title">
+        <div class="role-heading-track">
+          <header class="role-heading">
             <p class="kicker">Neural / Experience</p>
             <h2 id="hpc-role-title">HPC Administration &amp; Operations Intern</h2>
             <p>Instructional &amp; Research Computing Center, FIU</p>
@@ -164,14 +165,19 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
 
       </div>
 
+      <div class="experience-sequence" aria-labelledby="research-heading">
+        <div class="role-heading-track">
+          <header class="role-heading">
+            <p class="kicker">Neural / Research</p>
+            <h2 id="research-heading">Undergraduate Research Assistant</h2>
+            <p>Learning, information and neural circuits.</p>
+          </header>
+        </div>
       <section class="step tall" id="ipa" data-form="neural.densenet" data-caption="DenseNet: dense blocks where every layer feeds every later one. Scroll to remove connections at random.">
         <article class="entry research">
-          <p class="kicker">Neural <span class="type">Research</span></p>
-          <header class="role">
-            <h2>Undergraduate Research Assistant</h2>
-            <p class="where"><span>Department of Physics, FIU</span><span>Jan 2025 – Apr 2026</span></p>
-          </header>
-          <p class="project"><span>Project</span>Information processing ability of neural networks</p>
+
+          <h3 class="project"><span>01 / 02</span>Information processing ability of neural networks</h3>
+          <p class="where"><span>Department of Physics, FIU</span><span>Jan 2025 – Apr 2026</span></p>
           <p class="lead">As we age, or as neurons die, how quickly does the ability to learn change, and where does it collapse?</p>
           <figure class="fig ipa-fig">
             <div class="fig-tabs" role="tablist" aria-label="Information processing ability">
@@ -223,12 +229,9 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
 
       <section class="step" id="neuro" data-form="neural.fly" data-caption="Fruit-fly brain after the FlyWire and hemibrain connectome maps: optic lobes, mushroom bodies, the central-complex compass.">
         <article class="entry research">
-          <p class="kicker">Neural <span class="type">Research</span></p>
-          <header class="role">
-            <h2>Computational Neuroscience Researcher</h2>
-            <p class="where"><span>Pena Lab · FAU, FIU &amp; FSU</span><span>Jan – Apr 2026</span></p>
-          </header>
-          <p class="project"><span>Project</span>The fruit fly’s escape circuit, simulated</p>
+
+          <h3 class="project"><span>02 / 02</span>Pena Lab: computational neuroscience</h3>
+          <p class="where"><span>Pena Lab · FAU, FIU &amp; FSU</span><span>Jan – Apr 2026</span></p>
           <p class="lead">A neural-circuit simulation of the <i>Drosophila</i> giant fiber system, the circuit that fires the fly’s escape jump.</p>
           <div class="acc more"><button type="button" aria-expanded="false">More: what I did and how<span class="plus" aria-hidden="true"></span></button>
             <div class="acc-body"><div>
@@ -242,15 +245,20 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
             </div></div></div>
         </article>
       </section>
+      </div>
 
+      <div class="experience-sequence" aria-labelledby="software-heading">
+        <div class="role-heading-track">
+          <header class="role-heading">
+            <p class="kicker">Neural / Experience</p>
+            <h2 id="software-heading">Software Engineering</h2>
+            <p>Software, networks and systems at FIU.</p>
+          </header>
+        </div>
       <section class="step" id="roles" data-form="neural.net" data-caption="Campus network: core routers, distribution and access switches. A core link fails and traffic reroutes around it.">
-        <div class="stack">
-          <article class="entry job spotlight">
-            <p class="kicker">Neural <span class="type">Job</span></p>
-            <header class="role">
-              <h2>Software Engineering Intern</h2>
-              <p class="where"><span>PantherSoft, FIU</span><span>Apr – Jun 2026</span></p>
-            </header>
+        <article class="entry job spotlight">
+            <h3 class="project"><span>01 / 02</span>Public Class Search</h3>
+            <p class="where"><span>PantherSoft, FIU</span><span>Apr – Jun 2026</span></p>
             <a class="shot" href="https://classes.fiu.edu/" target="_blank" rel="noopener noreferrer"><img src="assets/media/fiu-class-search.webp" alt="FIU Public Class Search home page" loading="lazy"><span>classes.fiu.edu ↗</span></a>
             <ul class="points tight">
               <li>Modernized FIU’s <b>Public Class Search</b>, used by 50,000+ students, on a five-person Agile team.</li>
@@ -261,49 +269,69 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
             <div class="chips"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Firebase</span><span>REST APIs</span><span>Agile</span></div>
             <div class="links"><a class="link-pill primary" href="https://classes.fiu.edu/" target="_blank" rel="noopener noreferrer">Public Class Search ↗</a><button class="link-pill" data-demo="panthersoft">The numbers ▷</button></div>
           </article>
-          <article class="entry job">
-            <p class="kicker">Neural <span class="type">Job</span></p>
-            <header class="role">
-              <h2>IT Network Operations Assistant</h2>
-              <p class="where"><span>Division of IT, FIU</span><span>Jul 2026 – Present</span></p>
-            </header>
+      </section>
+
+      <section class="step" id="it-operations" data-form="neural.net" data-caption="Campus network: core routers, distribution and access switches. A core link fails and traffic reroutes around it.">
+        <article class="entry job">
+            <h3 class="project"><span>02 / 02</span>IT Network Operations</h3>
+            <p class="where"><span>Division of IT, FIU</span><span>Jul 2026 – Present</span></p>
             <p class="lead">Network and systems operations with FIU’s IT Operations team: watching monitors, answering alerts and keeping scheduled jobs running.</p>
             <div class="skill-row"><span>Working at a fast pace</span><span>On call</span><span>Clear communication</span></div>
             <h4 class="sub">Tools</h4>
             <div class="chips"><span>Nagios</span><span>PagerDuty</span><span>Microsoft Teams</span><span>Tidal jobs</span><span>Remote Desktop</span></div>
           </article>
-        </div>
       </section>
+      </div>
 
+      <div class="experience-sequence" aria-labelledby="personal-heading">
+        <div class="role-heading-track">
+          <header class="role-heading">
+            <p class="kicker">Neural / Independent</p>
+            <h2 id="personal-heading">Personal Projects</h2>
+            <p>Tools for learning and exploring ideas.</p>
+          </header>
+        </div>
       <section class="step" id="projects" data-form="neural.brain" data-caption="A human brain: waves of activity spread over the cortex while signals run through white-matter tracts.">
         <article class="entry">
-          <p class="kicker">Neural <span class="type">Projects</span></p>
-          <h2>Projects</h2>
+          <h3 class="project"><span>01 / 02</span>PaperQuest</h3>
           <div class="proj big">
             <img src="assets/media/paperquest-app.webp" alt="PaperQuest dashboard: a knowledge graph of concepts, projects in progress and daily activity" loading="lazy">
-            <div><h4>PaperQuest</h4><p>Drop in a research paper; a language model maps the concepts it stands on into a prerequisite graph rooted in high-school math, then teaches it bottom-up with lessons and quizzes, all drawn as an explorable knowledge galaxy.</p>
+            <div><p>Drop in a research paper; a language model maps the concepts it stands on into a prerequisite graph rooted in high-school math, then teaches it bottom-up with lessons and quizzes, all drawn as an explorable knowledge galaxy.</p>
               <div class="chips"><span>React</span><span>Node.js</span><span>LLMs</span><span>Docling</span></div>
               <div class="links"><a class="link-pill" href="https://github.com/lenishu/Paperquest" target="_blank" rel="noopener noreferrer">Code ↗</a></div></div>
           </div>
+        </article>
+      </section>
+
+      <section class="step" id="mathsphere" data-form="neural.brain" data-caption="A human brain: waves of activity spread over the cortex while signals run through white-matter tracts.">
+        <article class="entry">
+          <h3 class="project"><span>02 / 02</span>MathSphere</h3>
           <div class="proj big">
             <img src="assets/media/mathsphere-app.webp" alt="MathSphere explore view: domain-coloring plots of the gamma function, exponential, simple pole, roots of unity, branch cut and an essential singularity" loading="lazy">
-            <div><h4>MathSphere</h4><p>Type an expression you cannot picture, or pull one from a paper, and it becomes a moving scene: complex functions by domain coloring, matrices as transformations, curves carrying their tangents. Each scene says how far to trust it.</p>
+            <div><p>Type an expression you cannot picture, or pull one from a paper, and it becomes a moving scene: complex functions by domain coloring, matrices as transformations, curves carrying their tangents. Each scene says how far to trust it.</p>
               <div class="chips"><span>JavaScript</span><span>Node.js</span><span>Visualization</span><span>Complex analysis</span></div></div>
           </div>
         </article>
       </section>
+      </div>
     </div>
 
     <!-- ============================== QUANTUM ============================== -->
     <div class="chapter" id="quantum-chapter" data-chapter="quantum">
+      <div class="experience-sequence" aria-labelledby="quantum-research-heading">
+        <div class="role-heading-track">
+          <header class="role-heading">
+            <p class="kicker">Quantum / Research</p>
+            <h2 id="quantum-research-heading">Quantum Research</h2>
+            <p>Learning systems and quantum algorithms.</p>
+          </header>
+        </div>
       <section class="step" id="quantum" data-form="quantum.vqe" data-zoom="1.15" data-caption="VQE energy landscape: the optimizer descends past local minima to the ground state; energy per iteration on the back wall.">
         <article class="entry research">
-          <p class="kicker">Quantum <span class="type">Research</span></p>
-          <header class="role">
-            <h2>Quantum ML Research Assistant</h2>
-            <p class="where"><span>Data Management Research Lab (DaMRL), FIU · with Prof. Janki Bhimani</span><span>May 2026 – Present</span></p>
-          </header>
-          <p class="project"><span>Project</span>Quantum learning rates: Polyak step sizes with guarantees</p>
+
+          <h3 class="project"><span>01 / 02</span>Quantum learning rates: Polyak step sizes with guarantees</h3>
+          <p class="project-role">Quantum ML Research Assistant</p>
+          <p class="where"><span>Data Management Research Lab (DaMRL), FIU · with Prof. Janki Bhimani</span><span>May 2026 – Present</span></p>
           <p class="lead">A variational quantum algorithm walks down an energy landscape, and how far each step goes is usually hand-tuned. We derive it instead: the energy variance, measurable on the quantum computer, bounds the distance to the ground state, and a Polyak step turns that bound into the learning rate.</p>
           <figure class="fig levels" data-levels aria-label="Final energy of three optimizers on a 6-qubit, 5-layer transverse-field Ising model"></figure>
           <div class="acc more"><button type="button" aria-expanded="false">More: what I did and how<span class="plus" aria-hidden="true"></span></button>
@@ -327,8 +355,7 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
 
       <section class="step" id="grover" data-form="quantum.grover" data-caption="Grover search on a graph: the oracle flips valid colorings, diffusion amplifies them, and a measurement colors the graph.">
         <article class="entry research">
-          <p class="kicker">Quantum <span class="type">Publication</span></p>
-          <h2>Solving the general planar graph coloring problem using Grover’s algorithm</h2>
+          <h3 class="project"><span>02 / 02</span>Solving the general planar graph coloring problem using Grover’s algorithm</h3>
           <p class="meta">International Journal of Innovative Science and Research Technology, Vol. 8 (2023) · Lenish Pandey et al.</p>
           <p class="lead">A quantum circuit that uses Grover’s search, quadratically faster than classical search, to color planar graphs, applied to placing specialists across hospitals.</p>
           <div class="thumbs">
@@ -338,11 +365,19 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
           <div class="links"><button class="link-pill primary" data-demo="publication">Run Grover demo ▷</button><a class="link-pill" href="https://ijisrt.com/solving-the-general-planar-graph-coloring-problem-using-grovers-algorithm" target="_blank" rel="noopener noreferrer">Paper ↗</a><a class="link-pill" href="https://doi.org/10.5281/zenodo.10629676" target="_blank" rel="noopener noreferrer">DOI ↗</a><a class="link-pill" href="https://github.com/lenishu/Grovers_algorithm_for_graph_coloring_problem" target="_blank" rel="noopener noreferrer">Code ↗</a></div>
         </article>
       </section>
+      </div>
 
+      <div class="experience-sequence" aria-labelledby="quantum-learning-heading">
+        <div class="role-heading-track">
+          <header class="role-heading">
+            <p class="kicker">Quantum / Learning</p>
+            <h2 id="quantum-learning-heading">Quantum Foundations</h2>
+            <p>Challenges, summer schools and coursework.</p>
+          </header>
+        </div>
       <section class="step" id="credentials" data-form="quantum.slit" data-caption="Double slit: single particles pass two slits and land one at a time, building interference fringes.">
         <article class="entry">
-          <p class="kicker">Quantum <span class="type">Credentials</span></p>
-          <h2>Credentials</h2>
+          <h3 class="project"><span>Learning</span>Credentials</h3>
           <div class="creds">
             <a href="https://www.credly.com/badges/41bfeb6b-95f9-4495-8939-d14e456e5676/public_url" target="_blank" rel="noopener noreferrer"><b>IBM Quantum Challenge 2024</b><span>Achievement ↗</span></a>
             <a href="https://www.credly.com/badges/2c0e1e83-b0c1-4215-8a66-d54f759ce8b6/public_url" target="_blank" rel="noopener noreferrer"><b>Qiskit Global Summer School 2022</b><span>Quantum Excellence ↗</span></a>
@@ -351,48 +386,74 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
           </div>
         </article>
       </section>
+      </div>
     </div>
 
     <!-- ============================== QUANT ============================== -->
     <div class="chapter" id="quant-chapter" data-chapter="quant">
+      <div class="experience-sequence" aria-labelledby="markets-heading">
+        <div class="role-heading-track">
+          <header class="role-heading">
+            <p class="kicker">Quant / Overview</p>
+            <h2 id="markets-heading">Quantitative Research</h2>
+            <p>Probability, computation and markets.</p>
+          </header>
+        </div>
       <section class="step" id="quant" data-form="quant.tape" data-caption="Price tape: a live price line, candlesticks, and the distribution of returns at the edge.">
         <article class="entry">
-          <p class="kicker">Quant</p>
-          <h2>Probability, priced</h2>
+          <h3 class="project">Probability, priced</h3>
           <p class="lead">Probability and computation applied to markets: option-trading research, the Student Managed Investment Fund, and a self-custody crypto wallet.</p>
           <div class="chips"><span>Probability &amp; statistics</span><span>Numerical methods</span><span>Optimization</span><span>Python · C++ · SQL</span></div>
         </article>
       </section>
+      </div>
 
+      <div class="experience-sequence" aria-labelledby="options-role-heading">
+        <div class="role-heading-track">
+          <header class="role-heading">
+            <p class="kicker">Quant / Research</p>
+            <h2 id="options-role-heading">Mathematics Research</h2>
+            <p>Florida International University</p>
+          </header>
+        </div>
       <section class="step" id="options" data-form="quant.bs" data-caption="Black–Scholes call-price surface C(S, τ), with simulated price paths riding it to expiry.">
         <article class="entry research">
-          <p class="kicker">Quant <span class="type">Research</span></p>
-          <h2>Option trading research <span class="pending">details to add</span></h2>
+          <h3 class="project">Option trading research</h3>
           <p class="meta">Mathematics research · Florida International University</p>
           <p class="lead">Mathematics research on option trading.</p>
           <div class="links"><button class="link-pill" data-demo="options">Concept demo ▷</button></div>
           <p class="note">The surface and the demo illustrate the Black–Scholes model; they are not research results.</p>
         </article>
       </section>
+      </div>
 
+      <div class="experience-sequence" aria-labelledby="fund-role-heading">
+        <div class="role-heading-track">
+          <header class="role-heading">
+            <p class="kicker">Quant / Experience</p>
+            <h2 id="fund-role-heading">Student Managed Investment Fund</h2>
+            <p>Florida International University</p>
+          </header>
+        </div>
       <section class="step" id="smif" data-form="quant.smile" data-caption="Implied-volatility smile: the surface of volatilities the market implies across strikes and expiries, with a live price tape behind it.">
         <article class="entry job">
-          <p class="kicker">Quant <span class="type">Experience</span></p>
-          <header class="role">
-            <h2>Student Managed Investment Fund</h2>
-            <p class="where"><span>Member · Florida International University</span><span></span></p>
-          </header>
+          <h3 class="project">Investment fund</h3>
           <p class="lead">Role and contributions <span class="pending">details to add</span></p>
         </article>
       </section>
+      </div>
 
+      <div class="experience-sequence" aria-labelledby="wallet-role-heading">
+        <div class="role-heading-track">
+          <header class="role-heading">
+            <p class="kicker">Quant / Experience</p>
+            <h2 id="wallet-role-heading">Co-founder &amp; Backend Engineer</h2>
+            <p>Cashify Wallet</p>
+          </header>
+        </div>
       <section class="step" id="cashify" data-form="quant.wallet" data-caption="Self-custody wallet: each payment is reviewed, signed on the device, broadcast to a network and confirmed into a block.">
         <article class="entry job">
-          <p class="kicker">Quant <span class="type">Job</span></p>
-          <header class="role">
-            <h2>Co-founder &amp; Backend Engineer</h2>
-            <p class="where"><span>Cashify Wallet</span><span></span></p>
-          </header>
+          <h3 class="project">Cashify Wallet</h3>
           <p class="lead">A non-custodial crypto wallet: keys stay on the device, and every payment is signed there, after the user reviews recipient, network, amount and fee.</p>
           <ol class="flow">
             <li><b>Review</b>Recipient, network, amount and fee, on screen.</li>
@@ -404,6 +465,7 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
           <div class="links"><a class="link-pill primary" href="https://cashifywallet.com/" target="_blank" rel="noopener noreferrer">cashifywallet.com ↗</a><a class="link-pill" href="https://play.google.com/store/apps/details?id=com.cashifywallet.wallet" target="_blank" rel="noopener noreferrer">Google Play ↗</a></div>
         </article>
       </section>
+      </div>
     </div>
 
     <section class="step contact" id="contact" data-form="finale" data-frame="center" data-caption="All three fields at once." aria-labelledby="contact-title">
@@ -416,7 +478,7 @@ ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></p
           <a class="icon" href="https://github.com/lenishu" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg><use href="#i-gh"/></svg></a>
           <button class="icon text" type="button" data-copy="lenishpandeynepal@gmail.com">Copy email ⧉</button>
         </div>
-        <a class="more-about" href="about.html"><span>There’s more about me</span><b>About →</b></a>
+        <a class="about-link" href="about.html"><span>About me</span><span aria-hidden="true">↗</span></a>
         <p class="sr-only" id="copy-status" role="status" aria-live="polite"></p>
       </div>
     </section>

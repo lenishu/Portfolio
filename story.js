@@ -14,6 +14,34 @@ const steps = $$('main [data-form]');
 const railSteps = $$('.rail .steps a');
 const caption = $('#caption');
 const ipa = $('#ipa');
+const sequences = $$('.experience-sequence');
+const projectSteps = steps.filter(step => step.closest('.experience-sequence'));
+document.body.classList.add('staged-story');
+
+// Keep only the current desktop project interactive. On phones everything stays
+// in normal reading order, with a small reveal as each entry reaches the screen.
+function stageProjects(step) {
+  const sequence = step.closest('.experience-sequence');
+  sequences.forEach(group => {
+    const on = group === sequence;
+    group.classList.toggle('is-active', on);
+    $('.role-heading', group).inert = !narrow.matches && !on;
+  });
+  projectSteps.forEach(project => {
+    const on = project === step;
+    project.classList.toggle('is-active', on);
+    $('.entry', project).inert = !narrow.matches && !on;
+  });
+}
+const reveal = new IntersectionObserver(entries => {
+  entries.forEach(({ target, isIntersecting }) => {
+    if (isIntersecting) {
+      target.closest('.step').classList.add('is-revealed');
+      reveal.unobserve(target);
+    }
+  });
+}, { threshold:0, rootMargin:'0px 0px -24px 0px' });
+projectSteps.forEach(step => reveal.observe($('.entry', step)));
 
 // Where the picture sits: centred for the hero and contact; beside the entries, centred in the
 // free band between the rail and the entry and scaled to fit it; in the top half on phones.
@@ -37,6 +65,7 @@ if (reduced) particles.speed(.45);   // calmer, but still moving: these forms ar
 let active = null;
 function activate(step) {
   active = step;
+  stageProjects(step);
   particles.show(step.dataset.form);
   particles.frame(frameFor(step));
   const field = step.closest('[data-chapter]')?.dataset.chapter || 'neural';
@@ -84,7 +113,9 @@ const captionBox = $('.caption'), footer = $('.footer');
 const requestScroll = () => { if (!queued) { queued = true; requestAnimationFrame(onScroll); } };
 addEventListener('scroll', requestScroll, { passive: true });
 addEventListener('resize', () => { if (active) particles.frame(frameFor(active)); requestScroll(); });
-narrow.addEventListener?.('change', () => active && particles.frame(frameFor(active)));
+narrow.addEventListener?.('change', () => {
+  if (active) { particles.frame(frameFor(active)); stageProjects(active); }
+});
 onScroll();
 particles.warm([...new Set(steps.map(s => s.dataset.form))]);
 

@@ -441,27 +441,11 @@
 .lv-val.win { fill:var(--field); font-weight:600; }
 .lv-name { font-size:10.5px; fill:var(--muted); }
 
-/* last page: point to About */
-.more-about {
-  position:relative;
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
-  margin-top:26px;
-  padding:12px 12px 12px 22px;
-  border:1px solid color-mix(in srgb, var(--field) 60%, transparent);
-  border-radius:999px;
-  background:color-mix(in srgb, var(--field) 10%, rgba(5,6,8,.7));
-  color:#fff;
-  text-decoration:none;
-  animation:beckon 2.6s var(--ease) infinite;
-}
-.more-about b { padding:7px 14px; border-radius:999px; background:var(--field); color:#05070a; font-weight:500; transition:transform .25s; }
-.more-about:hover b { transform:translateX(4px); }
-@keyframes beckon {
-  0%, 100% { box-shadow:0 0 0 0 color-mix(in srgb, var(--field) 45%, transparent); }
-  60% { box-shadow:0 0 0 14px transparent; }
-}
+/* A quiet, direct route to the About page. */
+.about-link { display:flex; justify-content:space-between; align-items:center; gap:64px; width:fit-content; margin:40px auto 0; padding:10px 0; border-bottom:1px solid rgba(255,255,255,.35); color:var(--text); text-decoration:none; font:400 22px/1.2 var(--font-heading); }
+.about-link span:last-child { transition:transform .25s var(--ease); }
+.about-link:hover span:last-child { transform:translate(3px,-3px); }
+.about-link:hover { border-color:currentColor; }
 .contact-inner .icons { margin-top:22px; }
 
 /* ---------------- Dialog figures: architecture and pam_slurm_adopt ---------------- */
@@ -548,24 +532,55 @@
 .story .entry .fig-tabs button[aria-selected="true"] { background:none; color:var(--text); border-bottom-color:currentColor; }
 .story .entry .outcomes li { padding-left:16px; }
 .story .entry .outcomes li::before { content:'–'; width:auto; height:auto; background:none; color:var(--muted); }
-.hpc-sequence { position:relative; }
-.hpc-heading-track { position:absolute; inset:0 0 100px; pointer-events:none; }
-.hpc-heading { position:sticky; top:110px; margin-left:250px; width:calc(50vw - 260px); max-width:390px; pointer-events:auto; }
-.hpc-heading h2 { font:400 clamp(26px,2.5vw,40px)/1.12 var(--font-heading); letter-spacing:-.035em; text-wrap:balance; }
-.hpc-heading .kicker { margin-bottom:18px; }
-.hpc-heading > p:not(.kicker) { margin-top:16px; max-width:30ch; font-size:13px; color:#b7bcc4; }
-.hpc-heading > p.tenure { margin-top:6px; color:var(--muted); }
-.hpc-sequence .project { margin-top:0; font-size:clamp(25px,2.3vw,34px); font-weight:400; line-height:1.15; text-wrap:balance; }
-.hpc-sequence .project span { margin-bottom:24px; color:var(--muted); }
-.hpc-sequence .lead { margin-top:22px; }
+.experience-sequence { position:relative; }
+.role-heading-track { position:absolute; inset:0 0 100px; pointer-events:none; }
+.role-heading { position:sticky; top:110px; margin-left:250px; width:calc(50vw - 260px); max-width:390px; pointer-events:auto; }
+.role-heading h2 { font:400 clamp(26px,2.5vw,40px)/1.12 var(--font-heading); letter-spacing:-.035em; text-wrap:balance; }
+.role-heading .kicker { margin-bottom:18px; }
+.role-heading > p:not(.kicker) { margin-top:16px; max-width:30ch; font-size:13px; color:#b7bcc4; }
+.role-heading > p.tenure { margin-top:6px; color:var(--muted); }
+.experience-sequence .project { margin-top:0; font-size:clamp(25px,2.3vw,34px); font-weight:400; line-height:1.15; text-wrap:balance; }
+.experience-sequence .project span { margin-bottom:24px; color:var(--muted); }
+.experience-sequence .lead { margin-top:22px; }
 @media (max-width:1100px) and (min-width:900px) {
-  .hpc-heading { margin-left:225px; width:calc(50vw - 235px); }
-  .hpc-heading h2 { font-size:25px; }
+  .role-heading { margin-left:225px; width:calc(50vw - 235px); }
+  .role-heading h2 { font-size:25px; }
 }
 @media (max-width:899px) {
-  .hpc-heading-track { position:relative; inset:auto; padding:120px 24px 0; }
-  .hpc-heading { position:relative; top:auto; margin:0 auto; width:100%; max-width:544px; }
-  .hpc-heading h2 { max-width:20ch; font-size:34px; }
-  .hpc-sequence .step { min-height:110svh; }
+  .role-heading-track { position:relative; inset:auto; padding:120px 24px 0; }
+  .role-heading { position:relative; top:auto; margin:0 auto; width:100%; max-width:544px; }
+  .role-heading h2 { max-width:20ch; font-size:34px; }
+  .experience-sequence .step { min-height:110svh; }
   .hero-step { min-height:100svh; }
+}
+
+/* Each desktop project is staged in place, with only a small entrance movement. */
+.project-role { margin-top:18px; color:#dfe2e6; font-size:14px; }
+.experience-sequence .project + .where { margin-top:18px; }
+.experience-sequence .proj.big { border:0; padding-top:24px; }
+.experience-sequence .proj.big p { font-size:15.5px; line-height:1.6; color:#c9cdd2; }
+@media (min-width:900px) {
+  .staged-story .experience-sequence .step { min-height:125vh; padding:0; }
+  .staged-story .experience-sequence .step.tall { min-height:260vh; }
+  .staged-story .role-heading-track { position:static; }
+  .staged-story .role-heading { position:fixed; left:250px; top:110px; margin:0; opacity:0; visibility:hidden; transform:translateY(18px); pointer-events:none; transition:opacity .3s ease, transform .4s var(--ease), visibility 0s .4s; }
+  .staged-story .experience-sequence.is-active .role-heading { opacity:1; visibility:visible; transform:none; pointer-events:auto; transition-delay:0s; }
+  .staged-story .experience-sequence .entry {
+    position:fixed; right:6vw; top:max(110px, calc(50dvh - 290px));
+    max-height:calc(100dvh - max(110px, calc(50dvh - 290px)) - 70px);
+    overflow-y:auto; scrollbar-width:thin; scrollbar-color:#353a41 transparent;
+    padding:0 8px 10px 0; opacity:0; visibility:hidden; transform:translateY(18px);
+    pointer-events:none; transition:opacity .25s ease, transform .4s var(--ease), visibility 0s .4s;
+  }
+  .staged-story .experience-sequence .step.is-active .entry { opacity:1; visibility:visible; transform:none; pointer-events:auto; transition-delay:0s; }
+}
+@media (min-width:900px) and (max-width:1100px) {
+  .staged-story .role-heading { left:225px; }
+}
+@media (max-width:899px) {
+  .staged-story .experience-sequence .entry { transition:opacity .35s ease, transform .4s var(--ease); }
+  .staged-story .experience-sequence .step:not(.is-revealed) .entry { opacity:0; transform:translateY(18px); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .staged-story .experience-sequence .entry, .staged-story .role-heading { transition:none; transform:none; }
 }
