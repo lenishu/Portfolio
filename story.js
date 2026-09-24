@@ -16,7 +16,7 @@ const caption = $('#caption');
 const ipa = $('#ipa');
 // Titles rise through a clipped lower edge in direct response to scrolling.
 // Reduced motion uses a stationary wipe instead of moving the letters.
-const revealTitles = $$('.role-heading h2, .entry > .project').map(title => {
+const revealTitles = $$('.entry > .project').map(title => {
   const mask = document.createElement('span');
   mask.className = 'reveal-mask';
   const text = document.createElement('span');
@@ -27,7 +27,36 @@ const revealTitles = $$('.role-heading h2, .entry > .project').map(title => {
   title.append(mask);
   return { mask, text, progress:0 };
 });
+// Left-side role titles reveal within each wrapped line, at their final position.
+const roleTitles = $$('.experience-sequence').map(group => {
+  const heading = $('.role-heading', group), title = $('h2', heading);
+  const words = title.textContent.trim().split(/\s+/);
+  title.replaceChildren();
+  words.forEach((word, index) => {
+    if (index) title.append(document.createTextNode(' '));
+    const mask = document.createElement('span');
+    mask.className = 'title-word-mask';
+    const text = document.createElement('span');
+    text.className = 'title-word';
+    text.textContent = word;
+    mask.append(text);
+    title.append(mask);
+  });
+  return { group, heading, title, progress:0 };
+});
+document.body.classList.add('role-motion');
 function revealOnScroll() {
+  roleTitles.forEach(item => {
+    const r = item.group.getBoundingClientRect();
+    const current = r.top <= innerHeight * .5 && r.bottom > innerHeight * .5;
+    item.group.classList.toggle('is-current', current);
+    item.heading.inert = !narrow.matches && !current;
+    const progress = narrow.matches
+      ? clamp((innerHeight * .9 - item.title.getBoundingClientRect().top) / (innerHeight * .2), 0, 1)
+      : clamp((innerHeight * .5 - r.top) / (innerHeight * .25), 0, 1);
+    item.progress = Math.max(item.progress, progress);
+    item.title.style.setProperty('--title-offset', `${(1 - item.progress) * 110}%`);
+  });
   revealTitles.forEach(item => {
     const top = item.mask.getBoundingClientRect().top;
     const progress = clamp((innerHeight * .94 - top) / (innerHeight * .24), 0, 1);

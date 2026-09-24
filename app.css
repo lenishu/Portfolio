@@ -259,15 +259,11 @@ dialog h2 { font:500 30px/1.1 var(--font-heading); letter-spacing:-.02em; margin
 .role-line { margin-top:14px; color:var(--muted); font-size:17px; }
 .about-copy .lead { margin-top:30px; font-size:20px; line-height:1.55; color:#e3e5e8; }
 .about-copy .lead + p { margin-top:14px; color:var(--muted); }
-/* the two scholarships, highlighted */
-.honors { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:26px; }
-.honors div { position:relative; padding:16px 18px; overflow:hidden; border:1px solid color-mix(in srgb, var(--quant) 45%, transparent); border-radius:16px; background:linear-gradient(135deg, color-mix(in srgb, var(--quant) 14%, transparent), transparent 70%); }
-.honors div:first-child { border-color:color-mix(in srgb, #f3c969 60%, transparent); background:linear-gradient(135deg, rgba(243,201,105,.16), transparent 70%); }
-.honors b { display:block; font:500 18px/1.2 var(--font-heading); letter-spacing:-.01em; }
-.honors span { display:block; margin-top:4px; color:var(--muted); font-size:13.5px; }
-.honors div:first-child span { color:#f3c969; }
-.honors div:last-child span { color:var(--quant); }
-@media (max-width:520px) { .honors { grid-template-columns:minmax(0,1fr); } }
+/* Compact, neutral academic highlights. */
+.honors { display:flex; flex-wrap:wrap; gap:10px 20px; margin-top:20px; }
+.honors div { display:flex; flex-wrap:wrap; align-items:center; gap:5px 9px; }
+.honors b { padding:3px 7px; border-radius:3px; background:rgba(255,255,255,.08); color:var(--text); font:500 13.5px/1.4 var(--font-heading); }
+.honors span { color:var(--muted); font-size:12.5px; }
 .about-section { margin-top:64px; }
 .about-section > h2 { margin-bottom:18px; font:500 13px var(--font-body); letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
 .interest-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
