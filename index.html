@@ -5,12 +5,17 @@
   <meta name="description" content="Lenish Pandey — mathematics student at FIU working across neural networks, quantum computing, and quantitative research.">
   <title>Lenish Pandey — Neural, Quantum &amp; Quant</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="app.css?v=20260925">
-  <link rel="stylesheet" href="story.css?v=20260925">
-  <script src="viz.js?v=20260925" defer></script><script src="app.js?v=20260925" defer></script>
-  <script src="story.js?v=20260925" type="module"></script>
+  <link rel="stylesheet" href="app.css?v=20260926">
+  <link rel="stylesheet" href="story.css?v=20260926">
+  <script src="viz.js?v=20260926" defer></script><script src="app.js?v=20260926" defer></script>
+  <script src="story.js?v=20260926" type="module"></script>
 </head>
 <body class="story" data-field="neural">
+  <svg class="sprite" aria-hidden="true">
+    <symbol id="i-mail" viewBox="0 0 16 16"><path d="M0 4a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2H2a2 2 0 01-2-2V4zm2-1a1 1 0 00-1 1v.217l7 4.2 7-4.2V4a1 1 0 00-1-1H2zm13 2.383l-4.708 2.825L15 11.105V5.383zm-.034 6.876l-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 002 13h12a1 1 0 00.966-.741zM1 11.105l4.708-2.897L1 5.383v5.722z"/></symbol>
+    <symbol id="i-in" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></symbol>
+    <symbol id="i-gh" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
+  </svg>
   <a class="skip-link" href="#neural">Skip to work</a>
   <canvas id="particles" aria-hidden="true"></canvas>
   <div class="shade" aria-hidden="true"></div>
@@ -18,23 +23,22 @@
   <header class="nav" id="nav">
     <a class="logo" href="index.html" aria-label="Lenish Pandey, home">Lenish Pandey<span aria-hidden="true">✳︎</span></a>
     <nav class="nav-links" aria-label="Main"><a href="index.html" aria-current="page">Home</a>, <a href="about.html">About</a></nav>
-    <a class="nav-cta" href="#contact">Get in touch</a>
     <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i><i></i><i></i></button>
   </header>
-  <div class="menu" id="menu"><a href="index.html">Home</a><a href="about.html">About</a><a href="#contact">Get in touch</a></div>
+  <div class="menu" id="menu"><a href="index.html">Home</a><a href="about.html">About</a></div>
 
   <!-- Field rail: where you are in the story. Desktop: left edge with each field's steps; phones: a strip under the nav. -->
   <nav class="rail" aria-label="Fields">
     <ol>
       <li data-chapter="neural"><a class="ch" href="#neural"><i></i><span>Neural</span></a>
         <div class="steps"><ol>
-          <li><a href="#rag">RAG system</a></li><li><a href="#hpc">HPC configuration</a></li><li><a href="#ipa">Information processing</a></li>
-          <li><a href="#neuro">Fly brain</a></li><li><a href="#roles">Software &amp; networks</a></li><li><a href="#projects">Projects</a></li>
+          <li><a href="#rag">RAG system</a></li><li><a href="#hpc">HPC administration</a></li><li><a href="#ipa">Information processing</a></li>
+          <li><a href="#neuro">Fly brain</a></li><li><a href="#roles">PantherSoft &amp; IT ops</a></li><li><a href="#projects">Projects</a></li>
         </ol></div></li>
       <li data-chapter="quantum"><a class="ch" href="#quantum"><i></i><span>Quantum</span></a>
-        <div class="steps"><ol><li><a href="#quantum">The experiment</a></li><li><a href="#vqe">VQE</a></li><li><a href="#grover">Grover coloring</a></li></ol></div></li>
+        <div class="steps"><ol><li><a href="#quantum">Learning rates</a></li><li><a href="#grover">Grover coloring</a></li><li><a href="#credentials">Credentials</a></li></ol></div></li>
       <li data-chapter="quant"><a class="ch" href="#quant"><i></i><span>Quant</span></a>
-        <div class="steps"><ol><li><a href="#quant">Markets</a></li><li><a href="#options">Option trading</a></li><li><a href="#cashify">Cashify wallet</a></li></ol></div></li>
+        <div class="steps"><ol><li><a href="#quant">Markets</a></li><li><a href="#options">Option trading</a></li><li><a href="#smif">Investment fund</a></li><li><a href="#cashify">Cashify wallet</a></li></ol></div></li>
     </ol>
   </nav>
 
@@ -43,82 +47,143 @@
   <main>
     <section class="step hero-step" data-form="neural.constellation" data-frame="hero" data-caption="A layered neural network: signals stream along every connection." aria-labelledby="hero-title">
       <h1 id="hero-title" class="sr-only">Lenish Pandey — neural networks, quantum computing and quantitative research</h1>
-      <a class="scroll-cue" href="#rag"><span>Scroll</span><i aria-hidden="true"></i></a>
+      <div class="hero-foot">
+        <div class="icons" aria-label="Contact">
+          <a class="icon" href="mailto:lenishpandeynepal@gmail.com" aria-label="Email"><svg><use href="#i-mail"/></svg></a>
+          <a class="icon" href="https://www.linkedin.com/in/lenish-pandey-830720214/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg><use href="#i-in"/></svg></a>
+          <a class="icon" href="https://github.com/lenishu" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg><use href="#i-gh"/></svg></a>
+        </div>
+        <a class="scroll-cue" href="#rag"><span>Scroll</span><i aria-hidden="true"></i></a>
+      </div>
     </section>
 
     <!-- ============================== NEURAL ============================== -->
     <div class="chapter" id="neural" data-chapter="neural">
       <section class="step" id="rag" data-form="neural.rag" data-caption="RAG pipeline: documents are chunked and embedded; a question retrieves its nearest passages; the model answers from them.">
-        <article class="card">
-          <p class="kicker">Neural · Experience</p>
-          <h2>HPC Administration and Optimization Intern</h2>
-          <p class="meta">Instructional Research &amp; Computing Center, FIU · Jun 2026 – Present</p>
-          <div class="highlight">
-            <p class="tag">Project 1 of 2 · RAG system</p>
-            <h3>A chat assistant for the cluster</h3>
-            <p>A retrieval-augmented system that answers researchers’ questions about the HPC architecture from its own documentation.</p>
-            <div class="acc-group">
-              <div class="acc"><button type="button" aria-expanded="false">How it works<span class="plus" aria-hidden="true"></span></button>
-                <div class="acc-body"><div><ol class="flow"><li><b>Chunk &amp; embed</b>Documentation is split into passages and embedded into a vector store.</li><li><b>Retrieve</b>A question is embedded and its nearest passages are pulled back.</li><li><b>Answer</b>The language model answers from those passages.</li></ol></div></div></div>
-            </div>
-          </div>
-          <div class="chips"><span>RAG</span><span>Embeddings</span><span>Vector search</span><span>LLMs</span></div>
+        <article class="card job">
+          <p class="kicker">Neural <span class="type">Job</span></p>
+          <header class="role">
+            <h2>HPC Administration and Optimization Intern</h2>
+            <p class="where"><span>Instructional &amp; Research Computing Center, FIU</span><span>Jun 2026 – Present</span></p>
+          </header>
+          <p class="project"><span>Project 1 of 2</span>HPC Agent: a chat assistant for the cluster</p>
+          <p class="lead">An assistant that answers researchers’ questions about FIU’s Slurm cluster from its own documentation, writes and checks job scripts, and reads live cluster state, in web chat, Microsoft Teams and Telegram.</p>
+          <button type="button" class="arch-thumb" data-demo="architecture" aria-label="Open the architecture flowchart">
+            <svg viewBox="0 0 480 132" aria-hidden="true">
+              <g class="at-col"><rect x="6" y="10" width="92" height="28" rx="8"/><text x="52" y="28">Web chat</text><rect x="6" y="52" width="92" height="28" rx="8"/><text x="52" y="70">Teams bot</text><rect x="6" y="94" width="92" height="28" rx="8"/><text x="52" y="112">Telegram bot</text></g>
+              <path class="at-wire" d="M98 24 C 130 24, 130 66, 160 66 M98 66 H160 M98 108 C 130 108, 130 66, 160 66"/>
+              <g class="at-core"><rect x="160" y="34" width="150" height="64" rx="12"/><text x="235" y="60">hpc-agent</text><text class="at-sub" x="235" y="78">LangGraph · 11 tools</text></g>
+              <path class="at-wire" d="M310 66 C 340 66, 340 24, 372 24 M310 66 H372 M310 66 C 340 66, 340 108, 372 108"/>
+              <g class="at-col"><rect x="372" y="10" width="102" height="28" rx="8"/><text x="423" y="28">vLLM · LLM</text><rect x="372" y="52" width="102" height="28" rx="8"/><text x="423" y="70">Qdrant · RAG</text><rect x="372" y="94" width="102" height="28" rx="8"/><text x="423" y="112">Slurm (read-only)</text></g>
+            </svg>
+            <span>Open the architecture flowchart ▷</span>
+          </button>
+          <div class="acc more"><button type="button" aria-expanded="false">More: what I built and how<span class="plus" aria-hidden="true"></span></button>
+            <div class="acc-body"><div>
+              <h4 class="sub">What I did and how</h4>
+              <ul class="points">
+                <li>Built an OpenAI-compatible API (FastAPI) around <b>gpt-oss-120b</b> served by vLLM, driven by a LangGraph tool-calling loop.</li>
+                <li>Ingested the cluster documentation into <b>Qdrant</b>: paragraph-aware 512-character chunks, <b>nomic-embed-text</b> vector embeddings, top-5 passages per question.</li>
+                <li>Wrote 11 tools: generate and validate Slurm scripts against real partitions, QoS and GPU limits; diagnose job errors; query the cluster live (sinfo, squeue, sacct, quotas) over allowlisted, read-only SSH.</li>
+                <li>Shipped a <b>Microsoft Teams bot</b> (M365 Agents SDK, Adaptive Cards for tables and scripts) and a <b>Telegram bot</b> as thin adapters; a 👍 writes the answer back into the knowledge base.</li>
+                <li>Deployed every component as its own workload on Kubernetes.</li>
+              </ul>
+              <h4 class="sub">By the numbers</h4>
+              <div class="metrics three"><div class="metric"><b>3</b><span>channels: web, Teams, Telegram</span></div><div class="metric"><b>11</b><span>tools the model can call</span></div><div class="metric"><b>0</b><span>write paths to the cluster</span></div></div>
+              <h4 class="sub">Skills &amp; tools</h4>
+              <div class="chips"><span>RAG</span><span>Vector embeddings</span><span>Qdrant</span><span>Oracle</span><span>LLMs</span><span>vLLM</span><span>LangGraph</span><span>FastAPI</span><span>Microsoft Teams bot</span><span>Telegram bot</span><span>Kubernetes</span></div>
+            </div></div></div>
+          <div class="links"><button class="link-pill primary" data-demo="architecture">Architecture flowchart ▷</button><button class="link-pill" data-demo="hpc">Cluster diagram ▷</button></div>
         </article>
       </section>
 
       <section class="step" id="hpc" data-form="neural.hpc" data-caption="HPC cluster: racks of compute blades running jobs, leaf and spine switches, MPI traffic between blades.">
-        <article class="card">
-          <p class="kicker">Neural · Experience</p>
-          <h2>HPC configuration</h2>
-          <p class="meta">Project 2 of 2 · HPC Administration and Optimization Intern</p>
-          <p class="lead">Keeping a research cluster fast and fair. Select an item; the cluster on the left shows it.</p>
-          <div class="acc-group" data-focus-form="neural.hpc">
-            <div class="acc" data-focus="rag"><button type="button" aria-expanded="false">RAG assistant<span class="plus" aria-hidden="true"></span></button>
-              <div class="acc-body"><div><p>The retrieval-augmented chat system from project 1, answering questions about the cluster.</p></div></div></div>
-            <div class="acc"><button type="button" aria-expanded="false">Microsoft bot<span class="plus" aria-hidden="true"></span></button>
-              <div class="acc-body"><div><p><span class="pending">details to add</span></p></div></div></div>
-            <div class="acc" data-focus="optimize"><button type="button" aria-expanded="false">Optimizing code for resources<span class="plus" aria-hidden="true"></span></button>
-              <div class="acc-body"><div><p>Tuning code so jobs make full use of the CPUs, memory and GPUs they request, rather than leaving allocated hardware idle.</p></div></div></div>
-            <div class="acc" data-focus="mpi"><button type="button" aria-expanded="false">MPI<span class="plus" aria-hidden="true"></span></button>
-              <div class="acc-body"><div><p>Enabling MPI-based parallel workflows: one job spread across many nodes that exchange messages over the interconnect.</p></div></div></div>
-            <div class="acc" data-focus="cgroup"><button type="button" aria-expanded="false">Migrating to cgroup v2<span class="plus" aria-hidden="true"></span></button>
-              <div class="acc-body"><div><p>Moving resource control to the Linux kernel’s cgroup v2 hierarchy, so each job is held to the CPUs and memory it was allocated.</p></div></div></div>
-            <div class="acc"><button type="button" aria-expanded="false">Slurm &amp; xCAT operations<span class="plus" aria-hidden="true"></span></button>
-              <div class="acc-body"><div><p>Cluster operations with Slurm scheduling and xCAT provisioning, supporting research computing and AI/ML inference.</p></div></div></div>
-          </div>
-          <div class="links"><button class="link-pill" data-demo="hpc">Cluster diagram ▷</button><a class="link-pill" href="https://github.com/lenishu/HPC-IRCC" target="_blank" rel="noopener noreferrer">Cluster guides ↗</a></div>
+        <article class="card job">
+          <p class="kicker">Neural <span class="type">Job</span></p>
+          <header class="role">
+            <h2>HPC Administration and Optimization Intern</h2>
+            <p class="where"><span>Instructional &amp; Research Computing Center, FIU</span><span>Jun 2026 – Present</span></p>
+          </header>
+          <p class="project"><span>Project 2 of 2</span>Running the cluster fairly, and visibly</p>
+          <ul class="outcomes">
+            <li>Researchers can see the CPU, memory and GPUs their jobs actually use.</li>
+            <li>Researchers can run one job across multiple nodes with MPI.</li>
+            <li>cgroup v2 keeps each job’s cores (task affinity) and memory within what the user requested.</li>
+            <li>Researcher project resource utilization improved <b>130×</b>.</li>
+          </ul>
+          <figure class="fig">
+            <div class="fig-tabs" role="tablist" aria-label="Cluster configuration">
+              <button type="button" role="tab" id="tab-cgroup" aria-controls="panel-cgroup" aria-selected="true">cgroup v2 config</button>
+              <button type="button" role="tab" id="tab-usage" aria-controls="panel-usage" aria-selected="false" tabindex="-1">CPU &amp; GPU use</button>
+              <button type="button" role="tab" id="tab-adopt" aria-controls="panel-adopt" aria-selected="false" tabindex="-1">SSH adoption</button>
+            </div>
+            <div class="fig-panels">
+              <div role="tabpanel" id="panel-cgroup" aria-labelledby="tab-cgroup" class="on">
+<pre class="code"><span class="c"># slurm.conf</span>
+ProctrackType=<b>proctrack/cgroup</b>   <span class="c"># was pgid</span>
+TaskPlugin=<b>task/affinity,task/cgroup</b>
+PrologFlags=<b>contain</b>              <span class="c"># for SSH adoption</span>
+<span class="c"># cgroup.conf</span>
+CgroupPlugin=<b>autodetect</b>          <span class="c"># cgroup v2</span>
+ConstrainCores=<b>yes</b>
+ConstrainRAMSpace=<b>yes</b>
+ConstrainDevices=<b>yes</b>             <span class="c"># GPUs per job</span></pre>
+              </div>
+              <div role="tabpanel" id="panel-usage" aria-labelledby="tab-usage"><div class="grafana" data-grafana></div></div>
+              <div role="tabpanel" id="panel-adopt" aria-labelledby="tab-adopt">
+                <ol class="adopt-mini">
+                  <li class="no"><b>No job on the node</b><span>SSH denied</span></li>
+                  <li class="yes"><b>Job running on the node</b><span>SSH allowed, placed inside the job’s cgroup</span></li>
+                  <li class="root"><b>Administrator</b><span>always allowed</span></li>
+                </ol>
+                <button type="button" class="link-pill" data-demo="adopt">pam_slurm_adopt flowchart ▷</button>
+              </div>
+            </div>
+          </figure>
+          <div class="acc more"><button type="button" aria-expanded="false">More: what I did and how<span class="plus" aria-hidden="true"></span></button>
+            <div class="acc-body"><div>
+              <h4 class="sub">What I did and how <small>select one; the cluster on the left shows it</small></h4>
+              <div class="acc-group" data-focus-form="neural.hpc">
+                <div class="acc" data-focus="optimize"><button type="button" aria-expanded="false">Optimizing code for resources<span class="plus" aria-hidden="true"></span></button>
+                  <div class="acc-body"><div><p>Prometheus collects CPU, memory and GPU metrics from every node; Grafana dashboards show each job’s real use next to what it requested, so code and requests can be tuned to match.</p></div></div></div>
+                <div class="acc" data-focus="mpi"><button type="button" aria-expanded="false">MPI<span class="plus" aria-hidden="true"></span></button>
+                  <div class="acc-body"><div><p>Set up OpenMPI workflows so one job spans several nodes. A 16,384 × 16,384 matrix multiply ran 6.1× faster than one core on 8 ranks across 2 nodes, at 76% parallel efficiency.</p><div class="mpi-bars" data-mpi></div></div></div></div>
+                <div class="acc" data-focus="cgroup"><button type="button" aria-expanded="false">cgroup v2 and pam_slurm_adopt<span class="plus" aria-hidden="true"></span></button>
+                  <div class="acc-body"><div><p>Moved Slurm from process-group tracking to cgroup v2 containment, then added pam_slurm_adopt: SSH into a compute node works only while you have a job there, and lands inside that job’s cgroup. Proved it on the test cluster first: rebuilt Slurm with dbus so the cgroup v2 plugin existed, fixed SELinux on the daemons, and wired PAM through an authselect profile.</p></div></div></div>
+                <div class="acc" data-focus="optimize"><button type="button" aria-expanded="false">Slurm &amp; xCAT operations<span class="plus" aria-hidden="true"></span></button>
+                  <div class="acc-body"><div><p>Node provisioning with xCAT and scheduling with Slurm, for research computing and AI/ML inference. The guides I wrote for the cluster:</p><p><a class="link-pill" href="https://github.com/lenishu/HPC-IRCC" target="_blank" rel="noopener noreferrer">Cluster guides ↗</a></p></div></div></div>
+              </div>
+              <h4 class="sub">By the numbers</h4>
+              <div class="metrics three"><div class="metric"><b>130×</b><span>researcher resource utilization</span></div><div class="metric"><b>6.1×</b><span>MPI speedup, 2 nodes</span></div><div class="metric"><b>3</b><span>limits enforced per job: cores, memory, GPUs</span></div></div>
+              <h4 class="sub">Skills &amp; tools</h4>
+              <div class="chips"><span>Slurm</span><span>xCAT</span><span>cgroup v2</span><span>pam_slurm_adopt</span><span>PAM</span><span>OpenMPI</span><span>Prometheus</span><span>Grafana</span><span>Linux</span><span>SELinux</span></div>
+            </div></div></div>
+          <div class="links"><a class="link-pill" href="https://github.com/lenishu/HPC-IRCC" target="_blank" rel="noopener noreferrer">Cluster guides ↗</a></div>
         </article>
       </section>
 
       <section class="step tall" id="ipa" data-form="neural.densenet" data-caption="DenseNet: dense blocks where every layer feeds every later one. Scroll to remove connections at random.">
-        <article class="card">
-          <p class="kicker">Neural · Research</p>
-          <h2>Information processing ability of neural networks</h2>
-          <p class="meta">Deep Learning Research Assistant · Department of Physics, FIU · Jan 2025 – Apr 2026</p>
+        <article class="card research">
+          <p class="kicker">Neural <span class="type">Research</span></p>
+          <header class="role">
+            <h2>Undergraduate Research Assistant</h2>
+            <p class="where"><span>Department of Physics, FIU</span><span>Jan 2025 – Apr 2026</span></p>
+          </header>
+          <p class="project"><span>Project</span>Information processing ability of neural networks</p>
           <p class="lead">As we age, or as neurons die, how quickly does the ability to learn change, and where does it collapse?</p>
-          <ul class="points">
-            <li>Formulated a mathematical foundation for a model’s information processing ability.</li>
-            <li>Visualized and studied the phase transition of neurons with a visualization tool.</li>
-          </ul>
-          <figure class="ipa-fig">
+          <figure class="fig ipa-fig">
             <div class="fig-tabs" role="tablist" aria-label="Information processing ability">
-              <button type="button" role="tab" id="tab-curve" aria-controls="panel-curve" aria-selected="true">Learning curve</button>
+              <button type="button" role="tab" id="tab-curve" aria-controls="panel-curve" aria-selected="true">IPA vs pruning</button>
               <button type="button" role="tab" id="tab-phase" aria-controls="panel-phase" aria-selected="false" tabindex="-1">Phase transition</button>
               <button type="button" role="tab" id="tab-math" aria-controls="panel-math" aria-selected="false" tabindex="-1">The math</button>
             </div>
             <div class="fig-panels">
               <div role="tabpanel" id="panel-curve" aria-labelledby="tab-curve" class="on">
-                <svg viewBox="0 0 320 140" role="img" aria-label="Schematic IPA curve: flat, then a sharp drop in the critical region">
-                  <rect class="crit" x="0" y="10" width="0" height="104"/>
-                  <text class="crit-label" x="0" y="22">critical region</text>
-                  <path class="axis" d="M34 10V114H310"/>
-                  <path class="curve" id="ipa-curve"/>
-                  <path class="curve-done" id="ipa-done"/>
-                  <circle class="dot" id="ipa-dot" r="5" cx="34" cy="40"/>
-                  <text class="lbl" x="30" y="16" text-anchor="end">IPA</text>
-                  <text class="lbl" x="310" y="132" text-anchor="end">connections removed →</text>
-                </svg>
-                <p class="fig-cap"><span>Schematic. Scroll to remove connections.</span><output id="ipa-read">0% removed</output></p>
+                <div class="plot" id="ipa-plot">
+                  <img src="assets/media/ipa-plot.webp" width="1320" height="794" alt="Measured IPA against pruning percentage for batch sizes 64, 1024 and 60,000: IPA falls slowly to about 60% pruned, then drops steeply toward zero near 98%." loading="lazy">
+                  <i class="marker" id="ipa-marker" aria-hidden="true"></i><i class="dot" id="ipa-dot" aria-hidden="true"></i>
+                </div>
+                <p class="fig-cap"><span>Measured: single-layer perceptron on MNIST. Scroll to prune.</span><output id="ipa-read">0% pruned</output></p>
               </div>
               <div role="tabpanel" id="panel-phase" aria-labelledby="tab-phase">
                 <div class="phase-grid">
@@ -137,65 +202,91 @@
               </div>
             </div>
           </figure>
-          <div class="links"><a class="link-pill primary" href="https://github.com/lenishu/physlab" target="_blank" rel="noopener noreferrer">Experiments ↗</a><a class="link-pill" href="https://github.com/lenishu/IPA_using_Densenet" target="_blank" rel="noopener noreferrer">DenseNet code ↗</a></div>
+          <div class="acc more"><button type="button" aria-expanded="false">More: what I did and how<span class="plus" aria-hidden="true"></span></button>
+            <div class="acc-body"><div>
+              <h4 class="sub">What I did and how</h4>
+              <ul class="points">
+                <li>Formulated a mathematical foundation for a model’s information processing ability (IPA): how much loss it removes, divided by how fast it removes it.</li>
+                <li>Pruned networks step by step and measured IPA at each level, locating the elbow where learning collapses with the maximum of a smoothed second derivative.</li>
+                <li>Visualized and studied the phase transition of neurons with a visualization tool, and related it to phase transitions in physics.</li>
+              </ul>
+              <h4 class="sub">By the numbers</h4>
+              <div class="metrics three"><div class="metric"><b>≈80%</b><span>pruned before collapse, single-layer perceptron</span></div><div class="metric"><b>≈90%</b><span>pruned before collapse, CNN</span></div><div class="metric"><b>3</b><span>batch sizes compared: 64 to 60,000</span></div></div>
+              <h4 class="sub">Skills &amp; tools</h4>
+              <div class="chips"><span>Python</span><span>PyTorch</span><span>Scikit-learn</span><span>Optimization methods</span><span>Hyperparameter tuning</span><span>LaTeX</span></div>
+            </div></div></div>
+          <div class="links"><a class="link-pill primary" href="https://github.com/lenishu/physlab" target="_blank" rel="noopener noreferrer">Experiments ↗</a></div>
         </article>
       </section>
 
       <section class="step" id="neuro" data-form="neural.fly" data-caption="Fruit-fly brain after the FlyWire and hemibrain connectome maps: optic lobes, mushroom bodies, the central-complex compass.">
-        <article class="card">
-          <p class="kicker">Neural · Research</p>
-          <h2>Computational neuroscience</h2>
-          <p class="meta">Computational Neuroscience Researcher · Pena Lab (FAU · FIU · FSU) · Jan – Apr 2026</p>
-          <p class="lead">Neurons of the fruit fly, simulated.</p>
-          <ul class="points">
-            <li>Built a neural-circuit simulation of the <i>Drosophila</i> giant fiber system, the circuit behind the fly’s escape jump, in BRIAN2.</li>
-            <li>Led Docker, CI/CD and Git workshops for a team spanning three universities.</li>
-          </ul>
-          <div class="chips"><span>BRIAN2</span><span><i>Drosophila</i></span><span>Neural circuits</span><span>Docker</span><span>CI/CD</span></div>
+        <article class="card research">
+          <p class="kicker">Neural <span class="type">Research</span></p>
+          <header class="role">
+            <h2>Computational Neuroscience Researcher</h2>
+            <p class="where"><span>Pena Lab · FAU, FIU &amp; FSU</span><span>Jan – Apr 2026</span></p>
+          </header>
+          <p class="project"><span>Project</span>The fruit fly’s escape circuit, simulated</p>
+          <p class="lead">A neural-circuit simulation of the <i>Drosophila</i> giant fiber system, the circuit that fires the fly’s escape jump.</p>
+          <div class="acc more"><button type="button" aria-expanded="false">More: what I did and how<span class="plus" aria-hidden="true"></span></button>
+            <div class="acc-body"><div>
+              <h4 class="sub">What I did and how</h4>
+              <ul class="points">
+                <li>Built the giant fiber system as a spiking neural-circuit model in BRIAN2.</li>
+                <li>Led Docker, CI/CD and Git workshops for a research team spanning three universities.</li>
+              </ul>
+              <h4 class="sub">Skills &amp; tools</h4>
+              <div class="chips"><span>BRIAN2</span><span>Python</span><span>Neural circuits</span><span>Docker</span><span>CI/CD</span><span>Git</span></div>
+            </div></div></div>
         </article>
       </section>
 
       <section class="step" id="roles" data-form="neural.net" data-caption="Campus network: core routers, distribution and access switches. A core link fails and traffic reroutes around it.">
-        <article class="card">
-          <p class="kicker">Neural · Transferable roles</p>
-          <h2>Software and networks</h2>
-          <div class="acc-group roles">
-            <div class="acc open"><button type="button" aria-expanded="true"><span><b>Software Engineering Intern</b><small>PantherSoft, FIU · Apr – Jun 2026</small></span><span class="plus" aria-hidden="true"></span></button>
-              <div class="acc-body"><div>
-                <p>Five-person Agile team modernizing FIU’s Public Class Search, used by a university of 50,000+ students, in React, TypeScript and Tailwind on Firebase and REST APIs.</p>
-                <div class="metrics"><div class="metric"><b>10 s → &lt;1 s</b><span>response time, with client-side caching</span></div><div class="metric"><b>35%</b><span>faster prototype load</span></div></div>
-              </div></div></div>
-            <div class="acc"><button type="button" aria-expanded="false"><span><b>IT Network Operations Assistant</b><small>Division of IT, FIU · Jul 2026 – Present</small></span><span class="plus" aria-hidden="true"></span></button>
-              <div class="acc-body"><div><p>Network operations with FIU’s IT Operations team.</p></div></div></div>
-          </div>
-        </article>
+        <div class="stack">
+          <article class="card job spotlight">
+            <p class="kicker">Neural <span class="type">Job</span></p>
+            <header class="role">
+              <h2>Software Engineering Intern</h2>
+              <p class="where"><span>PantherSoft, FIU</span><span>Apr – Jun 2026</span></p>
+            </header>
+            <a class="shot" href="https://classes.fiu.edu/" target="_blank" rel="noopener noreferrer"><img src="assets/media/fiu-class-search.webp" alt="FIU Public Class Search home page" loading="lazy"><span>classes.fiu.edu ↗</span></a>
+            <ul class="points tight">
+              <li>Modernized FIU’s <b>Public Class Search</b>, used by 50,000+ students, on a five-person Agile team.</li>
+              <li>Built the front end in React, TypeScript and Tailwind CSS on Firebase and REST APIs.</li>
+              <li>Cut response time from <b>10 s to under 1 s</b> with client-side caching.</li>
+              <li>Delivered a prototype that loads <b>35% faster</b> and holds up under heavy traffic.</li>
+            </ul>
+            <div class="chips"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Firebase</span><span>REST APIs</span><span>Agile</span></div>
+            <div class="links"><a class="link-pill primary" href="https://classes.fiu.edu/" target="_blank" rel="noopener noreferrer">Public Class Search ↗</a><button class="link-pill" data-demo="panthersoft">The numbers ▷</button></div>
+          </article>
+          <article class="card job">
+            <p class="kicker">Neural <span class="type">Job</span></p>
+            <header class="role">
+              <h2>IT Network Operations Assistant</h2>
+              <p class="where"><span>Division of IT, FIU</span><span>Jul 2026 – Present</span></p>
+            </header>
+            <p class="lead">Network and systems operations with FIU’s IT Operations team: watching monitors, answering alerts and keeping scheduled jobs running.</p>
+            <div class="skill-row"><span>Working at a fast pace</span><span>On call</span><span>Clear communication</span></div>
+            <h4 class="sub">Tools</h4>
+            <div class="chips"><span>Nagios</span><span>PagerDuty</span><span>Microsoft Teams</span><span>Tidal jobs</span><span>Remote Desktop</span></div>
+          </article>
+        </div>
       </section>
 
       <section class="step" id="projects" data-form="neural.brain" data-caption="A human brain: waves of activity spread over the cortex while signals run through white-matter tracts.">
         <article class="card">
-          <p class="kicker">Neural · Projects</p>
+          <p class="kicker">Neural <span class="type">Projects</span></p>
           <h2>Projects</h2>
-          <p class="group-label">AI</p>
-          <div class="proj">
-            <img src="assets/media/repo-paperquest.webp" alt="PaperQuest repository on GitHub" loading="lazy">
-            <div><h4>PaperQuest</h4><p>Drop in a research paper; a language model maps the concepts it stands on into a prerequisite skill tree rooted in high-school math, and short quizzes unlock each branch.</p>
+          <div class="proj big">
+            <img src="assets/media/paperquest-app.webp" alt="PaperQuest dashboard: a knowledge graph of concepts, projects in progress and daily activity" loading="lazy">
+            <div><h4>PaperQuest</h4><p>Drop in a research paper; a language model maps the concepts it stands on into a prerequisite graph rooted in high-school math, then teaches it bottom-up with lessons and quizzes, all drawn as an explorable knowledge galaxy.</p>
+              <div class="chips"><span>React</span><span>Node.js</span><span>LLMs</span><span>Docling</span></div>
               <div class="links"><a class="link-pill" href="https://github.com/lenishu/Paperquest" target="_blank" rel="noopener noreferrer">Code ↗</a></div></div>
           </div>
-          <div class="proj">
-            <img src="assets/media/repo-densenet.webp" alt="DenseNet pruning repository on GitHub" loading="lazy">
-            <div><h4>Pruning &amp; IPA framework</h4><p>Modular pruning experiments for DenseNet-121: reusable mask generation, evaluation loops and metric logging.</p>
-              <div class="links"><button class="link-pill" data-demo="pruning">Pruning demo ▷</button><a class="link-pill" href="https://github.com/lenishu/IPA_using_Densenet" target="_blank" rel="noopener noreferrer">Code ↗</a></div></div>
-          </div>
-          <p class="group-label">IT</p>
-          <div class="proj">
-            <img src="assets/media/fiu-class-search.webp" alt="FIU Public Class Search home page" loading="lazy">
-            <div><h4>Public Class Search</h4><p>FIU’s legacy class search rebuilt as a responsive, mobile-first app with client-side caching.</p>
-              <div class="links"><button class="link-pill" data-demo="panthersoft">The numbers ▷</button><a class="link-pill" href="https://classes.fiu.edu/" target="_blank" rel="noopener noreferrer">FIU class search ↗</a></div></div>
-          </div>
-          <div class="proj">
-            <img src="assets/media/repo-hpc.webp" alt="HPC cluster guides repository on GitHub" loading="lazy">
-            <div><h4>HPC cluster guides</h4><p>Guides for Slurm and xCAT operations on FIU’s research cluster.</p>
-              <div class="links"><button class="link-pill" data-demo="hpc">Diagram ▷</button><a class="link-pill" href="https://github.com/lenishu/HPC-IRCC" target="_blank" rel="noopener noreferrer">Docs ↗</a></div></div>
+          <div class="proj big">
+            <img src="assets/media/mathsphere-app.webp" alt="MathSphere explore view: domain-coloring plots of the gamma function, exponential, simple pole, roots of unity, branch cut and an essential singularity" loading="lazy">
+            <div><h4>MathSphere</h4><p>Type an expression you cannot picture, or pull one from a paper, and it becomes a moving scene: complex functions by domain coloring, matrices as transformations, curves carrying their tangents. Each scene says how far to trust it.</p>
+              <div class="chips"><span>JavaScript</span><span>Node.js</span><span>Visualization</span><span>Complex analysis</span></div></div>
           </div>
         </article>
       </section>
@@ -203,40 +294,38 @@
 
     <!-- ============================== QUANTUM ============================== -->
     <div class="chapter" id="quantum-chapter" data-chapter="quantum">
-      <section class="step" id="quantum" data-form="quantum.slit" data-caption="Double slit: single particles pass two slits and land one at a time, building interference fringes.">
-        <article class="card">
-          <p class="kicker">Quantum</p>
-          <h2>The quantum experiment</h2>
-          <p class="lead">One particle at a time, two slits, and a pattern that only waves can make. The work here: optimizers for quantum machine learning with provable guarantees, and a published Grover’s-search algorithm.</p>
-          <p class="group-label">Credentials</p>
-          <div class="creds">
-            <a href="https://www.credly.com/badges/41bfeb6b-95f9-4495-8939-d14e456e5676/public_url" target="_blank" rel="noopener noreferrer"><b>IBM Quantum Challenge 2024</b><span>Achievement ↗</span></a>
-            <a href="https://www.credly.com/badges/2c0e1e83-b0c1-4215-8a66-d54f759ce8b6/public_url" target="_blank" rel="noopener noreferrer"><b>Qiskit Global Summer School 2022</b><span>Quantum Excellence ↗</span></a>
-            <span><b>Qiskit Global Summer School 2023</b><span>Quantum Excellence</span></span>
-            <a href="https://verified.sertifier.com/en/verify/35151842565898/" target="_blank" rel="noopener noreferrer"><b>Introduction to Quantum Computing</b><span>The Coding School ↗</span></a>
-          </div>
-        </article>
-      </section>
-
-      <section class="step" id="vqe" data-form="quantum.vqe" data-zoom="1.15" data-caption="VQE energy landscape: the optimizer descends past local minima to the ground state; energy per iteration on the back wall.">
-        <article class="card">
-          <p class="kicker">Quantum · Research</p>
-          <h2>Variational quantum eigensolver</h2>
-          <p class="meta">Quantum ML Research Assistant · Data Management Research Lab, FIU · with Prof. Janki Bhimani · May 2026 – Present</p>
-          <p class="lead">A VQE tunes a parameterized circuit to find a molecule’s ground-state energy; the optimizer walks down an energy landscape like the one on the left. How big each step should be is the research question.</p>
-          <ul class="points">
-            <li>Hyperparameter-free optimizers: a two-phase adaptive step size that bounds suboptimality through energy variance (Weinstein and Temple inequalities).</li>
-            <li>Proved the schedule equivalent to normalized imaginary-time evolution under Fubini–Study geometry.</li>
-          </ul>
+      <section class="step" id="quantum" data-form="quantum.vqe" data-zoom="1.15" data-caption="VQE energy landscape: the optimizer descends past local minima to the ground state; energy per iteration on the back wall.">
+        <article class="card research">
+          <p class="kicker">Quantum <span class="type">Research</span></p>
+          <header class="role">
+            <h2>Quantum ML Research Assistant</h2>
+            <p class="where"><span>Data Management Research Lab (DaMRL), FIU · with Prof. Janki Bhimani</span><span>May 2026 – Present</span></p>
+          </header>
+          <p class="project"><span>Project</span>Quantum learning rates: Polyak step sizes with guarantees</p>
+          <p class="lead">A variational quantum algorithm walks down an energy landscape, and how far each step goes is usually hand-tuned. We derive it instead: the energy variance, measurable on the quantum computer, bounds the distance to the ground state, and a Polyak step turns that bound into the learning rate.</p>
+          <figure class="fig levels" data-levels aria-label="Final energy of three optimizers on a 6-qubit, 5-layer transverse-field Ising model"></figure>
+          <div class="acc more"><button type="button" aria-expanded="false">More: what I did and how<span class="plus" aria-hidden="true"></span></button>
+            <div class="acc-body"><div>
+              <h4 class="sub">What I did and how</h4>
+              <ul class="points">
+                <li>Two bounds set the step: Weinstein (E − λ₀ ≤ σ) for bold early steps, Temple (E − λ₀ ≤ σ²/Δ) for careful ones near the answer, switching where σ = Δ.</li>
+                <li>Implemented both branches of the step rule on SGD in PennyLane, with the Temple validity check E &lt; λ₁ and a spectral gap Δ̂ re-estimated live from a regression of energy on variance.</li>
+                <li>Added a robust Theil–Sen estimator, a windowless moment estimator of Δ, and a min rule that needs no switch at all.</li>
+                <li>The schedule is equivalent to normalized imaginary-time evolution under Fubini–Study geometry.</li>
+              </ul>
+              <h4 class="sub">By the numbers</h4>
+              <div class="metrics three"><div class="metric"><b>0.05%</b><span>from the exact ground energy; SGD stalled 7% above</span></div><div class="metric"><b>0</b><span>hand-tuned constants</span></div><div class="metric"><b>14</b><span>qubits in the largest benchmark</span></div></div>
+              <h4 class="sub">Skills &amp; tools</h4>
+              <div class="chips"><span>PennyLane</span><span>Python</span><span>NumPy &amp; SciPy</span><span>Optimization theory</span><span>Spectral bounds</span><span>Imaginary-time evolution</span></div>
+            </div></div></div>
           <span class="status">Paper in progress</span>
           <div class="links"><button class="link-pill primary" data-demo="quantum">Step-size sketch ▷</button><a class="link-pill" href="https://github.com/lenishu/Using_VQE" target="_blank" rel="noopener noreferrer">VQE notebook ↗</a></div>
-          <p class="note">Notebook: Qiskit Nature, UCCSD ansatz from a Hartree–Fock start, COBYLA optimizer, energy per iteration checked against the exact solver.</p>
         </article>
       </section>
 
       <section class="step" id="grover" data-form="quantum.grover" data-caption="Grover search on a graph: the oracle flips valid colorings, diffusion amplifies them, and a measurement colors the graph.">
-        <article class="card">
-          <p class="kicker">Quantum · Publication</p>
+        <article class="card research">
+          <p class="kicker">Quantum <span class="type">Publication</span></p>
           <h2>Solving the general planar graph coloring problem using Grover’s algorithm</h2>
           <p class="meta">International Journal of Innovative Science and Research Technology, Vol. 8 (2023) · Lenish Pandey et al.</p>
           <p class="lead">A quantum circuit that uses Grover’s search, quadratically faster than classical search, to color planar graphs, applied to placing specialists across hospitals.</p>
@@ -245,6 +334,19 @@
             <img src="assets/media/grover-graph-cycle.webp" alt="Seven-node cycle graph colored by the algorithm" loading="lazy">
           </div>
           <div class="links"><button class="link-pill primary" data-demo="publication">Run Grover demo ▷</button><a class="link-pill" href="https://ijisrt.com/solving-the-general-planar-graph-coloring-problem-using-grovers-algorithm" target="_blank" rel="noopener noreferrer">Paper ↗</a><a class="link-pill" href="https://doi.org/10.5281/zenodo.10629676" target="_blank" rel="noopener noreferrer">DOI ↗</a><a class="link-pill" href="https://github.com/lenishu/Grovers_algorithm_for_graph_coloring_problem" target="_blank" rel="noopener noreferrer">Code ↗</a></div>
+        </article>
+      </section>
+
+      <section class="step" id="credentials" data-form="quantum.slit" data-caption="Double slit: single particles pass two slits and land one at a time, building interference fringes.">
+        <article class="card">
+          <p class="kicker">Quantum <span class="type">Credentials</span></p>
+          <h2>Credentials</h2>
+          <div class="creds">
+            <a href="https://www.credly.com/badges/41bfeb6b-95f9-4495-8939-d14e456e5676/public_url" target="_blank" rel="noopener noreferrer"><b>IBM Quantum Challenge 2024</b><span>Achievement ↗</span></a>
+            <a href="https://www.credly.com/badges/2c0e1e83-b0c1-4215-8a66-d54f759ce8b6/public_url" target="_blank" rel="noopener noreferrer"><b>Qiskit Global Summer School 2022</b><span>Quantum Excellence ↗</span></a>
+            <span><b>Qiskit Global Summer School 2023</b><span>Quantum Excellence</span></span>
+            <a href="https://verified.sertifier.com/en/verify/35151842565898/" target="_blank" rel="noopener noreferrer"><b>Introduction to Quantum Computing</b><span>The Coding School ↗</span></a>
+          </div>
         </article>
       </section>
     </div>
@@ -261,32 +363,42 @@
       </section>
 
       <section class="step" id="options" data-form="quant.bs" data-caption="Black–Scholes call-price surface C(S, τ), with simulated price paths riding it to expiry.">
-        <article class="card">
-          <p class="kicker">Quant · Research</p>
+        <article class="card research">
+          <p class="kicker">Quant <span class="type">Research</span></p>
           <h2>Option trading research <span class="pending">details to add</span></h2>
           <p class="meta">Mathematics research · Florida International University</p>
           <p class="lead">Mathematics research on option trading.</p>
-          <div class="acc-group">
-            <div class="acc"><button type="button" aria-expanded="false"><span><b>Student Managed Investment Fund</b><small>Member</small></span><span class="plus" aria-hidden="true"></span></button>
-              <div class="acc-body"><div><p>Role and contributions <span class="pending">details to add</span></p></div></div></div>
-          </div>
           <div class="links"><button class="link-pill" data-demo="options">Concept demo ▷</button></div>
           <p class="note">The surface and the demo illustrate the Black–Scholes model; they are not research results.</p>
         </article>
       </section>
 
+      <section class="step" id="smif" data-form="quant.smile" data-caption="Implied-volatility smile: the surface of volatilities the market implies across strikes and expiries, with a live price tape behind it.">
+        <article class="card job">
+          <p class="kicker">Quant <span class="type">Experience</span></p>
+          <header class="role">
+            <h2>Student Managed Investment Fund</h2>
+            <p class="where"><span>Member · Florida International University</span><span></span></p>
+          </header>
+          <p class="lead">Role and contributions <span class="pending">details to add</span></p>
+        </article>
+      </section>
+
       <section class="step" id="cashify" data-form="quant.wallet" data-caption="Self-custody wallet: each payment is reviewed, signed on the device, broadcast to a network and confirmed into a block.">
-        <article class="card">
-          <p class="kicker">Quant · Product</p>
-          <h2>Cashify wallet</h2>
-          <p class="meta">My role <span class="pending">details to add</span></p>
+        <article class="card job">
+          <p class="kicker">Quant <span class="type">Job</span></p>
+          <header class="role">
+            <h2>Co-founder &amp; Backend Engineer</h2>
+            <p class="where"><span>Cashify Wallet</span><span></span></p>
+          </header>
           <p class="lead">A non-custodial crypto wallet: keys stay on the device, and every payment is signed there, after the user reviews recipient, network, amount and fee.</p>
           <ol class="flow">
             <li><b>Review</b>Recipient, network, amount and fee, on screen.</li>
             <li><b>Sign on device</b>The key never leaves the phone.</li>
             <li><b>Broadcast</b>Send, receive or swap across seven networks.</li>
           </ol>
-          <div class="chips"><span>Ethereum</span><span>Polygon</span><span>Base</span><span>Arbitrum</span><span>Solana</span><span>Bitcoin</span><span>Lightning</span></div>
+          <p class="now"><span>Now building</span>MCP integrations with other providers, so the wallet runs natively inside their tools.</p>
+          <div class="chips"><span>Ethereum</span><span>Polygon</span><span>Base</span><span>Arbitrum</span><span>Solana</span><span>Bitcoin</span><span>Lightning</span><span>MCP</span></div>
           <div class="links"><a class="link-pill primary" href="https://cashifywallet.com/" target="_blank" rel="noopener noreferrer">cashifywallet.com ↗</a><a class="link-pill" href="https://play.google.com/store/apps/details?id=com.cashifywallet.wallet" target="_blank" rel="noopener noreferrer">Google Play ↗</a></div>
         </article>
       </section>
@@ -296,14 +408,13 @@
       <div class="contact-inner">
         <p class="kicker">Open to research roles and collaborations</p>
         <h2 id="contact-title">Let’s talk.</h2>
-        <div class="pills shown">
-          <button class="pill" data-copy="lenishpandeynepal@gmail.com">Copy email ⧉</button>
-          <a class="pill" href="mailto:lenishpandeynepal@gmail.com">Send an email</a>
-          <a class="pill outline" href="https://www.linkedin.com/in/lenish-pandey-830720214/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-          <a class="pill outline" href="https://github.com/lenishu" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-          <a class="pill outline" href="resume.html" target="_blank" rel="noopener">Résumé ↗</a>
-          <a class="pill outline" href="about.html">About me</a>
+        <div class="icons big" aria-label="Contact">
+          <a class="icon" href="mailto:lenishpandeynepal@gmail.com" aria-label="Email"><svg><use href="#i-mail"/></svg></a>
+          <a class="icon" href="https://www.linkedin.com/in/lenish-pandey-830720214/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg><use href="#i-in"/></svg></a>
+          <a class="icon" href="https://github.com/lenishu" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg><use href="#i-gh"/></svg></a>
+          <button class="icon text" type="button" data-copy="lenishpandeynepal@gmail.com">Copy email ⧉</button>
         </div>
+        <a class="more-about" href="about.html"><span>There’s more about me</span><b>About →</b></a>
         <p class="sr-only" id="copy-status" role="status" aria-live="polite"></p>
       </div>
     </section>

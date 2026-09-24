@@ -109,50 +109,189 @@
     return () => { clearInterval(tick); timers.forEach(clearTimeout); };
   }
 
-  // Drag the sparsity and watch the weakest connections disappear.
-  function pruning(host) {
-    host.classList.add('dialog-viz', 'viz-pruning');
-    const svg = frame(host, 640, 240, 'Toy network: connections disappear as sparsity increases');
-    const layers = [5, 8, 8, 4], xs = [90, 250, 410, 560], random = seeded(7);
-    const pos = layers.map((n, l) => [...Array(n)].map((_, i) => [xs[l], 20 + (200 / (n - 1)) * i]));
-    const edges = [];
-    const edgeGroup = el('g', {}, svg);
-    for (let l = 0; l < layers.length - 1; l++) for (const [i, a] of pos[l].entries()) for (const [j, b] of pos[l + 1].entries()) {
-      const line = el('line', { class: 'p-edge', x1: a[0], y1: a[1], x2: b[0], y2: b[1] }, edgeGroup);
-      edges.push({ line, weight: random(), from: `${l}-${i}`, to: `${l + 1}-${j}` });
-    }
-    const nodeEls = new Map();
-    pos.forEach((column, l) => column.forEach(([x, y], i) => nodeEls.set(`${l}-${i}`, el('circle', { class: 'p-node', cx: x, cy: y, r: 9 }, svg))));
-    const ranked = edges.slice().sort((a, b) => a.weight - b.weight);
-    const controls = document.createElement('div');
-    controls.className = 'viz-controls';
-    controls.innerHTML = '<label for="sparsity">Sparsity</label><input id="sparsity" type="range" min="0" max="100" value="0"><output for="sparsity" aria-live="off"></output>';
-    host.append(controls);
-    const input = controls.querySelector('input'), output = controls.querySelector('output');
-    function set(percent) {
-      const cut = Math.round(ranked.length * percent / 100), alive = new Set();
-      ranked.forEach((edge, i) => {
-        const kept = i >= cut;
-        edge.line.classList.toggle('cut', !kept);
-        if (kept) { alive.add(edge.from); alive.add(edge.to); }
+  // A labelled box: title plus optional grey sub-lines.
+  function box(svg, x, y, w, h, title, subs = [], cls = 'a-box') {
+    const g = el('g', { class: cls }, svg);
+    el('rect', { x, y, width: w, height: h, rx: 9 }, g);
+    label(g, x + 12, y + 20, title, { class: 'a-title' });
+    subs.forEach((t, i) => label(g, x + 12, y + 36 + i * 14, t, { class: 'a-sub' }));
+    return g;
+  }
+  function wire(svg, d, cls = 'a-wire') { return el('path', { class: cls, d }, svg); }
+  // A packet that loops along a path (skipped when motion is reduced).
+  function packet(svg, d, dur, begin = 0) {
+    if (still()) return;
+    const dot = el('circle', { class: 'a-packet', r: 3.5 }, svg);
+    el('animateMotion', { dur: dur + 's', begin: begin + 's', repeatCount: 'indefinite', path: d }, dot);
+  }
+  // Segmented control that shows one of several views.
+  function views(host, names) {
+    const bar = document.createElement('div');
+    bar.className = 'viz-seg';
+    bar.setAttribute('role', 'group');
+    const panes = names.map(() => { const d = document.createElement('div'); d.className = 'viz-pane'; return d; });
+    names.forEach((name, i) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.textContent = name; b.setAttribute('aria-pressed', String(i === 0));
+      b.addEventListener('click', () => {
+        bar.querySelectorAll('button').forEach((x, k) => x.setAttribute('aria-pressed', String(k === i)));
+        panes.forEach((p, k) => { p.hidden = k !== i; });
       });
-      nodeEls.forEach((node, key) => node.classList.toggle('idle', !alive.has(key)));
-      output.textContent = `${percent}% pruned · ${ranked.length - cut} of ${ranked.length} connections left`;
-    }
-    input.addEventListener('input', () => { cancelAnimationFrame(play); output.setAttribute('aria-live', 'polite'); set(+input.value); });
-    let play = 0;
-    if (still()) { input.value = 60; set(60); } else {
-      set(0);
-      const begin = performance.now() + 500;
-      const step = now => {
-        const t = Math.min(Math.max((now - begin) / 2200, 0), 1), v = Math.round(60 * (1 - (1 - t) ** 3));
-        input.value = v; set(v);
-        if (t < 1) play = requestAnimationFrame(step);
-      };
-      play = requestAnimationFrame(step);
-    }
-    caption(host, 'A toy network showing mask pruning. The study ran this on DenseNet-121 from 0 to 100% sparsity.');
-    return () => cancelAnimationFrame(play);
+      bar.append(b);
+    });
+    panes.forEach((p, k) => { p.hidden = k !== 0; });
+    host.append(bar, ...panes);
+    return panes;
+  }
+
+  // HPC Agent architecture (New_Architecture.md): channels → agent → back-ends, and the RAG data flow.
+  function architecture(host) {
+    host.classList.add('dialog-viz', 'viz-arch');
+    const [sys, rag] = views(host, ['System', 'RAG pipeline']);
+
+    const a = frame(sys, 760, 420, 'System context: web chat, Telegram and Teams reach one agent service, which calls vLLM, the embedding model, Qdrant and the cluster login node');
+    label(a, 16, 14, 'CHANNELS', { class: 'a-caps' }); label(a, 196, 14, 'ADAPTERS', { class: 'a-caps' });
+    label(a, 392, 14, 'HPC-AGENT SERVICE', { class: 'a-caps' }); label(a, 626, 14, 'BACK-ENDS', { class: 'a-caps' });
+    box(a, 16, 36, 140, 52, 'Open WebUI', ['browser chat']);
+    box(a, 16, 170, 140, 52, 'Telegram users');
+    box(a, 16, 300, 140, 52, 'Teams users');
+    box(a, 196, 156, 156, 80, 'telegram-bot', ['long-poll', 'SQLite chat history']);
+    box(a, 196, 268, 156, 40, 'Azure Bot Service');
+    box(a, 196, 330, 156, 66, 'teams-bot', ['M365 Agents SDK', 'Adaptive Cards']);
+    const core = el('g', { class: 'a-core' }, a);
+    el('rect', { x: 392, y: 26, width: 200, height: 384, rx: 14 }, core);
+    const rows = [['main.py', '/v1/chat/completions'], ['graph.py', 'LangGraph tool loop'], ['tools.py', '11 tools'], ['rag.py', 'embed + search'], ['cluster_ssh.py', 'allowlisted, read-only'], ['cluster_data.py', 'single source of truth']];
+    rows.forEach(([t, sub], i) => box(a, 406, 42 + i * 60, 172, 48, t, [sub], 'a-row'));
+    box(a, 626, 60, 124, 52, 'vLLM', ['gpt-oss-120b']);
+    box(a, 626, 160, 124, 62, 'Embeddings', ['nomic-embed-text', '768-d vectors']);
+    box(a, 626, 242, 124, 52, 'Qdrant', ['hpc_docs']);
+    box(a, 626, 318, 124, 52, 'HPC login node', ['sinfo · squeue · sacct']);
+    const paths = {
+      web: 'M156 62 H406', tgIn: 'M156 196 H196', tg: 'M352 196 C 380 196, 380 66, 406 66',
+      tmIn: 'M156 326 C 176 326, 176 288, 196 288', abs: 'M274 308 V330', tm: 'M352 363 C 384 363, 384 70, 406 70',
+      api: 'M492 90 V102', graph: 'M578 126 C 604 126, 604 86, 626 86', tools: 'M492 150 V162',
+      embed: 'M578 246 C 604 246, 604 192, 626 192', qdrant: 'M578 250 C 604 250, 604 268, 626 268', ssh: 'M578 306 C 604 306, 604 344, 626 344',
+    };
+    Object.values(paths).forEach(d => wire(a, d));
+    label(a, 597, 100, 'chat', { class: 'a-note' });
+    label(a, 688, 388, 'read-only SSH', { class: 'a-note', 'text-anchor': 'middle' });
+    packet(a, paths.web, 2.6); packet(a, paths.tg, 2.2, .6); packet(a, paths.tm, 2.8, 1.1);
+    packet(a, paths.graph, 1.6, .3); packet(a, paths.qdrant, 1.8, .9); packet(a, paths.ssh, 2.2, 1.4);
+
+    const b = frame(rag, 760, 330, 'RAG pipeline: documents are chunked, embedded and stored in Qdrant; a question is embedded, the top 5 passages are retrieved, and the model answers from them');
+    label(b, 16, 20, 'INGEST · OFFLINE', { class: 'a-caps' });
+    label(b, 16, 222, 'ANSWER · ONLINE', { class: 'a-caps' });
+    box(b, 16, 34, 150, 62, 'Cluster docs', ['.md  .txt  .pdf']);
+    box(b, 196, 34, 150, 62, 'Chunk', ['512 chars, 64 overlap', 'paragraph-aware']);
+    box(b, 376, 34, 150, 62, 'Embed', ['nomic-embed-text', '768-d, cosine']);
+    box(b, 16, 236, 150, 62, 'Question', ['from any channel']);
+    box(b, 196, 236, 150, 62, 'Embed', ['same model']);
+    box(b, 376, 236, 150, 62, 'Search', ['top 5 passages']);
+    box(b, 590, 236, 156, 62, 'LLM answers', ['gpt-oss-120b, from', 'the passages it got']);
+    const db = el('g', { class: 'a-db' }, b);
+    el('path', { d: 'M596 128 v52 a72 14 0 0 0 144 0 v-52' }, db);
+    el('ellipse', { cx: 668, cy: 128, rx: 72, ry: 14 }, db);
+    label(db, 668, 164, 'Qdrant', { class: 'a-title', 'text-anchor': 'middle' });
+    label(db, 668, 180, 'hpc_docs · md5 IDs', { class: 'a-sub', 'text-anchor': 'middle' });
+    const r = { a: 'M166 65 H196', b: 'M346 65 H376', c: 'M526 65 C 600 65, 640 80, 660 114', d: 'M166 267 H196', e: 'M346 267 H376', f: 'M526 258 C 580 250, 600 220, 620 190', g: 'M526 276 H590' };
+    Object.values(r).forEach(d => wire(b, d));
+    wire(b, 'M716 236 C 730 214, 730 206, 722 192', 'a-wire dashed');
+    label(b, 746, 222, 'answer saved back on 👍', { class: 'a-note', 'text-anchor': 'end' });
+    label(b, 556, 232, 'retrieve', { class: 'a-note' });
+    packet(b, 'M166 65 H376 M526 65 C 600 65, 640 80, 660 114', 3.4);
+    packet(b, 'M166 267 H376', 2.2, .5); packet(b, r.f, 1.6, 1.2); packet(b, r.g, 1.4, 2);
+    caption(host, 'Drawn from the project’s architecture document. The channels are thin adapters; all HPC logic lives in the agent, which can generate, validate and diagnose but never submit or cancel jobs.');
+  }
+
+  // pam_slurm_adopt (02_flowchart.md): prerequisites fixed in order, then the SSH test matrix.
+  function adopt(host) {
+    host.classList.add('dialog-viz', 'viz-adopt');
+    const svg = frame(host, 760, 400, 'pam_slurm_adopt: five prerequisites fixed in order, then SSH attempts: root allowed, a user with a job allowed and placed in the job cgroup, a user without a job denied');
+    label(svg, 16, 18, 'PREREQUISITES · EACH WAS BROKEN, FIXED IN ORDER', { class: 'a-caps' });
+    const pre = [['slurmctld', 'under systemd'], ['Containment', 'proctrack/cgroup'], ['cgroup_v2.so', 'rebuilt with dbus'], ['Daemons start', 'SELinux fixed'], ['PAM module', 'built for 25.05']];
+    pre.forEach(([t, sub], i) => {
+      box(svg, 16 + i * 150, 30, 132, 50, t, [sub], 'a-box step');
+      if (i) wire(svg, `M${i * 150} 55 H${16 + i * 150}`);
+      label(svg, 16 + i * 150 + 118, 48, '✓', { class: 'a-ok', 'text-anchor': 'middle' });
+    });
+    wire(svg, 'M380 80 V132');
+    const pam = el('g', { class: 'a-core' }, svg);
+    el('rect', { x: 250, y: 132, width: 260, height: 96, rx: 14 }, pam);
+    label(pam, 266, 156, 'PAM stack · authselect profile', { class: 'a-title' });
+    label(pam, 266, 180, 'account  required  pam_slurm_adopt', { class: 'a-mono' });
+    label(pam, 266, 196, 'last in the stack · any failure denies', { class: 'a-sub' });
+    label(pam, 266, 216, 'session  adopt into the job’s cgroup', { class: 'a-mono' });
+    const lanes = [
+      ['root, no job', 'Allowed', 'admins can reach any node', 'ok', 262],
+      ['user with a job', 'Allowed, adopted', 'inside the job’s cgroup', 'ok', 316],
+      ['user, no job', 'Denied', 'no job on this node', 'no', 370],
+    ];
+    lanes.forEach(([who, out, sub, kind, y], i) => {
+      box(svg, 16, y - 20, 170, 36, `ssh node · ${who}`, [], 'a-box who');
+      const inPath = `M186 ${y - 2} C 220 ${y - 2}, 222 ${196 + i * 8}, 250 ${196 + i * 8}`;
+      const outPath = `M510 ${196 + i * 8} C 540 ${196 + i * 8}, 546 ${y - 2}, 576 ${y - 2}`;
+      wire(svg, inPath); wire(svg, outPath, kind === 'ok' ? 'a-wire' : 'a-wire dashed');
+      box(svg, 576, y - 22, 170, 46, out, [sub], `a-box out ${kind}`);
+      packet(svg, kind === 'ok' ? `${inPath} L510 ${196 + i * 8} ${outPath.replace('M', 'L')}` : inPath, kind === 'ok' ? 3.2 : 1.8, i * .9);
+    });
+    caption(host, 'Redrawn from the project flowchart: the sequence found and fixed on the test cluster before production, then the verified test matrix.');
+  }
+
+  // Grafana-style per-job panels over Prometheus metrics (an illustration, not live data).
+  function grafana(host) {
+    host.classList.add('viz-grafana');
+    const svg = frame(host, 480, 184, 'Illustration of Grafana panels: a job requested 8 CPU cores and used about 2; its GPU utilization over time');
+    const rand = seeded(5), n = 60;
+    const panel = (x, title, max, req, series, unit) => {
+      const g = el('g', { class: 'gf-panel' }, svg);
+      el('rect', { x, y: 0, width: 232, height: 184, rx: 6 }, g);
+      label(g, x + 10, 18, title, { class: 'gf-title' });
+      const X = i => x + 34 + i * (188 / (n - 1)), Y = v => 160 - v / max * 120;
+      for (let k = 0; k <= 4; k++) {
+        el('line', { class: 'gf-grid', x1: x + 34, x2: x + 222, y1: Y(max * k / 4), y2: Y(max * k / 4) }, g);
+        label(g, x + 29, Y(max * k / 4) + 3, `${Math.round(max * k / 4)}${unit}`, { class: 'gf-axis', 'text-anchor': 'end' });
+      }
+      const pts = series.map((v, i) => `${X(i).toFixed(1)},${Y(v).toFixed(1)}`);
+      el('path', { class: 'gf-area', d: `M${X(0)},${Y(0)} L${pts.join(' L')} L${X(n - 1)},${Y(0)} Z` }, g);
+      el('polyline', { class: 'gf-line', points: pts.join(' ') }, g);
+      if (req != null) {
+        el('line', { class: 'gf-req', x1: x + 34, x2: x + 222, y1: Y(req), y2: Y(req) }, g);
+        label(g, x + 222, Y(req) - 5, 'requested', { class: 'gf-axis', 'text-anchor': 'end' });
+      }
+      label(g, x + 222, 178, 'last 1 h', { class: 'gf-axis', 'text-anchor': 'end' });
+    };
+    panel(0, 'CPU cores in use · job 1042', 8, 8, [...Array(n)].map((_, i) => 1.7 + .5 * Math.sin(i / 5) + rand() * .5), '');
+    panel(248, 'GPU utilization · job 1042', 100, null, [...Array(n)].map((_, i) => Math.max(4, 58 + 22 * Math.sin(i / 7) + (rand() - .5) * 18)), '%');
+    caption(host, 'Illustration of the per-job Grafana view on Prometheus metrics, not real cluster data.');
+  }
+
+  // OpenMPI benchmark (openmpi_/RESULTS.md): N = 16384 matrix multiply.
+  function mpi(host) {
+    host.classList.add('viz-mpi');
+    const rows = [['1 core', 114.46, '114.5 s'], ['4 threads, 1 node', 27.8, '27.8 s · 4.1×'], ['MPI · 8 ranks, 2 nodes', 18.84, '18.8 s · 6.1×']];
+    host.innerHTML = rows.map(([name, t, text], i) => `<div class="mb-row${i === 2 ? ' best' : ''}"><span>${name}</span><div class="mb-track"><i style="--w:${(t / 114.46 * 100).toFixed(1)}%"></i></div><b>${text}</b></div>`).join('')
+      + '<p class="mb-cap">A 16,384 × 16,384 matrix multiply on the cluster; shorter is faster.</p>';
+    requestAnimationFrame(() => requestAnimationFrame(() => host.classList.add('grown')));
+  }
+
+  // Where each optimizer stopped (eq18_sgd.py: 300 steps, 6-qubit 5-layer TFIM).
+  function levels(host) {
+    const svg = frame(host, 480, 178, 'Final energies: pure SGD and Eq. 18 with the exact gap stall at −6.79, above the first excited level −6.814; Eq. 18 with the live gap estimate reaches −7.293, next to the ground energy −7.296');
+    const Y = e => 22 + (-6.62 - e) / .76 * 118;
+    el('line', { class: 'lv-l1', x1: 20, x2: 470, y1: Y(-6.814), y2: Y(-6.814) }, svg);
+    el('line', { class: 'lv-e0', x1: 20, x2: 470, y1: Y(-7.296), y2: Y(-7.296) }, svg);
+    label(svg, 470, Y(-6.814) + 14, 'λ₁ = −6.814 · first excited', { class: 'lv-note', 'text-anchor': 'end' });
+    label(svg, 470, Y(-7.296) + 14, 'E₀ = −7.296 · ground', { class: 'lv-note', 'text-anchor': 'end' });
+    const runs = [['Pure SGD', 'lr 0.1', -6.79, 64, false], ['Eq. 18', 'exact Δ', -6.79, 172, false], ['Eq. 18', 'live Δ̂', -7.2928, 280, true]];
+    runs.forEach(([name, sub, e, x, win], i) => {
+      el('line', { class: 'lv-drop' + (win ? ' win' : ''), x1: x, x2: x, y1: 8, y2: Y(e), style: `--i:${i}` }, svg);
+      el('circle', { class: 'lv-dot' + (win ? ' win' : ''), cx: x, cy: Y(e), r: 6, style: `--i:${i}` }, svg);
+      label(svg, x + 12, Y(e) - 6, e.toFixed(win ? 4 : 2), { class: 'lv-val' + (win ? ' win' : '') });
+      label(svg, x, 170, `${name} · ${sub}`, { class: 'lv-name', 'text-anchor': 'middle' });
+    });
+    const cap = document.createElement('figcaption');
+    cap.textContent = 'Final energy after 300 steps, 6-qubit, 5-layer transverse-field Ising model. Both stalled runs stop above λ₁.';
+    host.append(cap);
   }
 
   // Before/after bars for the class-search prototype.
@@ -287,5 +426,5 @@
     caption(host, 'Concept illustration, not a research result: risk-neutral GBM with r = 3%, S₀ = K = $100, T = 1 year. Green paths and bars finish in the money.');
   }
 
-  window.Viz = { quantum, hpc, pruning, panthersoft, publication, options };
+  window.Viz = { quantum, hpc, panthersoft, publication, options, architecture, adopt, grafana, mpi, levels };
 })();

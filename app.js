@@ -34,9 +34,10 @@ $$('[data-copy]').forEach(button => button.addEventListener('click', async () =>
 
 // ---------------------------------------------------------------- demos
 const demos = {
-  pruning: ['Deep learning · DenseNet-121', 'Pruning, interactively', 'Drag the sparsity and watch the weakest connections disappear.'],
   panthersoft: ['Software engineering · PantherSoft', 'Class search, before and after', 'Response and load times from the internship prototype.'],
   hpc: ['Research computing · IRCC', 'How the cluster fits together', 'Questions go to the RAG assistant; jobs go through Slurm to compute nodes.'],
+  architecture: ['HPC Agent · IRCC', 'Architecture', 'Three chat channels, one read-only agent, four back-ends. Switch to the RAG pipeline to see how documents become answers.'],
+  adopt: ['HPC administration · IRCC', 'pam_slurm_adopt, step by step', 'SSH into a compute node only while you have a job there, and land inside that job’s cgroup.'],
   publication: ['Quantum · IJISRT 2023', 'Grover’s search, step by step', 'Each iteration flips the valid coloring, then reflects every amplitude about the mean.'],
   quantum: ['Quantum ML · DaMRL', 'Two-phase step sizes', 'A sketch of the schedule converging to the ground energy inside a shrinking bound.'],
   options: ['Quant · concept demo', 'Paths and prices', 'Geometric Brownian motion paths and a European call priced two ways.'],

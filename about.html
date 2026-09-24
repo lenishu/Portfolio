@@ -5,31 +5,33 @@
   <meta name="description" content="About Lenish Pandey — Mathematical Science student at Florida International University working across AI, quantum computing, and quantitative research.">
   <title>About — Lenish Pandey</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="app.css?v=20260924">
-  <script src="app.js?v=20260924" defer></script><script src="figure.js?v=20260924" type="module"></script>
+  <link rel="stylesheet" href="app.css?v=20260926">
+  <script src="app.js?v=20260926" defer></script><script src="figure.js?v=20260924" type="module"></script>
 </head>
 <body>
   <a class="skip-link" href="#about-copy">Skip to content</a>
   <header class="nav" id="nav">
     <a class="logo" href="index.html" aria-label="Lenish Pandey, home">Lenish Pandey<span aria-hidden="true">✳︎</span></a>
     <nav class="nav-links" aria-label="Main"><a href="index.html">Home</a>, <a href="about.html" aria-current="page">About</a></nav>
-    <a class="nav-cta" href="index.html#contact">Get in touch</a>
     <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i><i></i><i></i></button>
   </header>
-  <div class="menu" id="menu"><a href="index.html">Home</a><a href="about.html">About</a><a href="index.html#contact">Get in touch</a></div>
+  <div class="menu" id="menu"><a href="index.html">Home</a><a href="about.html">About</a></div>
 
   <main class="about-grid">
     <div class="about-figure">
       <div class="hero-figure" data-figure data-anchor-x=".5" data-anchor-y=".5" data-zoom=".92" data-mobile-zoom=".85" role="img" aria-label="3D figure of Lenish that turns toward your cursor"><div class="figure-fallback" style="--fx:50%;--fy:50%;--fh:76%" aria-hidden="true"></div></div>
-      <p class="figure-note"><span class="hover-only">Move your cursor · he’s watching</span><span class="touch-only">Tap anywhere · he’s watching</span></p>
     </div>
 
     <div class="about-copy" id="about-copy">
       <p class="kicker" style="--field:var(--quant)">About</p>
       <h1>Lenish Pandey</h1>
       <p class="role-line">Mathematical Science, Computational Track · Florida International University</p>
-      <p class="lead">I work on the mathematics behind learning systems: optimizers for quantum machine learning that come with proofs, how much of a neural network can be removed before it stops learning, and the computing that makes those experiments possible.</p>
-      <p>I’m an Honors College student and Presidential Premier Scholar at FIU, building toward research in AI, quantum computing and quantitative finance.</p>
+      <div class="honors">
+        <div><b>Presidential Premier Scholar</b><span>Full tuition and fees</span></div>
+        <div><b>Honors College</b><span>Top 5% at FIU</span></div>
+      </div>
+      <p class="lead">I’m interested in applied mathematics and information science. It’s a broad range, so I aim to bring a wide toolkit to physical systems and solve them with computation.</p>
+      <p>Right now I’m learning more about machine-learning optimizers, both classical and quantum, and about finding an edge in option pricing.</p>
 
       <section class="about-section" aria-labelledby="now-title">
         <h2 id="now-title">Right now</h2>
@@ -43,7 +45,7 @@
       <section class="about-section" aria-labelledby="interests-title">
         <h2 id="interests-title">Interests</h2>
         <div class="interest-grid">
-          <a class="interest" href="index.html#ai" style="--c:var(--ai)"><i></i><b>AI</b><span>Model compression, reinforcement learning, retrieval systems.</span></a>
+          <a class="interest" href="index.html#neural" style="--c:var(--ai)"><i></i><b>AI</b><span>Model compression, reinforcement learning, retrieval systems.</span></a>
           <a class="interest" href="index.html#quantum" style="--c:var(--quantum)"><i></i><b>Quantum</b><span>Optimizers with guarantees, Grover search, information geometry.</span></a>
           <a class="interest" href="index.html#quant" style="--c:var(--quant)"><i></i><b>Quant</b><span>Option pricing, probability, optimization and markets.</span></a>
         </div>
@@ -57,17 +59,17 @@
 
       <section class="about-section" aria-labelledby="edu-title">
         <h2 id="edu-title">Education</h2>
-        <div class="edu"><b>B.S. Mathematical Science, Computational Track</b><p>Florida International University · Honors College (top 5%) · Presidential Premier Scholar (full tuition) · 3.9 GPA · Expected 2028</p>
+        <div class="edu"><b>B.S. Mathematical Science, Computational Track</b><p>Florida International University · Honors College (top 5%) · Presidential Premier Scholar (full tuition and fees) · 3.9 GPA · Expected 2028</p>
           <div class="chips"><span>Probability &amp; Statistics</span><span>Linear Algebra</span><span>Numerical Methods</span><span>Discrete Mathematics</span><span>Statistical Physics</span><span>Data Structures &amp; Algorithms</span><span>Machine Learning</span><span>Deep Learning</span><span>Data Science</span></div></div>
       </section>
 
       <section class="about-section" aria-labelledby="lead-title">
         <h2 id="lead-title">Leadership &amp; teaching</h2>
         <div class="now-list">
-          <div><b>Led a five-person research group</b><span>DenseNet-121 pruning · FIU Physics</span></div>
-          <div><b>Workshops on Docker, CI/CD and Git</b><span>Research team across FAU, FIU and FSU</span></div>
-          <div><b>Supported 500+ students</b><span>Calculus, physics and MATLAB · Math &amp; Physics Dept.</span></div>
           <div><b>President</b><span>Nepali Student Association at FIU</span></div>
+          <div><b>Teaching Assistant</b><span>Math &amp; Physics, FIU · 500+ students in Calculus, Physics and MATLAB</span></div>
+          <div><b>Undergraduate Research Assistant</b><span>Department of Physics, FIU</span></div>
+          <div><b>Open Science and Technical Assessment Coordinator</b><span><span class="pending">details to add</span></span></div>
         </div>
       </section>
 
@@ -83,7 +85,7 @@
 
       <section class="about-section">
         <div class="pills shown" style="margin-left:-.2em">
-          <a class="pill" href="index.html#fields">See the work</a>
+          <a class="pill" href="index.html#neural">See the work</a>
           <button class="pill outline" data-copy="lenishpandeynepal@gmail.com">Copy email ⧉</button>
           <a class="pill outline" href="resume.html" target="_blank" rel="noopener">Résumé ↗</a>
         </div>
