@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Particle lab — Quantum · Neural · Quantitative</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500&family=Inter:wght@400;500&display=swap">
+  <style>
+    @property --c { syntax: '<color>'; inherits: true; initial-value: #bd99ff; }
+    :root { --quantum:#bd99ff; --neural:#85dcff; --quant:#a1edc4; }
+    * { box-sizing:border-box; }
+    html,body { margin:0; height:100%; background:#050608; color:#f2f3f5; font:15px/1.5 Inter,system-ui,sans-serif; overflow:hidden; }
+    body { --c:var(--quantum); transition:--c .45s ease; }
+    body[data-field="neural"] { --c:var(--neural); }
+    body[data-field="quant"] { --c:var(--quant); }
+    canvas { position:fixed; inset:0; width:100%; height:100%; display:block; touch-action:pan-y; }
+    .top { position:fixed; left:24px; top:22px; right:24px; display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap; }
+    h1 { margin:0; font:500 22px 'Inter Tight',sans-serif; letter-spacing:-.02em; }
+    h1 small { display:block; margin-top:4px; font:400 13px Inter,sans-serif; color:#8a919b; letter-spacing:0; }
+    .exps { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; max-width:760px; }
+    .exps button { border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.035); color:#b9c0c9; border-radius:999px; padding:7px 13px; font:inherit; font-size:12.5px; cursor:pointer; backdrop-filter:blur(8px); transition:color .25s, background-color .25s, border-color .25s; }
+    .exps button:hover { border-color:rgba(255,255,255,.3); color:#fff; }
+    .exps button b { font-weight:500; opacity:.55; margin-right:7px; font-variant-numeric:tabular-nums; }
+    .exps button[aria-pressed="true"] { color:#05070a; background:var(--c); border-color:var(--c); }
+    .ui { position:fixed; inset:auto 0 0; display:flex; flex-direction:column; align-items:center; gap:10px; padding:0 16px 22px; pointer-events:none; }
+    .ui > * { pointer-events:auto; }
+    .desc { max-width:660px; margin:0; text-align:center; color:#9aa1ab; font-size:13.5px; min-height:2.8em; }
+    label { font-size:12px; color:#6f7782; display:flex; gap:8px; align-items:center; }
+
+    /* field switcher: a track with a dot per field; the glow slides to the active one */
+    .switch { --i:0; position:relative; display:grid; grid-template-columns:repeat(3, 1fr); width:min(100%, 580px); }
+    .switch::before { content:""; position:absolute; left:0; right:0; top:31px; height:1px; background:#374253; opacity:.8; }
+    .switch .glow { position:absolute; left:0; top:30px; width:calc(100% / 3); height:3px; pointer-events:none; transform:translateX(calc(var(--i) * 100%)); transition:transform .6s cubic-bezier(.22,.8,.24,1); }
+    .switch .glow::before { content:""; position:absolute; inset:0 0 1px; background:linear-gradient(90deg, transparent, var(--c) 50%, transparent); }
+    .switch .glow::after { content:""; position:absolute; left:8%; right:8%; top:-9px; bottom:-9px; background:radial-gradient(closest-side, color-mix(in srgb, var(--c) 42%, transparent), transparent); filter:blur(5px); }
+    .switch button { --f:var(--quantum); --m:#8b8aab; position:relative; display:flex; flex-direction:column; align-items:center; appearance:none; background:none; border:0; padding:0 6px 6px; color:var(--m); font:inherit; font-size:14.5px; letter-spacing:.07em; cursor:pointer; transition:color .35s; -webkit-tap-highlight-color:transparent; }
+    .switch button[data-field="neural"] { --f:var(--neural); --m:#849eb0; }
+    .switch button[data-field="quant"] { --f:var(--quant); --m:#829e91; }
+    .switch .dot { width:12px; height:12px; margin:13px 0 24px; border:1.5px solid currentColor; border-radius:50%; background:#07090d; transition:background-color .35s, border-color .35s, box-shadow .35s, transform .35s; }
+    .switch button:hover .dot { transform:scale(1.18); }
+    .switch button[aria-pressed="true"] { color:var(--f); }
+    .switch button[aria-pressed="true"] .dot { background:var(--f); border-color:var(--f); box-shadow:0 0 16px var(--f); }
+    .switch button:focus-visible { outline:none; }
+    .switch button:focus-visible .dot { outline:2px solid var(--f); outline-offset:4px; }
+    @media (max-width:560px) {
+      .top { left:16px; right:16px; top:16px; }
+      .exps { justify-content:flex-start; }
+      .exps button { padding:6px 10px; font-size:12px; }
+      .switch button { font-size:12.5px; letter-spacing:.04em; }
+      .desc { font-size:12.5px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .switch .glow, .switch .dot, .switch button, body { transition:none; } }
+  </style>
+</head>
+<body data-field="quantum">
+  <canvas id="c" aria-label="Particles morphing between quantum, neural and quantitative forms"></canvas>
+  <div class="top">
+    <h1>Particle lab<small>16,000 particles · one pool · three fields</small></h1>
+    <div class="exps" role="group" aria-label="Experiment"></div>
+  </div>
+  <div class="ui">
+    <p class="desc" id="desc"></p>
+    <div class="switch" role="group" aria-label="Field">
+      <span class="glow" aria-hidden="true"></span>
+      <button type="button" data-field="quantum" aria-pressed="true"><span class="dot" aria-hidden="true"></span>Quantum</button>
+      <button type="button" data-field="neural" aria-pressed="false"><span class="dot" aria-hidden="true"></span>Neural</button>
+      <button type="button" data-field="quant" aria-pressed="false"><span class="dot" aria-hidden="true"></span>Quantitative</button>
+    </div>
+    <label><input type="checkbox" id="auto" checked> Auto-cycle fields every 7 s · keys 1–7 experiments, ← → fields</label>
+  </div>
+  <script type="module">
+    import { startLab, EXPERIMENTS, FIELDS } from '../particles.js';
+    const exps = document.querySelector('.exps'), desc = document.getElementById('desc'), sw = document.querySelector('.switch'), auto = document.getElementById('auto');
+    const fieldBtns = [...sw.querySelectorAll('[data-field]')];
+    let shownField = null;
+    // ?field=neural&exp=3 opens straight on that experiment
+    const params = new URLSearchParams(location.search), deep = params.get('field') || params.get('exp');
+    const lab = startLab(document.getElementById('c'), {
+      field: FIELDS.includes(params.get('field')) ? params.get('field') : FIELDS[0], exp: Math.max(0, (+params.get('exp') || 1) - 1),
+      onChange(field, exp, shown) {
+        document.body.dataset.field = field;
+        sw.style.setProperty('--i', FIELDS.indexOf(field));
+        fieldBtns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.field === field)));
+        if (field !== shownField) {   // each field has its own experiment list
+          shownField = field;
+          exps.replaceChildren(...EXPERIMENTS[field].map((e, k) => {
+            const b = document.createElement('button'); b.type = 'button'; b.dataset.exp = k;
+            b.append(Object.assign(document.createElement('b'), { textContent: k + 1 }), e.name); return b;
+          }));
+        }
+        exps.querySelectorAll('[data-exp]').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.exp === shown)));
+        desc.textContent = EXPERIMENTS[field][shown].desc;
+      },
+    });
+    window.lab = lab;
+    let timer, hoverTimer;
+    const schedule = () => { clearInterval(timer); if (auto.checked) timer = setInterval(() => { const { field, exp } = lab.state; lab.set(FIELDS[(FIELDS.indexOf(field) + 1) % 3], exp); }, 7000); };
+    const pick = field => { clearTimeout(hoverTimer); lab.set(field, lab.state.exp); schedule(); };
+    fieldBtns.forEach(b => {
+      // hover switches after a short intent delay so sweeping across the bar doesn't flicker through fields
+      b.addEventListener('pointerenter', e => { if (e.pointerType !== 'mouse') return; clearTimeout(hoverTimer); hoverTimer = setTimeout(() => pick(b.dataset.field), 90); });
+      b.addEventListener('pointerleave', () => clearTimeout(hoverTimer));
+      b.addEventListener('click', () => pick(b.dataset.field));
+    });
+    exps.addEventListener('click', e => { const b = e.target.closest('[data-exp]'); if (b) { lab.set(lab.state.field, +b.dataset.exp); schedule(); } });
+    auto.onchange = schedule;
+    addEventListener('keydown', e => {
+      if (e.target.closest?.('input')) return;
+      const { field } = lab.state, n = EXPERIMENTS[field].length;
+      if (/^[1-9]$/.test(e.key) && +e.key <= n) { lab.set(field, +e.key - 1); schedule(); }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { const i = (FIELDS.indexOf(field) + (e.key === 'ArrowRight' ? 1 : 2)) % 3; pick(FIELDS[i]); }
+    });
+    if (deep) auto.checked = params.get('auto') === '1';
+    schedule();
+  </script>
+</body>
+</html>

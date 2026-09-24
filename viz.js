@@ -231,17 +231,6 @@
     return () => timers.forEach(clearTimeout);
   }
 
-  // Tiny bar signature for the publication strip: one answer amplified.
-  function groverMini(svg) {
-    const N = 16, marked = 11, p = Math.sin(5 * Math.asin(1 / 4)) ** 2;
-    const rest = Math.sqrt((1 - p) / (N - 1));
-    for (let i = 0; i < N; i++) {
-      const h = (i === marked ? Math.sqrt(p) : rest) * 58;
-      el('rect', { x: 2 + i * 10, y: 62 - h, width: 6, height: h, rx: 1, class: i === marked ? 'marked' : '', style: `--i:${i}` }, svg);
-    }
-  }
-
-
   // Concept demo for the quant field: GBM paths, the terminal distribution,
   // and a European call priced by Black–Scholes and by Monte Carlo.
   function options(host) {
@@ -298,5 +287,5 @@
     caption(host, 'Concept illustration, not a research result: risk-neutral GBM with r = 3%, S₀ = K = $100, T = 1 year. Green paths and bars finish in the money.');
   }
 
-  window.Viz = { quantum, hpc, pruning, panthersoft, publication, groverMini, options };
+  window.Viz = { quantum, hpc, pruning, panthersoft, publication, options };
 })();

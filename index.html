@@ -1,16 +1,20 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#060708">
-  <meta name="description" content="Lenish Pandey — mathematics student at FIU working across AI, quantum computing, and quantitative research.">
-  <title>Lenish Pandey — AI, Quantum &amp; Quant</title>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#050608">
+  <meta name="description" content="Lenish Pandey — mathematics student at FIU working across neural networks, quantum computing, and quantitative research.">
+  <title>Lenish Pandey — Neural, Quantum &amp; Quant</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="app.css?v=20260924">
-  <script src="viz.js?v=20260924" defer></script><script src="app.js?v=20260924" defer></script>
-  <script src="figure.js?v=20260924" type="module"></script><script src="scenes.js?v=20260924" type="module"></script>
+  <link rel="stylesheet" href="app.css?v=20260925">
+  <link rel="stylesheet" href="story.css?v=20260925">
+  <script src="viz.js?v=20260925" defer></script><script src="app.js?v=20260925" defer></script>
+  <script src="story.js?v=20260925" type="module"></script>
 </head>
-<body>
-  <a class="skip-link" href="#fields">Skip to work</a>
+<body class="story" data-field="neural">
+  <a class="skip-link" href="#neural">Skip to work</a>
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="shade" aria-hidden="true"></div>
+
   <header class="nav" id="nav">
     <a class="logo" href="index.html" aria-label="Lenish Pandey, home">Lenish Pandey<span aria-hidden="true">✳︎</span></a>
     <nav class="nav-links" aria-label="Main"><a href="index.html" aria-current="page">Home</a>, <a href="about.html">About</a></nav>
@@ -19,221 +23,289 @@
   </header>
   <div class="menu" id="menu"><a href="index.html">Home</a><a href="about.html">About</a><a href="#contact">Get in touch</a></div>
 
+  <!-- Field rail: where you are in the story. Desktop: left edge with each field's steps; phones: a strip under the nav. -->
+  <nav class="rail" aria-label="Fields">
+    <ol>
+      <li data-chapter="neural"><a class="ch" href="#neural"><i></i><span>Neural</span></a>
+        <div class="steps"><ol>
+          <li><a href="#rag">RAG system</a></li><li><a href="#hpc">HPC configuration</a></li><li><a href="#ipa">Information processing</a></li>
+          <li><a href="#neuro">Fly brain</a></li><li><a href="#roles">Software &amp; networks</a></li><li><a href="#projects">Projects</a></li>
+        </ol></div></li>
+      <li data-chapter="quantum"><a class="ch" href="#quantum"><i></i><span>Quantum</span></a>
+        <div class="steps"><ol><li><a href="#quantum">The experiment</a></li><li><a href="#vqe">VQE</a></li><li><a href="#grover">Grover coloring</a></li></ol></div></li>
+      <li data-chapter="quant"><a class="ch" href="#quant"><i></i><span>Quant</span></a>
+        <div class="steps"><ol><li><a href="#quant">Markets</a></li><li><a href="#options">Option trading</a></li><li><a href="#cashify">Cashify wallet</a></li></ol></div></li>
+    </ol>
+  </nav>
+
+  <p class="caption" aria-live="polite"><i aria-hidden="true"></i><span id="caption"></span><button type="button" id="motion" aria-pressed="false">Pause</button></p>
+
   <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-figure" data-figure data-anchor-x=".7" data-anchor-y=".48" data-mobile-anchor-x=".5" data-mobile-anchor-y=".3" data-mobile-zoom=".8" role="img" aria-label="3D figure of Lenish that turns toward your cursor"><div class="figure-fallback" style="--fx:70%;--fy:48%;--fh:83%" aria-hidden="true"></div></div>
-      <div class="hero-content">
-        <h1 id="hero-title" class="sr-only">Lenish Pandey — AI, quantum and quantitative research</h1>
-        <p class="intro-blur" aria-hidden="true">Hey there, I’m Lenish,<br>mathematics at FIU, working in three fields</p>
-        <p class="typed" data-typewriter="Math is my language for AI, quantum computing and markets. Pick a field to see the work."></p>
-        <div class="pills" id="hero-pills">
-          <a class="pill" href="#ai" data-pick="ai" style="--c:var(--ai)"><span class="dot"></span>AI</a>
-          <a class="pill" href="#quantum" data-pick="quantum" style="--c:var(--quantum)"><span class="dot"></span>Quantum</a>
-          <a class="pill" href="#quant" data-pick="quant" style="--c:var(--quant)"><span class="dot"></span>Quant</a>
-          <a class="pill" href="about.html">About me</a>
-          <button class="pill outline" data-copy="lenishpandeynepal@gmail.com">Reach me: <u>lenishpandeynepal@gmail.com</u>
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3.5" y="3.5" width="8" height="8" rx="1.5"/><path d="M8.5 1.5v-.5a.5.5 0 0 0-.5-.5H1a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h.5"/></svg></button>
-        </div>
-      </div>
-      <div class="hero-foot"><span>FIU · Mathematical Science · Class of 2028</span><a href="#fields">Scroll ↓</a></div>
+    <section class="step hero-step" data-form="neural.constellation" data-frame="hero" data-caption="A layered neural network: signals stream along every connection." aria-labelledby="hero-title">
+      <h1 id="hero-title" class="sr-only">Lenish Pandey — neural networks, quantum computing and quantitative research</h1>
+      <a class="scroll-cue" href="#rag"><span>Scroll</span><i aria-hidden="true"></i></a>
     </section>
 
-    <section class="fields" id="fields" aria-label="Work by field">
-      <div class="field-tabs" role="tablist" aria-label="Choose a field">
-        <button role="tab" id="tab-ai" aria-controls="ai" aria-selected="true" data-tab="ai" style="--c:var(--ai)"><span class="dot"></span>AI</button>
-        <button role="tab" id="tab-quantum" aria-controls="quantum" aria-selected="false" tabindex="-1" data-tab="quantum" style="--c:var(--quantum)"><span class="dot"></span>Quantum</button>
-        <button role="tab" id="tab-quant" aria-controls="quant" aria-selected="false" tabindex="-1" data-tab="quant" style="--c:var(--quant)"><span class="dot"></span>Quant</button>
-      </div>
-
-      <!-- ============================== AI ============================== -->
-      <div class="panel active" id="ai" role="tabpanel" aria-labelledby="tab-ai" data-field="ai">
-        <div class="field-hero">
-          <div class="field-copy">
-            <p class="kicker">Field 01 · AI</p>
-            <h2>Learning systems, measured and built.</h2>
-            <p>Deep-learning research on what networks can lose, reinforcement learning, retrieval-augmented tools, and the software that ships them.</p>
-            <div class="field-stats"><div><b>15</b><span>pruning configurations benchmarked</span></div><div><b>85%</b><span>DQN win rate vs. rule-based agent</span></div><div><b>10s→&lt;1s</b><span>class-search response time</span></div></div>
-          </div>
-          <div class="scene" data-scene="ai" aria-hidden="true"></div>
-        </div>
-        <nav class="subnav" aria-label="AI sections"><a href="#ai-experience">Experience</a><a href="#ai-projects">Projects</a><a href="#ai-research">Research</a></nav>
-
-        <section class="block" id="ai-experience" aria-labelledby="ai-exp-title">
-          <div class="block-head"><h3 id="ai-exp-title">Experience</h3><p>Select a role for details.</p></div>
-          <div class="exp open"><button class="exp-toggle" aria-expanded="true"><span><b>Deep Learning Research Assistant</b><small>Department of Physics · FIU</small></span><span class="exp-date">Jan 2025 – Apr 2026</span><span class="exp-icon" aria-hidden="true"></span></button>
-            <div class="exp-body"><div><div class="exp-inner"><ul><li>Led a five-person research group studying pruning in DenseNet-121.</li><li>Designed and validated a modular mask-pruning pipeline from 0 to 100% sparsity in PyTorch and TensorFlow.</li><li>Built an Information Processing Ability (IPA) metric module to benchmark learning efficiency across 15 configurations.</li><li>Reusable mask generation, evaluation loops and metric logging raised evaluation throughput by 30%.</li></ul><div class="metrics"><div class="metric"><b>15</b><span>pruning configurations</span></div><div class="metric"><b>+30%</b><span>evaluation throughput</span></div><div class="metric"><b>0–100%</b><span>sparsity range</span></div><div class="metric"><b>5</b><span>researchers led</span></div></div></div></div></div></div>
-          <div class="exp"><button class="exp-toggle" aria-expanded="false"><span><b>HPC Administrative Intern</b><small>Instructional Research &amp; Computing Center · FIU</small></span><span class="exp-date">Jun 2026 – Present</span><span class="exp-icon" aria-hidden="true"></span></button>
-            <div class="exp-body"><div><div class="exp-inner"><ul><li>Administer cloud-native and HPC infrastructure for research and AI/ML inference.</li><li>Run Slurm and xCAT cluster operations and support MPI-based parallel workflows.</li><li>Building a retrieval-augmented (RAG) assistant that helps researchers navigate the cluster’s architecture.</li></ul><div><div class="chips"><span>Slurm</span><span>xCAT</span><span>MPI</span><span>Linux</span><span>RAG</span><span>ML inference</span></div></div></div></div></div></div>
-          <div class="exp"><button class="exp-toggle" aria-expanded="false"><span><b>Software Engineering Intern</b><small>PantherSoft · FIU</small></span><span class="exp-date">Apr – Jun 2026</span><span class="exp-icon" aria-hidden="true"></span></button>
-            <div class="exp-body"><div><div class="exp-inner"><ul><li>Five-person Agile team modernizing FIU’s Public Class Search, used by a university of 50,000+ students.</li><li>Built front-end features in React, TypeScript and Tailwind CSS on Firebase and REST APIs.</li><li>Client-side caching cut response time from 10 seconds to under one; the prototype loaded 35% faster.</li></ul><div class="metrics"><div class="metric"><b>&lt;1s</b><span>response time, down from 10 s</span></div><div class="metric"><b>35%</b><span>faster prototype load</span></div></div></div></div></div></div>
-          <div class="exp"><button class="exp-toggle" aria-expanded="false"><span><b>AI Fellow</b><small>Fusemachines AI Fellowship</small></span><span class="exp-date">Dec 2022 – Jan 2024</span><span class="exp-icon" aria-hidden="true"></span></button>
-            <div class="exp-body"><div><div class="exp-inner"><ul><li>Engineered a custom OpenAI Gym environment for Baghchal and trained a Deep Q-Network agent with Stable-Baselines3 and TensorFlow.</li><li>Built an end-to-end carbon-emission prediction pipeline: ingestion, feature engineering, training and evaluation in scikit-learn and pandas.</li></ul><div class="metrics"><div class="metric"><b>85%</b><span>win rate vs. rule-based agent</span></div><div class="metric"><b>+18%</b><span>accuracy over baseline</span></div></div></div></div></div></div>
-          <div class="exp"><button class="exp-toggle" aria-expanded="false"><span><b>Computational Neuroscience Researcher</b><small>Pena Lab · FAU / FIU / FSU</small></span><span class="exp-date">Jan – Apr 2026</span><span class="exp-icon" aria-hidden="true"></span></button>
-            <div class="exp-body"><div><div class="exp-inner"><ul><li>Built a neural-circuit simulation of the Drosophila Giant Fiber System in BRIAN2.</li><li>Led Docker, CI/CD and Git workshops for a team spanning three universities.</li></ul><div><div class="chips"><span>BRIAN2</span><span>Docker</span><span>CI/CD</span><span>Reproducible research</span></div></div></div></div></div></div>
-          <div class="exp"><button class="exp-toggle" aria-expanded="false"><span><b>IT Network Operations Assistant</b><small>Division of IT · FIU</small></span><span class="exp-date">Jul 2026 – Present</span><span class="exp-icon" aria-hidden="true"></span></button>
-            <div class="exp-body"><div><div class="exp-inner"><ul><li>Network operations with FIU’s IT Operations team.</li></ul><div></div></div></div></div></div>
-        </section>
-
-        <section class="block" id="ai-projects" aria-labelledby="ai-proj-title">
-          <div class="block-head"><h3 id="ai-proj-title">Projects</h3><p>Video, screenshots and live demos.</p></div>
-          <div class="project-grid">
-            <article class="project">
-              <div class="media" data-media><div class="media-tabs"><button aria-pressed="true" data-show="video">Demo video</button><button aria-pressed="false" data-show="shot">Screenshot</button></div>
-                <video class="shot" data-kind="video" src="assets/media/datanexus.mp4" poster="assets/media/datanexus.webp" muted loop playsinline preload="none" aria-label="Scrolling through the Data Nexus dataset catalog"></video>
-                <img class="shot" data-kind="shot" src="assets/media/datanexus.webp" alt="Data Nexus catalog page with category filters and CO2 prediction cards" loading="lazy" hidden>
-              </div>
-              <div class="project-body"><h4>Data Nexus</h4><p>Open-data platform aggregating 1,500+ datasets across science, space and climate, with a CO₂ prediction model trained on historical emissions.</p><div class="chips"><span>JavaScript</span><span>scikit-learn</span><span>Data pipelines</span></div>
-                <div class="links"><a class="link-pill primary" href="https://data-nexus.netlify.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a></div></div>
-            </article>
-            <article class="project">
-              <div class="media"><img src="assets/media/repo-densenet.webp" alt="GitHub repository for the DenseNet pruning study" loading="lazy"><span class="media-caption">Repository</span></div>
-              <div class="project-body"><h4>DenseNet-121 pruning pipeline</h4><p>Modular mask pruning with reusable evaluation loops and an information-processing metric.</p><div class="chips"><span>PyTorch</span><span>TensorFlow</span><span>Sparsity</span></div>
-                <div class="links"><button class="link-pill primary" data-demo="pruning">Run demo ▷</button><a class="link-pill" href="https://github.com/lenishu/IPA_using_Densenet" target="_blank" rel="noopener noreferrer">Code ↗</a></div></div>
-            </article>
-            <article class="project">
-              <div class="media"><img src="assets/media/fiu-class-search.webp" alt="FIU Public Class Search home page" loading="lazy"><span class="media-caption">FIU’s live site, not the internship prototype</span></div>
-              <div class="project-body"><h4>Public Class Search</h4><p>Modernizing FIU’s legacy class search into a responsive, mobile-first app with client-side caching.</p><div class="chips"><span>React</span><span>TypeScript</span><span>Firebase</span></div>
-                <div class="links"><button class="link-pill primary" data-demo="panthersoft">See the numbers ▷</button><a class="link-pill" href="https://classes.fiu.edu/" target="_blank" rel="noopener noreferrer">FIU class search ↗</a></div></div>
-            </article>
-            <article class="project">
-              <div class="media"><img src="assets/media/repo-hpc.webp" alt="GitHub repository with HPC cluster guides" loading="lazy"><span class="media-caption">Documentation repository</span></div>
-              <div class="project-body"><h4>HPC operations &amp; RAG assistant</h4><p>Cluster guides for Slurm and xCAT, and a retrieval-augmented assistant for HPC questions.</p><div class="chips"><span>Slurm</span><span>xCAT</span><span>RAG</span></div>
-                <div class="links"><button class="link-pill primary" data-demo="hpc">View diagram ▷</button><a class="link-pill" href="https://github.com/lenishu/HPC-IRCC" target="_blank" rel="noopener noreferrer">Docs ↗</a></div></div>
-            </article>
-            <article class="project">
-              <div class="media"><img src="assets/media/repo-baghchal.webp" alt="GitHub repository for the Baghchal reinforcement learning environment" loading="lazy"><span class="media-caption">Repository</span></div>
-              <div class="project-body"><h4>Baghchal reinforcement learning</h4><p>Custom Gym environment for the Baghchal board game and a Deep Q-Network agent that wins 85% of games against a rule-based opponent.</p><div class="chips"><span>Gym</span><span>DQN</span><span>Stable-Baselines3</span></div>
-                <div class="links"><a class="link-pill primary" href="https://github.com/lenishu/Solve_baghchal" target="_blank" rel="noopener noreferrer">Code ↗</a></div></div>
-            </article>
-          </div>
-        </section>
-
-        <section class="block" id="ai-research" aria-labelledby="ai-res-title">
-          <div class="block-head"><h3 id="ai-res-title">Research</h3><p>Graphs, code and demos.</p></div>
-          <article class="paper">
-            <div class="paper-figure"><div class="inline-viz" data-inline="pruning"></div></div>
-            <div class="paper-body"><span class="status">Research group lead · 2025–26</span><h4>What can a neural network lose?</h4><p class="venue">Department of Physics, FIU · DenseNet-121</p>
-              <p>Mask pruning from 0 to 100% sparsity across 15 configurations, measured with an Information Processing Ability metric to see where learning efficiency breaks down.</p>
-              <div class="links"><a class="link-pill primary" href="https://github.com/lenishu/IPA_using_Densenet" target="_blank" rel="noopener noreferrer">Code &amp; notebooks ↗</a></div></div>
-          </article>
-          <div class="cert-row">
-            <span class="cert"><b>Break Through Tech AI</b><span>Cornell Tech</span></span>
-            <span class="cert"><b>Machine Learning · Deep Learning</b><span>Micro-degrees</span></span>
-            <span class="cert"><b>Computer Vision · NLP</b><span>Micro-degrees</span></span>
-          </div>
-        </section>
-      </div>
-
-      <!-- ============================== QUANTUM ============================== -->
-      <div class="panel" id="quantum" role="tabpanel" aria-labelledby="tab-quantum" data-field="quantum" hidden>
-        <div class="field-hero">
-          <div class="field-copy">
-            <p class="kicker">Field 02 · Quantum</p>
-            <h2>Quantum algorithms, with proofs.</h2>
-            <p>Optimizers for quantum machine learning that set their own step size, and Grover’s search applied to graph coloring.</p>
-            <div class="field-stats"><div><b>2</b><span>papers: one published, one in progress</span></div><div><b>√N</b><span>Grover query speedup</span></div><div><b>4</b><span>quantum certifications</span></div></div>
-          </div>
-          <div class="scene" data-scene="quantum" aria-hidden="true"></div>
-          <div class="glass-tags" aria-hidden="true"><span style="left:12%;top:18%">Imaginary Time Evolution</span><span style="left:58%;top:12%">Grover search</span><span style="left:66%;top:70%">Fubini–Study geometry</span><span style="left:8%;top:72%">Spectral bounds</span><span style="left:40%;top:84%">Qiskit</span></div>
-        </div>
-        <nav class="subnav" aria-label="Quantum sections"><a href="#quantum-research">Research</a><a href="#quantum-experience">Experience</a><a href="#quantum-projects">Projects</a></nav>
-
-        <section class="block" id="quantum-research" aria-labelledby="q-res-title">
-          <div class="block-head"><h3 id="q-res-title">Research</h3><p>Graphs, paper links and demos.</p></div>
-          <article class="paper">
-            <div class="paper-figure"><div class="inline-viz" data-inline="quantum"></div></div>
-            <div class="paper-body"><span class="status">Paper in progress · not yet peer reviewed</span><h4>Hyperparameter-free quantum optimizers</h4><p class="venue">Data Management Research Lab, FIU · with Prof. Janki Bhimani</p>
-              <p>A two-phase adaptive step-size schedule for quantum machine-learning models that bounds suboptimality through energy variance, using the Weinstein and Temple spectral inequalities. The schedule is proved equivalent to normalized Imaginary Time Evolution under Fubini–Study geometry.</p>
-              <div class="chips"><span>Quantum ML</span><span>Spectral inequalities</span><span>Information geometry</span></div>
-              <div class="links"><span class="link-pill" aria-disabled="true">Paper link coming</span></div></div>
-          </article>
-          <article class="paper">
-            <figure class="paper-figure"><div class="fig-grid"><img src="assets/media/grover-histogram.webp" alt="Measurement histogram: valid colorings have far higher counts than the rest" loading="lazy"><div class="stack"><img src="assets/media/grover-graph-cycle.webp" alt="Seven-node cycle graph colored by the algorithm" loading="lazy"><img src="assets/media/grover-graph-k4.webp" alt="Four-node graph colored by the algorithm" loading="lazy"></div></div><figcaption>Output from the paper’s Qiskit code: amplified measurement counts for valid colorings, and colorings decoded for two graphs.</figcaption></figure>
-            <div class="paper-body"><span class="status">Published · 2023</span><h4>Solving the General Planar Graph Coloring Problem Using Grover’s Algorithm</h4><p class="venue">International Journal of Innovative Science and Research Technology, Vol. 8 (2023) · Lenish Pandey et al.</p>
-              <p>Builds a quantum circuit that uses Grover’s search, with its quadratic speedup over classical search, to color planar graphs, applied to placing specialists across hospitals.</p>
-              <div class="links"><button class="link-pill primary" data-demo="publication">Run Grover demo ▷</button><a class="link-pill" href="https://ijisrt.com/solving-the-general-planar-graph-coloring-problem-using-grovers-algorithm" target="_blank" rel="noopener noreferrer">Paper ↗</a><a class="link-pill" href="https://doi.org/10.5281/zenodo.10629676" target="_blank" rel="noopener noreferrer">DOI ↗</a><a class="link-pill" href="https://github.com/lenishu/Grovers_algorithm_for_graph_coloring_problem" target="_blank" rel="noopener noreferrer">Code ↗</a></div></div>
-          </article>
-        </section>
-
-        <section class="block" id="quantum-experience" aria-labelledby="q-exp-title">
-          <div class="block-head"><h3 id="q-exp-title">Experience</h3></div>
-          <div class="exp open"><button class="exp-toggle" aria-expanded="true"><span><b>Quantum ML Research Assistant</b><small>Data Management Research Lab · FIU</small></span><span class="exp-date">May 2026 – Present</span><span class="exp-icon" aria-hidden="true"></span></button>
-            <div class="exp-body"><div><div class="exp-inner"><ul><li>Engineering hyperparameter-free optimizers for quantum machine-learning models, with Prof. Janki Bhimani.</li><li>Formulated a two-phase adaptive step-size schedule that bounds suboptimality via energy variance (Weinstein and Temple inequalities).</li><li>Proved the schedule’s equivalence to normalized Imaginary Time Evolution under Fubini–Study geometry.</li></ul><div class="metrics"><div class="metric"><b>0</b><span>learning rates to hand-tune</span></div><div class="metric"><b>2-phase</b><span>adaptive schedule</span></div></div></div></div></div></div>
-        </section>
-
-        <section class="block" id="quantum-projects" aria-labelledby="q-proj-title">
-          <div class="block-head"><h3 id="q-proj-title">Projects &amp; credentials</h3></div>
-          <div class="project-grid">
-            <article class="project">
-              <div class="media" data-media><div class="media-tabs"><button aria-pressed="true" data-show="a">Circuit</button><button aria-pressed="false" data-show="b">Repository</button></div>
-                <img class="shot" data-kind="a" src="assets/media/grover-circuit.webp" alt="Qiskit circuit diagram for three-coloring with Grover's algorithm" loading="lazy" style="object-fit:contain;background:#fff">
-                <img class="shot" data-kind="b" src="assets/media/repo-grover.webp" alt="GitHub repository for Grover graph coloring" loading="lazy" hidden></div>
-              <div class="project-body"><h4>Grover’s algorithm for graph coloring</h4><p>Qiskit circuits for general and three-color graph coloring, with validation.</p><div class="chips"><span>Qiskit</span><span>Oracles</span><span>Amplitude amplification</span></div>
-                <div class="links"><button class="link-pill primary" data-demo="publication">Run demo ▷</button><a class="link-pill" href="https://github.com/lenishu/Grovers_algorithm_for_graph_coloring_problem" target="_blank" rel="noopener noreferrer">Code ↗</a></div></div>
-            </article>
-            <div class="cert-row" style="align-content:start">
-              <a class="cert" href="https://www.credly.com/badges/41bfeb6b-95f9-4495-8939-d14e456e5676/public_url" target="_blank" rel="noopener noreferrer"><b>IBM Quantum Challenge 2024</b><span>Achievement badge ↗</span></a>
-              <a class="cert" href="https://www.credly.com/badges/2c0e1e83-b0c1-4215-8a66-d54f759ce8b6/public_url" target="_blank" rel="noopener noreferrer"><b>Qiskit Global Summer School 2022</b><span>Quantum Excellence ↗</span></a>
-              <span class="cert"><b>Qiskit Global Summer School 2023</b><span>Quantum Excellence</span></span>
-              <a class="cert" href="https://verified.sertifier.com/en/verify/35151842565898/" target="_blank" rel="noopener noreferrer"><b>Introduction to Quantum Computing</b><span>The Coding School ↗</span></a>
+    <!-- ============================== NEURAL ============================== -->
+    <div class="chapter" id="neural" data-chapter="neural">
+      <section class="step" id="rag" data-form="neural.rag" data-caption="RAG pipeline: documents are chunked and embedded; a question retrieves its nearest passages; the model answers from them.">
+        <article class="card">
+          <p class="kicker">Neural · Experience</p>
+          <h2>HPC Administration and Optimization Intern</h2>
+          <p class="meta">Instructional Research &amp; Computing Center, FIU · Jun 2026 – Present</p>
+          <div class="highlight">
+            <p class="tag">Project 1 of 2 · RAG system</p>
+            <h3>A chat assistant for the cluster</h3>
+            <p>A retrieval-augmented system that answers researchers’ questions about the HPC architecture from its own documentation.</p>
+            <div class="acc-group">
+              <div class="acc"><button type="button" aria-expanded="false">How it works<span class="plus" aria-hidden="true"></span></button>
+                <div class="acc-body"><div><ol class="flow"><li><b>Chunk &amp; embed</b>Documentation is split into passages and embedded into a vector store.</li><li><b>Retrieve</b>A question is embedded and its nearest passages are pulled back.</li><li><b>Answer</b>The language model answers from those passages.</li></ol></div></div></div>
             </div>
           </div>
-        </section>
-      </div>
+          <div class="chips"><span>RAG</span><span>Embeddings</span><span>Vector search</span><span>LLMs</span></div>
+        </article>
+      </section>
 
-      <!-- ============================== QUANT ============================== -->
-      <div class="panel" id="quant" role="tabpanel" aria-labelledby="tab-quant" data-field="quant" hidden>
-        <div class="field-hero">
-          <div class="field-copy">
-            <p class="kicker">Field 03 · Quant</p>
-            <h2>Probability, priced.</h2>
-            <p>Mathematics research on option trading, a seat in the Student Managed Investment Fund, and the probability, optimization and computing behind both.</p>
-            <div class="field-stats"><div><b>3.9</b><span>GPA in Mathematical Science</span></div><div><b>+18%</b><span>prediction accuracy over baseline</span></div><div><b>C++ · MPI</b><span>parallel computation</span></div></div>
+      <section class="step" id="hpc" data-form="neural.hpc" data-caption="HPC cluster: racks of compute blades running jobs, leaf and spine switches, MPI traffic between blades.">
+        <article class="card">
+          <p class="kicker">Neural · Experience</p>
+          <h2>HPC configuration</h2>
+          <p class="meta">Project 2 of 2 · HPC Administration and Optimization Intern</p>
+          <p class="lead">Keeping a research cluster fast and fair. Select an item; the cluster on the left shows it.</p>
+          <div class="acc-group" data-focus-form="neural.hpc">
+            <div class="acc" data-focus="rag"><button type="button" aria-expanded="false">RAG assistant<span class="plus" aria-hidden="true"></span></button>
+              <div class="acc-body"><div><p>The retrieval-augmented chat system from project 1, answering questions about the cluster.</p></div></div></div>
+            <div class="acc"><button type="button" aria-expanded="false">Microsoft bot<span class="plus" aria-hidden="true"></span></button>
+              <div class="acc-body"><div><p><span class="pending">details to add</span></p></div></div></div>
+            <div class="acc" data-focus="optimize"><button type="button" aria-expanded="false">Optimizing code for resources<span class="plus" aria-hidden="true"></span></button>
+              <div class="acc-body"><div><p>Tuning code so jobs make full use of the CPUs, memory and GPUs they request, rather than leaving allocated hardware idle.</p></div></div></div>
+            <div class="acc" data-focus="mpi"><button type="button" aria-expanded="false">MPI<span class="plus" aria-hidden="true"></span></button>
+              <div class="acc-body"><div><p>Enabling MPI-based parallel workflows: one job spread across many nodes that exchange messages over the interconnect.</p></div></div></div>
+            <div class="acc" data-focus="cgroup"><button type="button" aria-expanded="false">Migrating to cgroup v2<span class="plus" aria-hidden="true"></span></button>
+              <div class="acc-body"><div><p>Moving resource control to the Linux kernel’s cgroup v2 hierarchy, so each job is held to the CPUs and memory it was allocated.</p></div></div></div>
+            <div class="acc"><button type="button" aria-expanded="false">Slurm &amp; xCAT operations<span class="plus" aria-hidden="true"></span></button>
+              <div class="acc-body"><div><p>Cluster operations with Slurm scheduling and xCAT provisioning, supporting research computing and AI/ML inference.</p></div></div></div>
           </div>
-          <div class="scene" data-scene="quant" aria-hidden="true"></div>
+          <div class="links"><button class="link-pill" data-demo="hpc">Cluster diagram ▷</button><a class="link-pill" href="https://github.com/lenishu/HPC-IRCC" target="_blank" rel="noopener noreferrer">Cluster guides ↗</a></div>
+        </article>
+      </section>
+
+      <section class="step tall" id="ipa" data-form="neural.densenet" data-caption="DenseNet: dense blocks where every layer feeds every later one. Scroll to remove connections at random.">
+        <article class="card">
+          <p class="kicker">Neural · Research</p>
+          <h2>Information processing ability of neural networks</h2>
+          <p class="meta">Deep Learning Research Assistant · Department of Physics, FIU · Jan 2025 – Apr 2026</p>
+          <p class="lead">As we age, or as neurons die, how quickly does the ability to learn change, and where does it collapse?</p>
+          <ul class="points">
+            <li>Formulated a mathematical foundation for a model’s information processing ability.</li>
+            <li>Visualized and studied the phase transition of neurons with a visualization tool.</li>
+          </ul>
+          <figure class="ipa-fig">
+            <div class="fig-tabs" role="tablist" aria-label="Information processing ability">
+              <button type="button" role="tab" id="tab-curve" aria-controls="panel-curve" aria-selected="true">Learning curve</button>
+              <button type="button" role="tab" id="tab-phase" aria-controls="panel-phase" aria-selected="false" tabindex="-1">Phase transition</button>
+              <button type="button" role="tab" id="tab-math" aria-controls="panel-math" aria-selected="false" tabindex="-1">The math</button>
+            </div>
+            <div class="fig-panels">
+              <div role="tabpanel" id="panel-curve" aria-labelledby="tab-curve" class="on">
+                <svg viewBox="0 0 320 140" role="img" aria-label="Schematic IPA curve: flat, then a sharp drop in the critical region">
+                  <rect class="crit" x="0" y="10" width="0" height="104"/>
+                  <text class="crit-label" x="0" y="22">critical region</text>
+                  <path class="axis" d="M34 10V114H310"/>
+                  <path class="curve" id="ipa-curve"/>
+                  <path class="curve-done" id="ipa-done"/>
+                  <circle class="dot" id="ipa-dot" r="5" cx="34" cy="40"/>
+                  <text class="lbl" x="30" y="16" text-anchor="end">IPA</text>
+                  <text class="lbl" x="310" y="132" text-anchor="end">connections removed →</text>
+                </svg>
+                <p class="fig-cap"><span>Schematic. Scroll to remove connections.</span><output id="ipa-read">0% removed</output></p>
+              </div>
+              <div role="tabpanel" id="panel-phase" aria-labelledby="tab-phase">
+                <div class="phase-grid">
+                  <figure><svg viewBox="0 0 120 80" data-curve="magnet"></svg><figcaption>Magnet: order vanishes at the Curie point</figcaption></figure>
+                  <figure><svg viewBox="0 0 120 80" data-curve="perc"></svg><figcaption>Percolation: the lattice stops spanning</figcaption></figure>
+                  <figure><svg viewBox="0 0 120 80" data-curve="ipa"></svg><figcaption>Network: learning collapses</figcaption></figure>
+                </div>
+                <p>An <b>order parameter</b> collapses as a <b>control parameter</b> crosses a critical point. In a network the control is the fraction of connections removed and IPA is the order: the collapse sits near 80% for a single-layer perceptron and 90% for a CNN.</p>
+              </div>
+              <div role="tabpanel" id="panel-math" aria-labelledby="tab-math">
+                <div class="formula" aria-label="IPA equals CE sub L over BN sub L">
+                  <div><var>IPA</var> = <span class="frac"><span>CE<sub>L</sub></span><span>BN<sub>L</sub></span></span></div>
+                  <p><var>CE<sub>L</sub></var> = ln 10 − <var>CE</var><sub>∞</sub>: how much loss the network removes, from random guessing on 10 classes.</p>
+                  <p><var>BN<sub>L</sub></var>: the batches it takes to cover 90% of that drop, or how fast it learns.</p>
+                </div>
+              </div>
+            </div>
+          </figure>
+          <div class="links"><a class="link-pill primary" href="https://github.com/lenishu/physlab" target="_blank" rel="noopener noreferrer">Experiments ↗</a><a class="link-pill" href="https://github.com/lenishu/IPA_using_Densenet" target="_blank" rel="noopener noreferrer">DenseNet code ↗</a></div>
+        </article>
+      </section>
+
+      <section class="step" id="neuro" data-form="neural.fly" data-caption="Fruit-fly brain after the FlyWire and hemibrain connectome maps: optic lobes, mushroom bodies, the central-complex compass.">
+        <article class="card">
+          <p class="kicker">Neural · Research</p>
+          <h2>Computational neuroscience</h2>
+          <p class="meta">Computational Neuroscience Researcher · Pena Lab (FAU · FIU · FSU) · Jan – Apr 2026</p>
+          <p class="lead">Neurons of the fruit fly, simulated.</p>
+          <ul class="points">
+            <li>Built a neural-circuit simulation of the <i>Drosophila</i> giant fiber system, the circuit behind the fly’s escape jump, in BRIAN2.</li>
+            <li>Led Docker, CI/CD and Git workshops for a team spanning three universities.</li>
+          </ul>
+          <div class="chips"><span>BRIAN2</span><span><i>Drosophila</i></span><span>Neural circuits</span><span>Docker</span><span>CI/CD</span></div>
+        </article>
+      </section>
+
+      <section class="step" id="roles" data-form="neural.net" data-caption="Campus network: core routers, distribution and access switches. A core link fails and traffic reroutes around it.">
+        <article class="card">
+          <p class="kicker">Neural · Transferable roles</p>
+          <h2>Software and networks</h2>
+          <div class="acc-group roles">
+            <div class="acc open"><button type="button" aria-expanded="true"><span><b>Software Engineering Intern</b><small>PantherSoft, FIU · Apr – Jun 2026</small></span><span class="plus" aria-hidden="true"></span></button>
+              <div class="acc-body"><div>
+                <p>Five-person Agile team modernizing FIU’s Public Class Search, used by a university of 50,000+ students, in React, TypeScript and Tailwind on Firebase and REST APIs.</p>
+                <div class="metrics"><div class="metric"><b>10 s → &lt;1 s</b><span>response time, with client-side caching</span></div><div class="metric"><b>35%</b><span>faster prototype load</span></div></div>
+              </div></div></div>
+            <div class="acc"><button type="button" aria-expanded="false"><span><b>IT Network Operations Assistant</b><small>Division of IT, FIU · Jul 2026 – Present</small></span><span class="plus" aria-hidden="true"></span></button>
+              <div class="acc-body"><div><p>Network operations with FIU’s IT Operations team.</p></div></div></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="step" id="projects" data-form="neural.brain" data-caption="A human brain: waves of activity spread over the cortex while signals run through white-matter tracts.">
+        <article class="card">
+          <p class="kicker">Neural · Projects</p>
+          <h2>Projects</h2>
+          <p class="group-label">AI</p>
+          <div class="proj">
+            <img src="assets/media/repo-paperquest.webp" alt="PaperQuest repository on GitHub" loading="lazy">
+            <div><h4>PaperQuest</h4><p>Drop in a research paper; a language model maps the concepts it stands on into a prerequisite skill tree rooted in high-school math, and short quizzes unlock each branch.</p>
+              <div class="links"><a class="link-pill" href="https://github.com/lenishu/Paperquest" target="_blank" rel="noopener noreferrer">Code ↗</a></div></div>
+          </div>
+          <div class="proj">
+            <img src="assets/media/repo-densenet.webp" alt="DenseNet pruning repository on GitHub" loading="lazy">
+            <div><h4>Pruning &amp; IPA framework</h4><p>Modular pruning experiments for DenseNet-121: reusable mask generation, evaluation loops and metric logging.</p>
+              <div class="links"><button class="link-pill" data-demo="pruning">Pruning demo ▷</button><a class="link-pill" href="https://github.com/lenishu/IPA_using_Densenet" target="_blank" rel="noopener noreferrer">Code ↗</a></div></div>
+          </div>
+          <p class="group-label">IT</p>
+          <div class="proj">
+            <img src="assets/media/fiu-class-search.webp" alt="FIU Public Class Search home page" loading="lazy">
+            <div><h4>Public Class Search</h4><p>FIU’s legacy class search rebuilt as a responsive, mobile-first app with client-side caching.</p>
+              <div class="links"><button class="link-pill" data-demo="panthersoft">The numbers ▷</button><a class="link-pill" href="https://classes.fiu.edu/" target="_blank" rel="noopener noreferrer">FIU class search ↗</a></div></div>
+          </div>
+          <div class="proj">
+            <img src="assets/media/repo-hpc.webp" alt="HPC cluster guides repository on GitHub" loading="lazy">
+            <div><h4>HPC cluster guides</h4><p>Guides for Slurm and xCAT operations on FIU’s research cluster.</p>
+              <div class="links"><button class="link-pill" data-demo="hpc">Diagram ▷</button><a class="link-pill" href="https://github.com/lenishu/HPC-IRCC" target="_blank" rel="noopener noreferrer">Docs ↗</a></div></div>
+          </div>
+        </article>
+      </section>
+    </div>
+
+    <!-- ============================== QUANTUM ============================== -->
+    <div class="chapter" id="quantum-chapter" data-chapter="quantum">
+      <section class="step" id="quantum" data-form="quantum.slit" data-caption="Double slit: single particles pass two slits and land one at a time, building interference fringes.">
+        <article class="card">
+          <p class="kicker">Quantum</p>
+          <h2>The quantum experiment</h2>
+          <p class="lead">One particle at a time, two slits, and a pattern that only waves can make. The work here: optimizers for quantum machine learning with provable guarantees, and a published Grover’s-search algorithm.</p>
+          <p class="group-label">Credentials</p>
+          <div class="creds">
+            <a href="https://www.credly.com/badges/41bfeb6b-95f9-4495-8939-d14e456e5676/public_url" target="_blank" rel="noopener noreferrer"><b>IBM Quantum Challenge 2024</b><span>Achievement ↗</span></a>
+            <a href="https://www.credly.com/badges/2c0e1e83-b0c1-4215-8a66-d54f759ce8b6/public_url" target="_blank" rel="noopener noreferrer"><b>Qiskit Global Summer School 2022</b><span>Quantum Excellence ↗</span></a>
+            <span><b>Qiskit Global Summer School 2023</b><span>Quantum Excellence</span></span>
+            <a href="https://verified.sertifier.com/en/verify/35151842565898/" target="_blank" rel="noopener noreferrer"><b>Introduction to Quantum Computing</b><span>The Coding School ↗</span></a>
+          </div>
+        </article>
+      </section>
+
+      <section class="step" id="vqe" data-form="quantum.vqe" data-zoom="1.15" data-caption="VQE energy landscape: the optimizer descends past local minima to the ground state; energy per iteration on the back wall.">
+        <article class="card">
+          <p class="kicker">Quantum · Research</p>
+          <h2>Variational quantum eigensolver</h2>
+          <p class="meta">Quantum ML Research Assistant · Data Management Research Lab, FIU · with Prof. Janki Bhimani · May 2026 – Present</p>
+          <p class="lead">A VQE tunes a parameterized circuit to find a molecule’s ground-state energy; the optimizer walks down an energy landscape like the one on the left. How big each step should be is the research question.</p>
+          <ul class="points">
+            <li>Hyperparameter-free optimizers: a two-phase adaptive step size that bounds suboptimality through energy variance (Weinstein and Temple inequalities).</li>
+            <li>Proved the schedule equivalent to normalized imaginary-time evolution under Fubini–Study geometry.</li>
+          </ul>
+          <span class="status">Paper in progress</span>
+          <div class="links"><button class="link-pill primary" data-demo="quantum">Step-size sketch ▷</button><a class="link-pill" href="https://github.com/lenishu/Using_VQE" target="_blank" rel="noopener noreferrer">VQE notebook ↗</a></div>
+          <p class="note">Notebook: Qiskit Nature, UCCSD ansatz from a Hartree–Fock start, COBYLA optimizer, energy per iteration checked against the exact solver.</p>
+        </article>
+      </section>
+
+      <section class="step" id="grover" data-form="quantum.grover" data-caption="Grover search on a graph: the oracle flips valid colorings, diffusion amplifies them, and a measurement colors the graph.">
+        <article class="card">
+          <p class="kicker">Quantum · Publication</p>
+          <h2>Solving the general planar graph coloring problem using Grover’s algorithm</h2>
+          <p class="meta">International Journal of Innovative Science and Research Technology, Vol. 8 (2023) · Lenish Pandey et al.</p>
+          <p class="lead">A quantum circuit that uses Grover’s search, quadratically faster than classical search, to color planar graphs, applied to placing specialists across hospitals.</p>
+          <div class="thumbs">
+            <img src="assets/media/grover-histogram.webp" alt="Measurement histogram: valid colorings have far higher counts than the rest" loading="lazy">
+            <img src="assets/media/grover-graph-cycle.webp" alt="Seven-node cycle graph colored by the algorithm" loading="lazy">
+          </div>
+          <div class="links"><button class="link-pill primary" data-demo="publication">Run Grover demo ▷</button><a class="link-pill" href="https://ijisrt.com/solving-the-general-planar-graph-coloring-problem-using-grovers-algorithm" target="_blank" rel="noopener noreferrer">Paper ↗</a><a class="link-pill" href="https://doi.org/10.5281/zenodo.10629676" target="_blank" rel="noopener noreferrer">DOI ↗</a><a class="link-pill" href="https://github.com/lenishu/Grovers_algorithm_for_graph_coloring_problem" target="_blank" rel="noopener noreferrer">Code ↗</a></div>
+        </article>
+      </section>
+    </div>
+
+    <!-- ============================== QUANT ============================== -->
+    <div class="chapter" id="quant-chapter" data-chapter="quant">
+      <section class="step" id="quant" data-form="quant.tape" data-caption="Price tape: a live price line, candlesticks, and the distribution of returns at the edge.">
+        <article class="card">
+          <p class="kicker">Quant</p>
+          <h2>Probability, priced</h2>
+          <p class="lead">Probability and computation applied to markets: option-trading research, the Student Managed Investment Fund, and a self-custody crypto wallet.</p>
+          <div class="chips"><span>Probability &amp; statistics</span><span>Numerical methods</span><span>Optimization</span><span>Python · C++ · SQL</span></div>
+        </article>
+      </section>
+
+      <section class="step" id="options" data-form="quant.bs" data-caption="Black–Scholes call-price surface C(S, τ), with simulated price paths riding it to expiry.">
+        <article class="card">
+          <p class="kicker">Quant · Research</p>
+          <h2>Option trading research <span class="pending">details to add</span></h2>
+          <p class="meta">Mathematics research · Florida International University</p>
+          <p class="lead">Mathematics research on option trading.</p>
+          <div class="acc-group">
+            <div class="acc"><button type="button" aria-expanded="false"><span><b>Student Managed Investment Fund</b><small>Member</small></span><span class="plus" aria-hidden="true"></span></button>
+              <div class="acc-body"><div><p>Role and contributions <span class="pending">details to add</span></p></div></div></div>
+          </div>
+          <div class="links"><button class="link-pill" data-demo="options">Concept demo ▷</button></div>
+          <p class="note">The surface and the demo illustrate the Black–Scholes model; they are not research results.</p>
+        </article>
+      </section>
+
+      <section class="step" id="cashify" data-form="quant.wallet" data-caption="Self-custody wallet: each payment is reviewed, signed on the device, broadcast to a network and confirmed into a block.">
+        <article class="card">
+          <p class="kicker">Quant · Product</p>
+          <h2>Cashify wallet</h2>
+          <p class="meta">My role <span class="pending">details to add</span></p>
+          <p class="lead">A non-custodial crypto wallet: keys stay on the device, and every payment is signed there, after the user reviews recipient, network, amount and fee.</p>
+          <ol class="flow">
+            <li><b>Review</b>Recipient, network, amount and fee, on screen.</li>
+            <li><b>Sign on device</b>The key never leaves the phone.</li>
+            <li><b>Broadcast</b>Send, receive or swap across seven networks.</li>
+          </ol>
+          <div class="chips"><span>Ethereum</span><span>Polygon</span><span>Base</span><span>Arbitrum</span><span>Solana</span><span>Bitcoin</span><span>Lightning</span></div>
+          <div class="links"><a class="link-pill primary" href="https://cashifywallet.com/" target="_blank" rel="noopener noreferrer">cashifywallet.com ↗</a><a class="link-pill" href="https://play.google.com/store/apps/details?id=com.cashifywallet.wallet" target="_blank" rel="noopener noreferrer">Google Play ↗</a></div>
+        </article>
+      </section>
+    </div>
+
+    <section class="step contact" id="contact" data-form="finale" data-frame="center" data-caption="All three fields at once." aria-labelledby="contact-title">
+      <div class="contact-inner">
+        <p class="kicker">Open to research roles and collaborations</p>
+        <h2 id="contact-title">Let’s talk.</h2>
+        <div class="pills shown">
+          <button class="pill" data-copy="lenishpandeynepal@gmail.com">Copy email ⧉</button>
+          <a class="pill" href="mailto:lenishpandeynepal@gmail.com">Send an email</a>
+          <a class="pill outline" href="https://www.linkedin.com/in/lenish-pandey-830720214/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="pill outline" href="https://github.com/lenishu" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="pill outline" href="resume.html" target="_blank" rel="noopener">Résumé ↗</a>
+          <a class="pill outline" href="about.html">About me</a>
         </div>
-        <nav class="subnav" aria-label="Quant sections"><a href="#quant-experience">Experience</a><a href="#quant-research">Research</a><a href="#quant-projects">Toolkit</a></nav>
-
-        <section class="block" id="quant-experience" aria-labelledby="qt-exp-title">
-          <div class="block-head"><h3 id="qt-exp-title">Experience</h3></div>
-          <div class="exp open"><button class="exp-toggle" aria-expanded="true"><span><b>Mathematics Research: Option Trading <span class="pending">details to add</span></b><small>Florida International University</small></span><span class="exp-date">Dates to add</span><span class="exp-icon" aria-hidden="true"></span></button>
-            <div class="exp-body"><div><div class="exp-inner"><ul><li>Research in mathematics on option trading.</li><li>Advisor, methods and results to be added.</li></ul><div><div class="chips"><span>Options</span><span>Stochastic modeling</span><span>Probability</span></div></div></div></div></div></div>
-          <div class="exp"><button class="exp-toggle" aria-expanded="false"><span><b>Student Managed Investment Fund <span class="pending">details to add</span></b><small>Member</small></span><span class="exp-date">Dates to add</span><span class="exp-icon" aria-hidden="true"></span></button>
-            <div class="exp-body"><div><div class="exp-inner"><ul><li>Member of the Student Managed Investment Fund.</li><li>Role, sectors covered and contributions to be added.</li></ul><div><div class="chips"><span>Portfolio management</span><span>Equity research</span></div></div></div></div></div></div>
-        </section>
-
-        <section class="block" id="quant-research" aria-labelledby="qt-res-title">
-          <div class="block-head"><h3 id="qt-res-title">Research</h3><p>Concept demo while the write-up is in progress.</p></div>
-          <article class="paper">
-            <div class="paper-figure"><div class="inline-viz" data-inline="options"></div></div>
-            <div class="paper-body"><span class="status">In progress</span><h4>Option trading research</h4><p class="venue">Mathematics research · details to add</p>
-              <p>The demo on the left is a concept illustration, not a research result: Monte Carlo price paths under geometric Brownian motion, and how a European call’s Black–Scholes value responds to volatility.</p>
-              <div class="links"><span class="link-pill" aria-disabled="true">Paper link coming</span></div></div>
-          </article>
-        </section>
-
-        <section class="block" id="quant-projects" aria-labelledby="qt-tool-title">
-          <div class="block-head"><h3 id="qt-tool-title">Quantitative toolkit</h3><p>Where the other two fields feed in.</p></div>
-          <div class="toolkit">
-            <div><h4>Mathematics</h4><div class="chips"><span>Probability &amp; statistics</span><span>Linear algebra</span><span>Numerical methods</span><span>Optimization theory</span><span>Statistical physics</span></div></div>
-            <div><h4>Modeling</h4><div class="chips"><span>Emission prediction, +18% over baseline</span><span>Suboptimality bounds (quantum)</span><span>Reinforcement learning</span></div></div>
-            <div><h4>Computation</h4><div class="chips"><span>Python</span><span>C++</span><span>SQL</span><span>NumPy · pandas</span><span>MPI · Slurm</span></div></div>
-          </div>
-        </section>
+        <p class="sr-only" id="copy-status" role="status" aria-live="polite"></p>
       </div>
-    </section>
-
-    <section class="contact" id="contact" aria-labelledby="contact-title">
-      <p class="kicker">Open to research roles and collaborations</p>
-      <h2 id="contact-title">Let’s talk.</h2>
-      <div class="pills">
-        <button class="pill" data-copy="lenishpandeynepal@gmail.com">Copy email ⧉</button>
-        <a class="pill" href="mailto:lenishpandeynepal@gmail.com">Send an email</a>
-        <a class="pill outline" href="https://www.linkedin.com/in/lenish-pandey-830720214/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a class="pill outline" href="https://github.com/lenishu" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <a class="pill outline" href="resume.html" target="_blank" rel="noopener">Résumé ↗</a>
-      </div>
-      <p class="sr-only" id="copy-status" role="status" aria-live="polite"></p>
     </section>
   </main>
   <footer class="footer"><span>© <span id="year">2026</span> Lenish Pandey</span><a href="#" data-top>Back to top ↑</a></footer>

@@ -1,8 +1,8 @@
 'use strict';
 
-// Page behaviour for the home and about pages: typewriter intro, field tabs,
-// expanding experience, project media, demo dialogs, copy-to-clipboard, and the
-// optional mouse-scrubbed hero video.
+// Page behaviour shared by the home and about pages: nav and mobile menu,
+// copy-to-clipboard, demo dialogs, and the optional mouse-scrubbed figure video.
+// The home page's scroll story lives in story.js.
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $ = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
@@ -18,24 +18,6 @@ burger?.addEventListener('click', () => {
 menu?.addEventListener('click', e => { if (e.target.closest('a')) burger.click(); });
 addEventListener('scroll', () => nav?.classList.toggle('solid', scrollY > innerHeight * .6), { passive: true });
 
-// ---------------------------------------------------------------- typewriter + pills
-function typewriter(el, text, speed = 38, startDelay = 600) {
-  if (reducedMotion) { el.textContent = text; return; }
-  const out = document.createElement('span'), caret = document.createElement('span');
-  caret.className = 'caret';
-  el.replaceChildren(out, caret);
-  el.setAttribute('aria-label', text);
-  let i = 0;
-  setTimeout(() => {
-    const timer = setInterval(() => {
-      out.textContent = text.slice(0, ++i);
-      if (i >= text.length) { clearInterval(timer); caret.remove(); }
-    }, speed);
-  }, startDelay);
-}
-$$('[data-typewriter]').forEach(el => typewriter(el, el.dataset.typewriter));
-setTimeout(() => $('#hero-pills')?.classList.add('shown'), 400);
-
 // ---------------------------------------------------------------- copy email
 $$('[data-copy]').forEach(button => button.addEventListener('click', async () => {
   const value = button.dataset.copy, status = $('#copy-status');
@@ -49,79 +31,6 @@ $$('[data-copy]').forEach(button => button.addEventListener('click', async () =>
   }
   setTimeout(() => { button.innerHTML = original; }, 1800);
 }));
-
-// ---------------------------------------------------------------- fields
-const tabs = $$('[role="tab"][data-tab]');
-function selectField(field, { focus = false, scroll = false } = {}) {
-  if (!tabs.length) return;
-  tabs.forEach(tab => {
-    const on = tab.dataset.tab === field;
-    tab.setAttribute('aria-selected', String(on));
-    tab.tabIndex = on ? 0 : -1;
-    if (on && focus) tab.focus();
-  });
-  $$('.panel[role="tabpanel"]').forEach(panel => {
-    const on = panel.id === field;
-    panel.hidden = !on;
-    panel.classList.toggle('active', on);
-    if (on) initPanel(panel);
-  });
-  document.dispatchEvent(new CustomEvent('fieldchange', { detail: field }));
-  if (history.replaceState) history.replaceState(null, '', '#' + field);
-  if (scroll) $('#fields').scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
-}
-tabs.forEach((tab, i) => {
-  tab.addEventListener('click', () => selectField(tab.dataset.tab));
-  tab.addEventListener('keydown', e => {
-    const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
-    if (!step) return;
-    e.preventDefault();
-    selectField(tabs[(i + step + tabs.length) % tabs.length].dataset.tab, { focus: true });
-  });
-});
-$$('[data-pick]').forEach(link => link.addEventListener('click', e => {
-  e.preventDefault();
-  selectField(link.dataset.pick, { scroll: true });
-}));
-// Deep links: #quant, #quantum-research, …
-function fromHash() {
-  const id = decodeURIComponent(location.hash.slice(1));
-  if (!id) return;
-  const target = document.getElementById(id);
-  const panel = target?.closest('.panel') || (target?.classList.contains('panel') ? target : null);
-  if (panel) {
-    selectField(panel.id);
-    if (target !== panel) requestAnimationFrame(() => target.scrollIntoView());
-    else $('#fields').scrollIntoView();
-  }
-}
-addEventListener('hashchange', fromHash);
-if (tabs.length) fromHash();
-
-// ---------------------------------------------------------------- experience
-$$('.exp-toggle').forEach(toggle => toggle.addEventListener('click', () => {
-  const exp = toggle.closest('.exp'), open = !exp.classList.contains('open');
-  exp.classList.toggle('open', open);
-  toggle.setAttribute('aria-expanded', String(open));
-}));
-
-// ---------------------------------------------------------------- project media
-const videoWatch = 'IntersectionObserver' in window && new IntersectionObserver(entries => entries.forEach(entry => {
-  const video = entry.target;
-  if (entry.isIntersecting && !video.hidden && !reducedMotion) video.play().catch(() => {});
-  else video.pause();
-}), { threshold: .4 });
-$$('[data-media]').forEach(media => {
-  const buttons = $$('.media-tabs button', media), shots = $$('.shot', media);
-  buttons.forEach(button => button.addEventListener('click', () => {
-    buttons.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
-    shots.forEach(shot => {
-      shot.hidden = shot.dataset.kind !== button.dataset.show;
-      if (shot.tagName === 'VIDEO') shot.hidden ? shot.pause() : (!reducedMotion && shot.play().catch(() => {}));
-    });
-  }));
-});
-$$('video[data-kind]').forEach(video => { video.preload = 'metadata'; videoWatch?.observe(video); });
 
 // ---------------------------------------------------------------- demos
 const demos = {
@@ -147,16 +56,6 @@ $$('[data-demo]').forEach(button => button.addEventListener('click', () => {
 $('.dialog-close')?.addEventListener('click', () => dialog.close());
 dialog?.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
 dialog?.addEventListener('close', () => { if (dialog.open) return; stopDemo?.(); stopDemo = null; $('#demo-viz').replaceChildren(); lastTrigger?.focus(); });
-
-// Inline figures inside research cards, built when their panel first opens.
-function initPanel(panel) {
-  $$('[data-inline]:not(.built)', panel).forEach(host => {
-    if (!window.Viz?.[host.dataset.inline]) return;
-    host.classList.add('built');
-    window.Viz[host.dataset.inline](host);
-  });
-}
-addEventListener('load', () => { const active = $('.panel.active'); if (active) initPanel(active); });
 
 // ---------------------------------------------------------------- optional scrubbed hero video
 // Add data-video="assets/hero/turn.mp4" to .hero-figure to replace the live 3D
