@@ -14,34 +14,38 @@ const steps = $$('main [data-form]');
 const railSteps = $$('.rail .steps a');
 const caption = $('#caption');
 const ipa = $('#ipa');
-const sequences = $$('.experience-sequence');
-const projectSteps = steps.filter(step => step.closest('.experience-sequence'));
-document.body.classList.add('staged-story');
-
-// Keep only the current desktop project interactive. On phones everything stays
-// in normal reading order, with a small reveal as each entry reaches the screen.
-function stageProjects(step) {
-  const sequence = step.closest('.experience-sequence');
-  sequences.forEach(group => {
-    const on = group === sequence;
-    group.classList.toggle('is-active', on);
-    $('.role-heading', group).inert = !narrow.matches && !on;
-  });
-  projectSteps.forEach(project => {
-    const on = project === step;
-    project.classList.toggle('is-active', on);
-    $('.entry', project).inert = !narrow.matches && !on;
+// Titles rise through a clipped lower edge in direct response to scrolling.
+// Reduced motion uses a stationary wipe instead of moving the letters.
+const revealTitles = $$('.role-heading h2, .entry > .project').map(title => {
+  const mask = document.createElement('span');
+  mask.className = 'reveal-mask';
+  const text = document.createElement('span');
+  text.className = 'reveal-text';
+  [...title.childNodes].filter(node => !(node.nodeType === 1 && node.matches('.project-index')))
+    .forEach(node => text.append(node));
+  mask.append(text);
+  title.append(mask);
+  return { mask, text, progress:0 };
+});
+function revealOnScroll() {
+  revealTitles.forEach(item => {
+    const top = item.mask.getBoundingClientRect().top;
+    const progress = clamp((innerHeight * .94 - top) / (innerHeight * .24), 0, 1);
+    // Once uncovered, a heading remains readable when scrolling back or tabbing.
+    item.progress = Math.max(item.progress, progress);
+    if (reduced) item.mask.style.clipPath = `inset(0 0 ${(1 - item.progress) * 100}% 0)`;
+    else item.text.style.transform = `translateY(${(1 - item.progress) * 105}%)`;
   });
 }
-const reveal = new IntersectionObserver(entries => {
-  entries.forEach(({ target, isIntersecting }) => {
-    if (isIntersecting) {
-      target.closest('.step').classList.add('is-revealed');
-      reveal.unobserve(target);
-    }
+document.addEventListener('focusin', event => {
+  const entry = event.target.closest('.entry');
+  if (!entry) return;
+  revealTitles.filter(item => entry.contains(item.mask)).forEach(item => {
+    item.progress = 1;
+    item.text.style.transform = 'none';
+    item.mask.style.clipPath = 'none';
   });
-}, { threshold:0, rootMargin:'0px 0px -24px 0px' });
-projectSteps.forEach(step => reveal.observe($('.entry', step)));
+});
 
 // Where the picture sits: centred for the hero and contact; beside the entries, centred in the
 // free band between the rail and the entry and scaled to fit it; in the top half on phones.
@@ -65,7 +69,6 @@ if (reduced) particles.speed(.45);   // calmer, but still moving: these forms ar
 let active = null;
 function activate(step) {
   active = step;
-  stageProjects(step);
   particles.show(step.dataset.form);
   particles.frame(frameFor(step));
   const field = step.closest('[data-chapter]')?.dataset.chapter || 'neural';
@@ -101,10 +104,11 @@ function onScroll() {
   let now = steps[0];
   for (const s of steps) if (s.getBoundingClientRect().top <= mid) now = s;
   if (now !== active) activate(now);
+  revealOnScroll();
   if (ipa) {
-    // 0 when the section's top reaches mid-screen, 1 by the time its entry lets go
-    const r = ipa.getBoundingClientRect(), prog = clamp((mid - r.top) / r.height, 0, 1);
-    setPrune(clamp(prog / (narrow.matches ? .8 : .82), 0, 1));
+    // Pruning follows the section's passage through the viewport without pinning it.
+    const r = ipa.getBoundingClientRect();
+    setPrune(clamp((innerHeight * .85 - r.top) / (r.height + innerHeight * .6), 0, 1));
   }
   // keep the caption (and its Pause button) clear of the footer as it scrolls in
   if (captionBox && footer) captionBox.style.transform = `translateY(${-Math.max(0, innerHeight - footer.getBoundingClientRect().top)}px)`;
@@ -114,7 +118,7 @@ const requestScroll = () => { if (!queued) { queued = true; requestAnimationFram
 addEventListener('scroll', requestScroll, { passive: true });
 addEventListener('resize', () => { if (active) particles.frame(frameFor(active)); requestScroll(); });
 narrow.addEventListener?.('change', () => {
-  if (active) { particles.frame(frameFor(active)); stageProjects(active); }
+  if (active) { particles.frame(frameFor(active)); requestScroll(); }
 });
 onScroll();
 particles.warm([...new Set(steps.map(s => s.dataset.form))]);

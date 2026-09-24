@@ -117,8 +117,6 @@
   min-height:100vh;
   padding:110px 6vw 90px;
 }
-.step.tall { min-height:260vh; align-items:flex-start; }
-.step.tall .entry { position:sticky; top:max(84px, calc(50vh - 380px)); }
 .hero-step { justify-content:center; align-items:flex-end; padding-bottom:34px; }
 .scroll-cue { display:flex; flex-direction:column; align-items:center; gap:10px; color:#8b929b; font-size:11px; letter-spacing:.24em; text-transform:uppercase; text-decoration:none; }
 .scroll-cue i { position:relative; width:1px; height:44px; overflow:hidden; background:rgba(255,255,255,.14); }
@@ -293,7 +291,7 @@
 .where span:first-child { color:#dfe2e6; }
 .where span:last-child { color:var(--muted); font-variant-numeric:tabular-nums; white-space:nowrap; }
 .project { margin-top:18px; font:500 17px/1.35 var(--font-heading); letter-spacing:-.01em; color:#fff; }
-.project span { display:block; margin-bottom:4px; font:500 11px/1 var(--font-body); letter-spacing:.16em; text-transform:uppercase; color:var(--field); }
+.project > .project-index { display:block; margin-bottom:4px; font:500 11px/1 var(--font-body); letter-spacing:.16em; text-transform:uppercase; color:var(--field); }
 .project + .lead { margin-top:8px; }
 .entry h4.sub { margin:18px 0 8px; font:500 11.5px/1.3 var(--font-body); letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
 .entry h4.sub small { display:block; margin-top:3px; font-size:11.5px; letter-spacing:0; text-transform:none; color:var(--faint); }
@@ -441,11 +439,15 @@
 .lv-val.win { fill:var(--field); font-weight:600; }
 .lv-name { font-size:10.5px; fill:var(--muted); }
 
-/* A quiet, direct route to the About page. */
-.about-link { display:flex; justify-content:space-between; align-items:center; gap:64px; width:fit-content; margin:40px auto 0; padding:10px 0; border-bottom:1px solid rgba(255,255,255,.35); color:var(--text); text-decoration:none; font:400 22px/1.2 var(--font-heading); }
-.about-link span:last-child { transition:transform .25s var(--ease); }
-.about-link:hover span:last-child { transform:translate(3px,-3px); }
-.about-link:hover { border-color:currentColor; }
+/* An animated text link, with a small directional cue and a moving underline. */
+.about-link { position:relative; display:flex; justify-content:space-between; align-items:center; gap:54px; width:fit-content; margin:40px auto 0; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.25); color:var(--text); text-decoration:none; font:400 clamp(26px,3vw,38px)/1.2 var(--font-heading); }
+.about-link::after { content:''; position:absolute; left:0; bottom:-1px; width:28%; height:1px; background:currentColor; transform-origin:left; animation:about-underline 3.8s var(--ease) infinite; }
+.about-link span:last-child { display:inline-block; animation:about-arrow 3.8s var(--ease) infinite; }
+.about-link:hover, .about-link:focus-visible { border-color:currentColor; }
+.about-link:hover::after, .about-link:focus-visible::after { animation:none; width:100%; }
+.about-link:hover span:last-child, .about-link:focus-visible span:last-child { animation:none; transform:translate(4px,-4px); }
+@keyframes about-underline { 0%, 18% { transform:translateX(0) scaleX(.35); opacity:.35; } 65% { transform:translateX(250%) scaleX(1); opacity:1; } 85%, 100% { transform:translateX(250%) scaleX(.35); opacity:0; } }
+@keyframes about-arrow { 0%, 20%, 80%, 100% { transform:translate(0,0); } 50% { transform:translate(4px,-4px); } }
 .contact-inner .icons { margin-top:22px; }
 
 /* ---------------- Dialog figures: architecture and pam_slurm_adopt ---------------- */
@@ -491,8 +493,6 @@
   .caption { display:none; }
   .shade { background:linear-gradient(180deg, transparent 30%, rgba(5,6,8,.6) 62%, rgba(5,6,8,.8)); }
   .step { align-items:flex-end; justify-content:center; padding:52vh 16px 70px; }
-  .step.tall { min-height:100vh; align-items:flex-end; }
-  .step.tall .entry { position:relative; top:auto; }
   .hero-step { padding-bottom:40px; }
   .entry { width:100%; max-width:560px; padding:0 8px; }
   .phase-grid { grid-template-columns:minmax(0,1fr); }
@@ -540,7 +540,7 @@
 .role-heading > p:not(.kicker) { margin-top:16px; max-width:30ch; font-size:13px; color:#b7bcc4; }
 .role-heading > p.tenure { margin-top:6px; color:var(--muted); }
 .experience-sequence .project { margin-top:0; font-size:clamp(25px,2.3vw,34px); font-weight:400; line-height:1.15; text-wrap:balance; }
-.experience-sequence .project span { margin-bottom:24px; color:var(--muted); }
+.experience-sequence .project > .project-index { margin-bottom:24px; color:var(--muted); }
 .experience-sequence .lead { margin-top:22px; }
 @media (max-width:1100px) and (min-width:900px) {
   .role-heading { margin-left:225px; width:calc(50vw - 235px); }
@@ -554,33 +554,13 @@
   .hero-step { min-height:100svh; }
 }
 
-/* Each desktop project is staged in place, with only a small entrance movement. */
+/* Projects remain in the document flow; titles emerge through a masked edge. */
 .project-role { margin-top:18px; color:#dfe2e6; font-size:14px; }
 .experience-sequence .project + .where { margin-top:18px; }
 .experience-sequence .proj.big { border:0; padding-top:24px; }
 .experience-sequence .proj.big p { font-size:15.5px; line-height:1.6; color:#c9cdd2; }
-@media (min-width:900px) {
-  .staged-story .experience-sequence .step { min-height:125vh; padding:0; }
-  .staged-story .experience-sequence .step.tall { min-height:260vh; }
-  .staged-story .role-heading-track { position:static; }
-  .staged-story .role-heading { position:fixed; left:250px; top:110px; margin:0; opacity:0; visibility:hidden; transform:translateY(18px); pointer-events:none; transition:opacity .3s ease, transform .4s var(--ease), visibility 0s .4s; }
-  .staged-story .experience-sequence.is-active .role-heading { opacity:1; visibility:visible; transform:none; pointer-events:auto; transition-delay:0s; }
-  .staged-story .experience-sequence .entry {
-    position:fixed; right:6vw; top:max(110px, calc(50dvh - 290px));
-    max-height:calc(100dvh - max(110px, calc(50dvh - 290px)) - 70px);
-    overflow-y:auto; scrollbar-width:thin; scrollbar-color:#353a41 transparent;
-    padding:0 8px 10px 0; opacity:0; visibility:hidden; transform:translateY(18px);
-    pointer-events:none; transition:opacity .25s ease, transform .4s var(--ease), visibility 0s .4s;
-  }
-  .staged-story .experience-sequence .step.is-active .entry { opacity:1; visibility:visible; transform:none; pointer-events:auto; transition-delay:0s; }
-}
-@media (min-width:900px) and (max-width:1100px) {
-  .staged-story .role-heading { left:225px; }
-}
-@media (max-width:899px) {
-  .staged-story .experience-sequence .entry { transition:opacity .35s ease, transform .4s var(--ease); }
-  .staged-story .experience-sequence .step:not(.is-revealed) .entry { opacity:0; transform:translateY(18px); }
-}
+.reveal-mask { display:block; overflow:hidden; overflow:clip; padding-bottom:.08em; }
+.reveal-text { display:block; }
 @media (prefers-reduced-motion:reduce) {
-  .staged-story .experience-sequence .entry, .staged-story .role-heading { transition:none; transform:none; }
+  .reveal-text { transform:none !important; }
 }

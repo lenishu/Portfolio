@@ -15,10 +15,10 @@ Open http://127.0.0.1:8000. This server tells the browser not to cache, so edits
 ## Pages
 
 - `index.html` (Home): a particle network fills the first screen. Scrolling walks through three fields, and the particles morph for each step while open text on the right tells the story. The rail on the left (a strip under the nav on phones) shows the field and step.
-  - Experience sections use borderless text: role, place and dates; what the project was about; a figure; and a **More** section with what was done and how, the numbers, and skills and tools. Role headings sit on the left while their projects appear on the right. On desktop, each project stays in place and enters with an 18-pixel fade-and-rise; on phones the sections follow normal reading order. Reduced-motion preferences remove the entrance animation.
+  - Experience sections use borderless text: role, place and dates; what the project was about; a figure; and a **More** section with what was done and how, the numbers, and skills and tools. Role headings sit on the left while their projects appear on the right. Projects scroll freely in normal reading order. Role and project titles reveal upward through a clipped edge as you scroll; reduced-motion preferences use a stationary wipe instead of moving letters.
   - **Neural**: HPC Agent, the RAG assistant (architecture flowchart and cluster diagram dialogs), HPC administration (outcomes, cgroup v2 config, Grafana-style CPU/GPU panel, pam_slurm_adopt flowchart, MPI benchmark; the cluster items light up what they describe), information processing ability (the measured IPA plot with a dot that follows the scroll while the DenseNet prunes; phase transition; the formula), computational neuroscience (fly brain), PantherSoft and IT network operations, projects (PaperQuest, MathSphere).
   - **Quantum**: quantum learning rates at DaMRL (energy landscape), Grover graph coloring (paper, DOI, code, demo), credentials.
-  - **Quant**: markets, option-trading research, the Student Managed Investment Fund, Cashify wallet. Contact closes the page with a simple About me link.
+  - **Quant**: markets, option-trading research, the Student Managed Investment Fund, Cashify wallet. Contact closes the page with an About me text link, a moving underline and a directional arrow.
   - Deep links: `#rag`, `#hpc`, `#ipa`, `#neuro`, `#roles`, `#it-operations`, `#projects`, `#mathsphere`, `#quantum`, `#grover`, `#credentials`, `#quant`, `#options`, `#smif`, `#cashify`, `#contact`.
 - `lab/particles.html`: the particle lab, for trying every form (`?field=neural&exp=7`).
 - `about.html` (About): the 3D figure beside the bio, current roles, interests, hobbies, education, leadership and credentials. `aboutme.html` and `Awards.html` redirect here.
@@ -60,4 +60,3 @@ The first run downloads Hunyuan3D-2mini weights (~7 GB) from Hugging Face. Hunyu
 - Neural: details for the Microsoft bot; more on the computational neuroscience work; IT Network Operations duties.
 - Quant: option-trading research (advisor, dates, results, paper link), the Student Managed Investment Fund role, and your role on Cashify wallet.
 - Quantum: link for the quantum learning-rate paper when available; the Qiskit Global Summer School 2023 badge link.
-- About: hobbies.
