@@ -560,18 +560,16 @@
 .experience-sequence .proj.big { border:0; padding-top:24px; }
 .experience-sequence .proj.big p { font-size:15.5px; line-height:1.6; color:#c9cdd2; }
 .reveal-mask { display:block; overflow:hidden; overflow:clip; padding-bottom:.08em; }
-.reveal-text { display:block; }
-@media (prefers-reduced-motion:reduce) {
-  .reveal-text { transform:none !important; }
-}
+.reveal-text { display:block; transition:transform .85s cubic-bezier(.65,0,.35,1) !important; }
 
 /* The requested role motion is local to each text line, never the whole viewport. */
 .title-word-mask { display:inline-block; vertical-align:top; overflow:hidden; overflow:clip; padding-bottom:.08em; margin-bottom:-.08em; }
-.title-word { display:inline-block; transform:translateY(var(--title-offset, 0%)); }
+.title-word { display:inline-block; transform:translateY(var(--title-offset, 110%)); transition:transform .85s cubic-bezier(.65,0,.35,1) !important; }
 @media (min-width:900px) {
   .role-motion .role-heading-track { position:static; }
-  .role-motion .role-heading { position:fixed; left:250px; top:110px; margin:0; visibility:hidden; pointer-events:none; }
-  .role-motion .experience-sequence.is-current .role-heading { visibility:visible; pointer-events:auto; }
+  .role-motion .role-heading { position:fixed; left:250px; top:clamp(150px,18vh,210px); margin:0; visibility:hidden; opacity:0; transform:translateY(16px); pointer-events:none; transition:none !important; }
+  .role-motion .experience-sequence.is-leaving .role-heading { opacity:0; transform:translateY(-8px); transition:opacity .18s ease-out, transform .18s ease-out, visibility 0s .18s !important; }
+  .role-motion .experience-sequence.is-current .role-heading { visibility:visible; opacity:1; transform:none; pointer-events:auto; transition:opacity .6s ease-in-out .18s, transform .85s cubic-bezier(.65,0,.35,1) .12s, visibility 0s !important; }
 }
 @media (min-width:900px) and (max-width:1100px) {
   .role-motion .role-heading { left:225px; }

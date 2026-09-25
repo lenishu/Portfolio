@@ -1,4 +1,5 @@
 import * as THREE from './vendor/three.module.min.js';
+import { createMorphQueue } from './morph-queue.js';
 
 // One pool of particles that reassembles into Neural, Quantum and Quantitative
 // forms: the home page's scroll story (createParticles) and the lab (startLab).
@@ -1158,7 +1159,8 @@ for (const fl of FIELDS) for (const e of EXPERIMENTS[fl]) FORMS[`${fl}.${e.key}`
 //   frame: x shifts the picture sideways (a fraction of the width; positive moves it left),
 //   y lifts it (a fraction of the height), zoom > 1 pulls the camera back.
 //   hoverTest(pointerEvent) decides whether the pointer is over the particles.
-export function createParticles(canvas, { hoverTest = e => e.target === canvas, parallax = 1, frame: startFrame = {} } = {}) {
+export function createParticles(canvas, { hoverTest = e => e.target === canvas, parallax = 1, frame: startFrame = {}, completeTransitions = false, morphDuration = 2.2 } = {}) {
+  const transitions = completeTransitions ? createMorphQueue({ duration: morphDuration }) : null;
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
   renderer.setClearColor('#050608');
@@ -1218,7 +1220,7 @@ export function createParticles(canvas, { hoverTest = e => e.target === canvas, 
   // p = 0 → a, p = 1 → b, with a swirl bump mid-flight.
   function mixInto(o, a, b, pr) {
     for (let i = 0; i < N; i++) {
-      const p = pr[i], q = 1 - p, bump = Math.sin(p * Math.PI) * .6, i3 = i * 3;
+      const p = pr[i], q = 1 - p, bump = Math.sin(p * Math.PI) * (completeTransitions ? .12 : .6), i3 = i * 3;
       for (let k = 0; k < 3; k++) { o.P[i3 + k] = a.P[i3 + k] * q + b.P[i3 + k] * p + swirl[i3 + k] * bump; o.K[i3 + k] = a.K[i3 + k] * q + b.K[i3 + k] * p; }
       o.B[i] = a.B[i] * q + b.B[i] * p;
     }
@@ -1248,6 +1250,11 @@ export function createParticles(canvas, { hoverTest = e => e.target === canvas, 
   addEventListener('pointercancel', leave);
 
   function show(next) {
+    if (!FORMS[next]) return;
+    const ready = transitions ? transitions.request(next) : next;
+    if (ready) beginMorph(ready);
+  }
+  function beginMorph(next) {
     const f = live(next);
     if (f === cur) return;
     // a second switch before any frame has drawn keeps the same source: the particles haven't moved yet
@@ -1272,14 +1279,18 @@ export function createParticles(canvas, { hoverTest = e => e.target === canvas, 
 
   const ease = x => x < 0 ? 0 : x > 1 ? 1 : x * x * (3 - 2 * x);
   function frame(now) {
-    const dt = clamp((now - last) / 1000, 0, .05); last = now; if (!paused) t += dt * rate;   // the first rAF stamp can precede `last`
+    const elapsed = clamp((now - last) / 1000, 0, .15), dt = Math.min(elapsed, .05);
+    last = now; if (!paused) t += dt * rate;
+    const next = transitions?.advance(elapsed);
+    if (next) beginMorph(next);
     pending = false;
-    morphT = Math.min(1, morphT + dt / 2.2);
+    morphT = Math.min(1, morphT + elapsed / morphDuration);
     tick(cur, t);
     let S = cur;
     if (src && morphT < 1) {
       tick(src, t);
-      for (let i = 0; i < N; i++) prog[i] = ease((morphT - delay[i] * .5) / .5);
+      const stagger = completeTransitions ? .18 : .5;
+      for (let i = 0; i < N; i++) prog[i] = ease((morphT - delay[i] * stagger) / (1 - stagger));
       mixInto(draw, src, cur, prog); S = draw;
     } else if (src) { src = null; prog.fill(1); }
     for (let i = 0; i < N; i++) {
