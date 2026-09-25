@@ -5,21 +5,31 @@
   <title>Layout playground — Lenish Pandey</title>
   <link rel="stylesheet" href="../app.css?v=20260924f">
   <link rel="stylesheet" href="../story.css?v=20260924f">
-  <link rel="stylesheet" href="layout.css?v=20260924f">
+  <link rel="stylesheet" href="layout.css?v=20260924g">
   <script src="../viz.js?v=20260924f" defer></script>
-  <script src="layout.js?v=20260924f" type="module"></script>
+  <script src="layout.js?v=20260924g" type="module"></script>
 </head>
 <body class="story playground" data-field="neural">
   <header class="pg-nav"><a href="../index.html">Lenish Pandey</a><a href="particles.html">Particle lab ↗</a><a href="../index.html">Current homepage ↗</a></header>
   <main>
-    <div class="pg-intro"><p class="kicker">Layout playground / proposal</p><h1>Less scrolling.<br>Same depth.</h1><p>Three chapters. Choose a role, then explore its projects. The full story is still here when you want it.</p></div>
+    <div class="pg-intro"><p class="kicker">Layout playground / proposal</p><h1>Less scrolling.<br>Still in motion.</h1><p>Choose a role. Explore its projects. The particles follow your journey, with the full story always within reach.</p></div>
     <details class="pg-notes"><summary>Compare the layout ideas</summary><ol>
       <li><b>Chapter browser — recommended.</b> One workspace for Neural, Quantum and Quant. Switch roles on the left and projects on the right. Keep the results visible; open More for methods and tools.</li>
       <li><b>Compact reading view.</b> Use “Read chapter” below to see every project in a chapter without the full-screen gaps.</li>
       <li><b>Selected work first.</b> A future homepage could show one strong result from each chapter, followed by this browser for the full archive.</li>
     </ol></details>
     <div class="pg-toolbar"><nav class="pg-fields" aria-label="Chapters"><button data-field="neural" aria-pressed="true">Neural</button><button data-field="quantum" aria-pressed="false">Quantum</button><button data-field="quant" aria-pressed="false">Quant</button></nav><div class="pg-modes" aria-label="Reading mode"><button data-mode="browse" aria-pressed="true">Browse projects</button><button data-mode="read" aria-pressed="false">Read chapter</button></div></div>
-    <div class="pg-workspace"><nav class="pg-sidebar" aria-label="Experience groups"></nav><div class="pg-content" id="pg-content"><p role="status">Loading the portfolio…</p></div></div>
+    <div class="pg-workspace">
+      <aside class="pg-stage">
+        <nav class="pg-sidebar" aria-label="Experience groups"></nav>
+        <figure class="pg-animation">
+          <canvas id="pg-particles" aria-label="Animated particle illustration of the selected project" aria-describedby="pg-caption"></canvas>
+          <figcaption id="pg-caption"></figcaption>
+        </figure>
+        <p class="pg-motion-note">Move your cursor through the particles</p>
+      </aside>
+      <div class="pg-content" id="pg-content"><p role="status">Loading the portfolio…</p></div>
+    </div>
   </main>
   <footer class="pg-footer">A separate layout proposal. <a href="../index.html">Return to the homepage ↗</a></footer>
 </body></html>
